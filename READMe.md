@@ -96,12 +96,7 @@ npm install
 node app.js
 ```
 
-Backend defaults to:
-```
-http://localhost:3000
-```
 
----
 
 ## **License**
 

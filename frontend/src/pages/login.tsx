@@ -2,12 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import apiService from '../services/api';
 
-declare global {
-  interface Window {
-    google: any;
-  }
-}
-
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
@@ -18,48 +12,48 @@ export default function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const loadGoogleScript = () => {
-      if (document.querySelector('#google-oauth-script')) return;
+    const initializeGoogle = () => {
+      if (!window.google) return;
+      
+      const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+      if (!clientId) return;
 
-      const script = document.createElement('script');
-      script.id = 'google-oauth-script';
-      script.src = 'https://accounts.google.com/gsi/client';
-      script.async = true;
-      script.defer = true;
-      script.onload = () => {
-        if (window.google) {
-          const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-          console.log('Google Client ID:', clientId); 
-          
-          if (!clientId) {
-            console.error('Google Client ID not found in environment variables');
-            return;
-          }
+      window.google.accounts.id.initialize({
+        client_id: clientId,
+        callback: handleGoogleResponse,
+      });
 
-          window.google.accounts.id.initialize({
-            client_id: clientId,
-            callback: handleGoogleResponse,
+     
+      setTimeout(() => {
+        const buttonElement = document.getElementById('googleSignInButton');
+        if (buttonElement) {
+          buttonElement.innerHTML = ''; 
+          window.google.accounts.id.renderButton(buttonElement, {
+            type: 'standard',
+            theme: 'outline',
+            size: 'large',
+            text: 'continue_with'
           });
-
-          if (document.getElementById('googleSignInButton')) {
-            window.google.accounts.id.renderButton(
-              document.getElementById('googleSignInButton'),
-              { 
-                theme: 'outline', 
-                size: 'large',
-                width: '100%',
-                text: 'continue_with'
-              }
-            );
-          }
         }
-      }; 
-      document.head.appendChild(script); 
+      }, 300); 
     };
 
-    loadGoogleScript();
-  }, []);
+    if (window.google) {
+      initializeGoogle();
+    } else {
+      // Load script if not exists
+      if (!document.querySelector('script[src*="accounts.google.com"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://accounts.google.com/gsi/client';
+        script.async = true;
+        script.defer = true;
+        script.onload = initializeGoogle;
+        document.head.appendChild(script);
+      }
+    }
+  }, []); // Empty dependency array - runs on every mount
 
+  // ... REST OF YOUR CODE (handleInputChange, handleEmailLogin, handleGoogleResponse) stays EXACTLY THE SAME
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -120,7 +114,6 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-[#F7F5FF] flex items-center justify-center px-4">
       <div className="max-w-md w-full">
-       
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-[#7D3CFF] rounded-2xl flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
             B
@@ -187,19 +180,15 @@ export default function Login() {
             </button>
           </form>
 
-          {/* Divider */}
           <div className="flex items-center my-6">
             <div className="flex-1 border-t border-[#F0E8FF]"></div>
             <span className="px-4 text-sm text-[#777]">Or continue with</span>
             <div className="flex-1 border-t border-[#F0E8FF]"></div>
           </div>
 
-          {/* Google Sign-In Button */}
-          <div className="space-y-3">
-            <div id="googleSignInButton"></div>
-          </div>
+         
+          <div id="googleSignInButton"></div>
 
-          {/* Sign Up Link */}
           <div className="text-center mt-6">
             <p className="text-[#777] text-sm">
               Don't have an account?{' '}

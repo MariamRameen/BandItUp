@@ -2,7 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --srs-foreground: oklch(0.145 0 0);
+}
+
+
+
+.dark .bg-\[\#F7F5FF\] {
+  background-color: #1a1a1a;
+}
+
+.dark .bg-white {
+  background-color: #2d2d2d;
+}
+
+.dark .text-\[\#333\] {
+  color: #ffffff;
+}
+
+.dark .text-\[\#777\] {
+  color: #a0a0a0;
+}
+
+.dark .border-\[\#E2D9FF\] {
+  border-color: #404040;
+}
+
+.dark .border-\[\#F0E8FF\] {
+  border-color: #404040;
 }

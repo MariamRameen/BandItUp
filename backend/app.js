@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 const authRoutes = require("./routes/auth");
 const profileRoutes = require("./routes/profile");
@@ -10,9 +11,10 @@ const profileRoutes = require("./routes/profile");
 const app = express();
 
 app.use(express.json());
-
 app.use(cookieParser());
-app.use("/uploads", express.static("uploads"));
+
+
+app.use("/avatars", express.static(path.join(__dirname, "uploads/avatars")));
 
 
 app.use(

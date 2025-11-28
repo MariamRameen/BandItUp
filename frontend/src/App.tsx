@@ -3,7 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/login";
 import Signup from "./pages/signUp"
 import Profile from './pages/Profile';
+import ChangePassword from './pages/ChangePassword';
 import EditProfile from './pages/EditProfile';
+import { ThemeProvider } from "./contexts/ThemeContext"; 
 import Dashboard from "./pages/Module9_Dashboard/Dashboard";
 import SpeakingSelection from './pages/Module1_Speaking/SpeakingSelection';
 import SpeakingPractice from './pages/Module1_Speaking/SpeakingPractice';
@@ -44,13 +46,21 @@ const ProtectedRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
 
 export default function App() {
   return (
+     <ThemeProvider>
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
 
       <Route path="/signup" element={<Signup />} />
 
-      <Route path="/profile" element={<Profile />} />                    
+      <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />               
       <Route path="/profile/edit" element={<EditProfile />} />          
       <Route path="/setup-profile" element={<EditProfile />} />        
       
@@ -62,6 +72,14 @@ export default function App() {
           </ProtectedRoute>
         }
       />
+          <Route 
+      path="/change-password" 
+      element={
+        <ProtectedRoute>
+          <ChangePassword />
+        </ProtectedRoute>
+      } 
+/>
       <Route path="/speaking" element={<ProtectedRoute><SpeakingSelection /></ProtectedRoute>} />
       <Route path="/speaking/practice" element={<ProtectedRoute><SpeakingPractice /></ProtectedRoute>} />
       <Route path="/speaking/feedback" element={<ProtectedRoute><SpeakingFeedback /></ProtectedRoute>} />
@@ -91,5 +109,6 @@ export default function App() {
       <Route path="/admin/users" element={<ProtectedRoute><ManageUsers /></ProtectedRoute>} />
       <Route path="/admin/tests" element={<ProtectedRoute><ManageTests /></ProtectedRoute>} />
       </Routes>
+      </ThemeProvider>
         );
       }

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import apiService from '../../services/api';
+import ThemeToggle from '../../components/ThemeToggle';
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ export default function Dashboard() {
       
       <header className="w-full bg-white shadow-sm py-4 px-8 flex justify-between items-center">
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <div className="w-10 h-10 rounded-lg bg-[#7D3CFF] flex items-center justify-center text-white font-bold text-lg">
             B
           </div>

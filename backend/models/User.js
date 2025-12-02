@@ -9,11 +9,16 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       trim: true
     },
-   
     passwordHash: String,
     displayName: { type: String, required: true },
     
    
+    role: { 
+      type: String, 
+      enum: ['user', 'admin'], 
+      default: 'user' 
+    },
+    
     examType: { 
       type: String, 
       enum: ['Academic', 'General'], 
@@ -40,26 +45,29 @@ const userSchema = new mongoose.Schema(
       default: 'light' 
     },
 
-    
     stripeCustomerId: String,
     stripeSubscriptionId: String,
     subscriptionStatus: { 
       type: String, 
-      enum: ['free_trial', 'active', 'inactive', 'cancelled'],
+      enum: ['free_trial', 'active', 'inactive', 'cancelled', 'admin'],
       default: "free_trial" 
     },
     
-  
     googleId: { 
       type: String, 
       unique: true, 
       sparse: true 
     },
-   
+    
     resetPasswordToken: String,
     resetPasswordExpiry: Date,
     lastLogin: Date,
-    isVerified: { type: Boolean, default: false }
+    isVerified: {
+    type: Boolean,
+    default: true
+  },
+  verificationToken: String,
+  verificationTokenExpiry: Date,
   },
   { timestamps: true }
 );

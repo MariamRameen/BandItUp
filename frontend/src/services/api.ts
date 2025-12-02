@@ -1,24 +1,26 @@
-
-
 const clientId = (import.meta.env as any).VITE_GOOGLE_CLIENT_ID;
 const API_BASE_URL = (import.meta.env as any).VITE_API_BASE_URL || 'http://localhost:4000/api';
 
 interface User {
   examType?: string;
   targetScore?: number;
+  isVerified?: boolean;
+  [key: string]: any;
+}
+
+interface RegisterResponse {
+  success?: boolean;
+  message?: string;
+  token?: string;
+  user: User;
+  msg?: string;
   [key: string]: any;
 }
 
 interface LoginResponse {
   token: string;
   user: User;
-}
-
-interface RegisterData {
-  name?: string;
-  email?: string;
-  password?: string;
-  phone?: string;
+  message?: string;
   [key: string]: any;
 }
 
@@ -71,12 +73,26 @@ class ApiService {
     }
   }
 
-  async register(userData: { email: string; password: string; displayName: string }) {
-  return this.request('/auth/register', {
-    method: 'POST',
-    body: JSON.stringify(userData),
-  });
-}
+  async register(userData: { email: string; password: string; displayName: string }): Promise<RegisterResponse> {
+    return this.request('/auth/register', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+    });
+  }
+
+  async verifyEmail(token: string): Promise<LoginResponse> {
+    return this.request('/auth/verify-email', {
+      method: 'POST',
+      body: JSON.stringify({ token }),
+    });
+  }
+
+  async resendVerificationEmail(email: string) {
+    return this.request('/auth/resend-verification', {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+    });
+  }
 
   async login(credentials: { email: string; password: string }): Promise<LoginResponse> {
     return this.request('/auth/login', {
@@ -84,8 +100,6 @@ class ApiService {
       body: JSON.stringify(credentials),
     });
   }
-
-  
 
   async googleLogin(tokenId: string) {
     return this.request('/auth/google', {

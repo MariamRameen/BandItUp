@@ -33,8 +33,10 @@ import PlannerHome from './pages/Module8_StudyPlanner/PlannerHome';
 import PlannerCalendar from './pages/Module8_StudyPlanner/PlannerCalendar';
 import AdminDashboard from './pages/Module11_Admin/AdminDashboard';
 import ChatScreen from './pages/Module12_LiveChat/ChatScreen';
-import ManageUsers from './pages/Module11_Admin/ManageUsers';
-import ManageTests from './pages/Module11_Admin/ManageTests';
+import AdminRoute from './components/AdminRoute';
+import Help from './pages/Module9_Dashboard/HelpSupport';
+import SetPassword  from "./pages/SetPassword";
+import VerifyEmail  from "./pages/VerifyEmail";
 
 const isAuthenticated = () => {
   return !!localStorage.getItem("token");
@@ -62,8 +64,17 @@ export default function App() {
           } 
         />               
       <Route path="/profile/edit" element={<EditProfile />} />          
-      <Route path="/setup-profile" element={<EditProfile />} />        
-      
+      <Route path="/setup-profile" element={<EditProfile />} />   
+      <Route path="/verify-email/:token" element={<VerifyEmail />} />
+      <Route 
+        path="/admin/dashboard" 
+        element={
+          <AdminRoute>
+            <AdminDashboard />
+          </AdminRoute>
+        } 
+      />     
+      <Route path="/help" element={<Help />} />
       <Route
         path="/dashboard"
         element={
@@ -106,8 +117,7 @@ export default function App() {
       <Route path="/study-planner/calendar" element={<ProtectedRoute><PlannerCalendar /></ProtectedRoute>} />
       <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
       <Route path="/chat" element={<ProtectedRoute><ChatScreen /></ProtectedRoute>} />
-      <Route path="/admin/users" element={<ProtectedRoute><ManageUsers /></ProtectedRoute>} />
-      <Route path="/admin/tests" element={<ProtectedRoute><ManageTests /></ProtectedRoute>} />
+      <Route path="/set-password" element={<SetPassword />} />
       </Routes>
       </ThemeProvider>
         );

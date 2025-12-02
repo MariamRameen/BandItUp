@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import apiService from '../services/api';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<React.ReactNode>('');
   const navigate = useNavigate();
 
   useEffect(() => {
+    const savedEmail = localStorage.getItem('rememberedEmail');
+    const savedRememberMe = localStorage.getItem('rememberMe') === 'true';
+    
+    if (savedEmail && savedRememberMe) {
+      setFormData(prev => ({ ...prev, email: savedEmail }));
+      setRememberMe(true);
+    }
+
     const initializeGoogle = () => {
       if (!window.google) return;
       
@@ -23,11 +34,10 @@ export default function Login() {
         callback: handleGoogleResponse,
       });
 
-     
       setTimeout(() => {
         const buttonElement = document.getElementById('googleSignInButton');
         if (buttonElement) {
-          buttonElement.innerHTML = ''; 
+          buttonElement.innerHTML = '';
           window.google.accounts.id.renderButton(buttonElement, {
             type: 'standard',
             theme: 'outline',
@@ -35,13 +45,12 @@ export default function Login() {
             text: 'continue_with'
           });
         }
-      }, 300); 
+      }, 300);
     };
 
     if (window.google) {
       initializeGoogle();
     } else {
-      // Load script if not exists
       if (!document.querySelector('script[src*="accounts.google.com"]')) {
         const script = document.createElement('script');
         script.src = 'https://accounts.google.com/gsi/client';
@@ -51,9 +60,8 @@ export default function Login() {
         document.head.appendChild(script);
       }
     }
-  }, []); // Empty dependency array - runs on every mount
+  }, []);
 
-  // ... REST OF YOUR CODE (handleInputChange, handleEmailLogin, handleGoogleResponse) stays EXACTLY THE SAME
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -75,20 +83,68 @@ export default function Login() {
         return;
       }
 
+      if (rememberMe) {
+        localStorage.setItem('rememberedEmail', email);
+        localStorage.setItem('rememberMe', 'true');
+      } else {
+        localStorage.removeItem('rememberedEmail');
+        localStorage.removeItem('rememberMe');
+      }
+
       const response = await apiService.login({ email, password });
+      
       apiService.setToken(response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
+      localStorage.setItem('role', response.user.role);
+
+      const userRole = response.user?.role?.toString().trim().toLowerCase();
       
-      if (!response.user.examType || !response.user.targetScore) {
+      if (userRole === 'admin') {
+        navigate('/admin/dashboard');
+      } else if (!response.user.examType || !response.user.targetScore) {
         navigate('/setup-profile');
       } else {
         navigate('/dashboard');
       }
+      
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      
+      if (errorMessage.includes('Account created with Google') || 
+          errorMessage.includes('correct login method')) {
+        
+        setError(
+          <div className="space-y-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p className="text-blue-800 font-medium">
+              This account was created with Google
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button 
+                type="button"
+                onClick={() => {
+                  const googleBtn = document.querySelector('#googleSignInButton div') as HTMLElement;
+                  if (googleBtn) {
+                    googleBtn.click();
+                  }
+                }}
+                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:shadow-md transition-all"
+              >
+                Login with Google
+              </button>
+              <button 
+                type="button"
+                onClick={() => navigate('/set-password', { 
+                state: { email: formData.email } 
+              })}
+                              className="px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition-all"
+              >
+                Set a Password
+              </button>
+            </div>
+          </div>
+        );
       } else {
-        setError('Login failed. Please try again.');
+        setError(errorMessage);
       }
     } finally {
       setLoading(false);
@@ -100,8 +156,13 @@ export default function Login() {
       const result = await apiService.googleLogin(response.credential);
       apiService.setToken(result.token);
       localStorage.setItem('user', JSON.stringify(result.user));
+      localStorage.setItem('role', result.user.role);
       
-      if (!result.user.examType || !result.user.targetScore) {
+      const userRole = result.user?.role?.toString().trim().toLowerCase();
+      
+      if (userRole === 'admin') {
+        navigate('/admin/dashboard');
+      } else if (!result.user.examType || !result.user.targetScore) {
         navigate('/setup-profile');
       } else {
         navigate('/dashboard');
@@ -109,6 +170,10 @@ export default function Login() {
     } catch (err) {
       setError('Google login failed. Please try again.');
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -129,8 +194,14 @@ export default function Login() {
           </div>
 
           {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-              {error}
+            <div className="mb-4">
+              {typeof error === 'string' ? (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                  {error}
+                </div>
+              ) : (
+                error
+              )}
             </div>
           )}
 
@@ -154,18 +225,41 @@ export default function Login() {
               <label className="block text-sm font-medium text-[#333] mb-2">
                 Password
               </label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                placeholder="Enter your password"
-                className="w-full px-4 py-3 border border-[#E2D9FF] rounded-lg focus:outline-none focus:border-[#7D3CFF]"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  placeholder="Enter your password"
+                  className="w-full px-4 py-3 border border-[#E2D9FF] rounded-lg focus:outline-none focus:border-[#7D3CFF] pr-12"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#777] hover:text-[#333] focus:outline-none"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
             </div>
 
-            <div className="text-right">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="h-4 w-4 text-[#7D3CFF] focus:ring-[#7D3CFF] border-[#E2D9FF] rounded"
+                />
+                <label htmlFor="rememberMe" className="ml-2 text-sm text-[#555]">
+                  Remember me
+                </label>
+              </div>
+              
               <Link to="/forgot-password" className="text-[#7D3CFF] text-sm hover:text-[#6B2FE6]">
                 Forgot password?
               </Link>
@@ -186,7 +280,6 @@ export default function Login() {
             <div className="flex-1 border-t border-[#F0E8FF]"></div>
           </div>
 
-         
           <div id="googleSignInButton"></div>
 
           <div className="text-center mt-6">

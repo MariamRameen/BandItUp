@@ -5,6 +5,8 @@ interface User {
   examType?: string;
   targetScore?: number;
   isVerified?: boolean;
+  baselineDone?: boolean;
+  role?: string;
   [key: string]: any;
 }
 
@@ -147,6 +149,12 @@ class ApiService {
         Authorization: `Bearer ${this.token}`,
       },
       body: formData,
+    });
+  }
+
+  async completeBaseline() {
+    return this.request('/profile/complete-baseline', {
+      method: 'POST',
     });
   }
 }

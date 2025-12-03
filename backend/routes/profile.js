@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../middleware/auth");
-const { updateProfile, getProfile, changePassword } = require("../controllers/profileController");
+const { updateProfile, getProfile, changePassword, completeBaseline } = require("../controllers/profileController");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -78,5 +78,6 @@ router.post("/upload-avatar", auth, upload.single("avatar"), async (req, res) =>
 router.get("/me", auth, getProfile);
 router.put("/update", auth, updateProfile);
 router.put("/change-password", auth, changePassword);
+router.post("/complete-baseline", auth, completeBaseline);
 
 module.exports = router;

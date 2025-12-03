@@ -34,6 +34,7 @@ import PlannerCalendar from './pages/Module8_StudyPlanner/PlannerCalendar';
 import AdminDashboard from './pages/Module11_Admin/AdminDashboard';
 import ChatScreen from './pages/Module12_LiveChat/ChatScreen';
 import AdminRoute from './components/AdminRoute';
+import BaselineRoute from './components/BaselineRoute';
 import Help from './pages/Module9_Dashboard/HelpSupport';
 import SetPassword  from "./pages/SetPassword";
 import VerifyEmail  from "./pages/VerifyEmail";
@@ -44,6 +45,14 @@ const isAuthenticated = () => {
 
 const ProtectedRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
   return isAuthenticated() ? children : <Navigate to="/login" replace />;
+};
+
+// Route that requires both authentication and completed baseline test
+const FullAccessRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
+  if (!isAuthenticated()) {
+    return <Navigate to="/login" replace />;
+  }
+  return <BaselineRoute>{children}</BaselineRoute>;
 };
 
 export default function App() {
@@ -58,13 +67,13 @@ export default function App() {
       <Route 
           path="/profile" 
           element={
-            <ProtectedRoute>
+            <FullAccessRoute>
               <Profile />
-            </ProtectedRoute>
+            </FullAccessRoute>
           } 
         />               
-      <Route path="/profile/edit" element={<EditProfile />} />          
-      <Route path="/setup-profile" element={<EditProfile />} />   
+      <Route path="/profile/edit" element={<FullAccessRoute><EditProfile /></FullAccessRoute>} />          
+      <Route path="/setup-profile" element={<FullAccessRoute><EditProfile /></FullAccessRoute>} />   
       <Route path="/verify-email/:token" element={<VerifyEmail />} />
       <Route 
         path="/admin/dashboard" 
@@ -74,49 +83,49 @@ export default function App() {
           </AdminRoute>
         } 
       />     
-      <Route path="/help" element={<Help />} />
+      <Route path="/help" element={<FullAccessRoute><Help /></FullAccessRoute>} />
       <Route
         path="/dashboard"
         element={
-          <ProtectedRoute>
+          <FullAccessRoute>
             <Dashboard />
-          </ProtectedRoute>
+          </FullAccessRoute>
         }
       />
           <Route 
       path="/change-password" 
       element={
-        <ProtectedRoute>
+        <FullAccessRoute>
           <ChangePassword />
-        </ProtectedRoute>
+        </FullAccessRoute>
       } 
 />
-      <Route path="/speaking" element={<ProtectedRoute><SpeakingSelection /></ProtectedRoute>} />
-      <Route path="/speaking/practice" element={<ProtectedRoute><SpeakingPractice /></ProtectedRoute>} />
-      <Route path="/speaking/feedback" element={<ProtectedRoute><SpeakingFeedback /></ProtectedRoute>} />
-      <Route path="/listening" element={<ProtectedRoute><ListeningSelection /></ProtectedRoute>} />
-      <Route path="/listening/practice" element={<ProtectedRoute><ListeningPractice /></ProtectedRoute>} />
-      <Route path="/listening/feedback" element={<ProtectedRoute><ListeningFeedback /></ProtectedRoute>} />
-      <Route path="/reading" element={<ProtectedRoute><ReadingSelection /></ProtectedRoute>} />
-      <Route path="/reading/practice" element={<ProtectedRoute><ReadingPractice /></ProtectedRoute>} />
-      <Route path="/reading/feedback" element={<ProtectedRoute><ReadingFeedback /></ProtectedRoute>} />
-      <Route path="/writing" element={<ProtectedRoute><WritingSelection /></ProtectedRoute>} />
-      <Route path="/writing/practice" element={<ProtectedRoute><WritingPractice /></ProtectedRoute>} />
-      <Route path="/writing/feedback" element={<ProtectedRoute><WritingFeedback /></ProtectedRoute>} />
-      <Route path="/vocabulary" element={<ProtectedRoute><VocabBands /></ProtectedRoute>} />
-      <Route path="/vocabulary/flashcards" element={<ProtectedRoute><VocabFlashcards /></ProtectedRoute>} />
-      <Route path="/vocabulary/quiz" element={<ProtectedRoute><VocabQuiz /></ProtectedRoute>} />
-      <Route path="/vocabulary/progress" element={<ProtectedRoute><VocabProgress /></ProtectedRoute>} />
+      <Route path="/speaking" element={<FullAccessRoute><SpeakingSelection /></FullAccessRoute>} />
+      <Route path="/speaking/practice" element={<FullAccessRoute><SpeakingPractice /></FullAccessRoute>} />
+      <Route path="/speaking/feedback" element={<FullAccessRoute><SpeakingFeedback /></FullAccessRoute>} />
+      <Route path="/listening" element={<FullAccessRoute><ListeningSelection /></FullAccessRoute>} />
+      <Route path="/listening/practice" element={<FullAccessRoute><ListeningPractice /></FullAccessRoute>} />
+      <Route path="/listening/feedback" element={<FullAccessRoute><ListeningFeedback /></FullAccessRoute>} />
+      <Route path="/reading" element={<FullAccessRoute><ReadingSelection /></FullAccessRoute>} />
+      <Route path="/reading/practice" element={<FullAccessRoute><ReadingPractice /></FullAccessRoute>} />
+      <Route path="/reading/feedback" element={<FullAccessRoute><ReadingFeedback /></FullAccessRoute>} />
+      <Route path="/writing" element={<FullAccessRoute><WritingSelection /></FullAccessRoute>} />
+      <Route path="/writing/practice" element={<FullAccessRoute><WritingPractice /></FullAccessRoute>} />
+      <Route path="/writing/feedback" element={<FullAccessRoute><WritingFeedback /></FullAccessRoute>} />
+      <Route path="/vocabulary" element={<FullAccessRoute><VocabBands /></FullAccessRoute>} />
+      <Route path="/vocabulary/flashcards" element={<FullAccessRoute><VocabFlashcards /></FullAccessRoute>} />
+      <Route path="/vocabulary/quiz" element={<FullAccessRoute><VocabQuiz /></FullAccessRoute>} />
+      <Route path="/vocabulary/progress" element={<FullAccessRoute><VocabProgress /></FullAccessRoute>} />
       <Route path="/baseline-test" element={<ProtectedRoute><BaselineIntro /></ProtectedRoute>} />
       <Route path="/baseline-test/start" element={<ProtectedRoute><BaselineTest /></ProtectedRoute>} />
       <Route path="/baseline-test/result" element={<ProtectedRoute><BaselineFeedback /></ProtectedRoute>} />
-      <Route path="/mock-tests" element={<ProtectedRoute><MockSelection /></ProtectedRoute>} />
-      <Route path="/mock-tests/start" element={<ProtectedRoute><MockStart /></ProtectedRoute>} />
-      <Route path="/mock-tests/result" element={<ProtectedRoute><MockResult /></ProtectedRoute>} />
-      <Route path="/study-planner" element={<ProtectedRoute><PlannerHome /></ProtectedRoute>} />
-      <Route path="/study-planner/calendar" element={<ProtectedRoute><PlannerCalendar /></ProtectedRoute>} />
-      <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-      <Route path="/chat" element={<ProtectedRoute><ChatScreen /></ProtectedRoute>} />
+      <Route path="/mock-tests" element={<FullAccessRoute><MockSelection /></FullAccessRoute>} />
+      <Route path="/mock-tests/start" element={<FullAccessRoute><MockStart /></FullAccessRoute>} />
+      <Route path="/mock-tests/result" element={<FullAccessRoute><MockResult /></FullAccessRoute>} />
+      <Route path="/study-planner" element={<FullAccessRoute><PlannerHome /></FullAccessRoute>} />
+      <Route path="/study-planner/calendar" element={<FullAccessRoute><PlannerCalendar /></FullAccessRoute>} />
+      <Route path="/admin" element={<FullAccessRoute><AdminDashboard /></FullAccessRoute>} />
+      <Route path="/chat" element={<FullAccessRoute><ChatScreen /></FullAccessRoute>} />
       <Route path="/set-password" element={<SetPassword />} />
       </Routes>
       </ThemeProvider>

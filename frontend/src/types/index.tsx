@@ -12,6 +12,7 @@ export interface User {
   theme: 'light' | 'dark';
   subscriptionStatus: 'free_trial' | 'active' | 'inactive' | 'cancelled' | 'admin' | 'premium';
   isVerified: boolean;
+  baselineDone: boolean;
   createdAt: string;
   updatedAt: string;
   lastLogin?: string;

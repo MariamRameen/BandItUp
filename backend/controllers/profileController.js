@@ -16,7 +16,9 @@ exports.getProfile = async (req, res) => {
       theme: req.user.theme,
       subscriptionStatus: req.user.subscriptionStatus,
       lastLogin: req.user.lastLogin,
-      createdAt: req.user.createdAt
+      createdAt: req.user.createdAt,
+      baselineDone: req.user.baselineDone,
+      role: req.user.role
     });
   } catch (err) {
     console.error(err);
@@ -76,6 +78,21 @@ exports.updateProfile = async (req, res) => {
         avatarUrl: req.user.avatarUrl,
         theme: req.user.theme
       }
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Server error", error: err.message });
+  }
+};
+
+exports.completeBaseline = async (req, res) => {
+  try {
+    req.user.baselineDone = true;
+    await req.user.save();
+
+    res.json({ 
+      msg: "Baseline test completed successfully", 
+      baselineDone: true 
     });
   } catch (err) {
     console.error(err);

@@ -14,4 +14,14 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+
+import './commands';
+import 'cypress-image-snapshot/command';
+
+import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
+
+addMatchImageSnapshotCommand({
+  failureThreshold: 0.2,
+  failureThresholdType: 'percent',
+  customDiffConfig: { threshold: 0.1 },
+});

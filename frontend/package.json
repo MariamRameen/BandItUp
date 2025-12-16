@@ -18,12 +18,14 @@
     "recharts": "^3.5.0"
   },
   "devDependencies": {
+    "@simonsmith/cypress-image-snapshot": "^10.0.3",
     "@types/jwt-decode": "^2.2.1",
     "@types/node": "^24.10.1",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
     "autoprefixer": "^10.4.14",
     "cypress": "^15.7.1",
+    "cypress-image-snapshot": "^4.0.1",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.2.0",

@@ -9,6 +9,7 @@ const path = require("path");
 const authRoutes = require("./routes/auth");
 const profileRoutes = require("./routes/profile");
 const adminRoutes = require('./routes/admin');
+const writingRoutes = require('./routes/writing');
 
 const app = express();
 
@@ -36,6 +37,7 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use('/api/admin', adminRoutes); 
+app.use('/api/writing', writingRoutes); 
 
 app.listen(process.env.PORT, () =>
   console.log("Backend running on port", process.env.PORT)

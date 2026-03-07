@@ -22,20 +22,23 @@ describe("Login Tests", () => {
     cy.loginUI(user.email, user.password); 
 
     cy.url().should("include", "/dashboard");
-    cy.contains("Welcome back").should("exist");
+    if (user.role === "admin")
+      cy.contains("Admin Dashboard").should("exist");
+    else
+      cy.contains("Welcome back").should("exist");
   });
 
   it("logs in with multiple users (data-driven)", () => {
     const users: User[] = Cypress.env("users");
 
     users.forEach((user: User) => {
-      const isAdmin = user.email === "admin@banditup.com";
+      const isAdmin = user.role === "admin";
 
       if (isAdmin) {
-        cy.intercept("GET", "/api/admin/users").as("getAdminUsers");
-        cy.intercept("GET", "/api/admin/stats").as("getAdminStats");
+        cy.intercept("GET", "**/api/admin/users").as("getAdminUsers");
+        cy.intercept("GET", "**/api/admin/stats").as("getAdminStats");
       } else {
-        cy.intercept("GET", "/api/profile/me").as("getProfile");
+        cy.intercept("GET", "**/api/profile/me").as("getProfile");
       }
 
      
@@ -43,9 +46,9 @@ describe("Login Tests", () => {
 
       
       if (isAdmin) {
-  cy.wait("@getAdminUsers", { timeout: 10000 })
-    .its("response.statusCode")
-    .should("eq", 200);
+        cy.wait("@getAdminUsers", { timeout: 10000 })
+          .its("response.statusCode")
+          .should("eq", 200);
 
         cy.wait("@getAdminStats", { timeout: 10000 })
           .its("response.statusCode")

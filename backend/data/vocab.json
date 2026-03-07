@@ -1,0 +1,7698 @@
+[
+  {
+    "word": "analyse",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to examine something carefully in order to understand it",
+    "exampleSentence": "Students must analyse the data before drawing conclusions.",
+    "collocations": [
+      "analyse data",
+      "analyse results",
+      "analyse trends"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "approach",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a way of dealing with a situation or problem",
+    "exampleSentence": "The teacher suggested a different approach to solving the problem.",
+    "collocations": [
+      "approach method",
+      "approach problem",
+      "approach issue"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "area",
+    "bandLevel": 6,
+    "topics": [
+      "Environment",
+      "Academic"
+    ],
+    "meaning": "a particular part of a place, subject, or activity",
+    "exampleSentence": "This area of the city has many parks.",
+    "collocations": [
+      "urban area",
+      "study area",
+      "residential area"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "assess",
+    "bandLevel": 6,
+    "topics": [
+      "Education",
+      "Health"
+    ],
+    "meaning": "to evaluate or judge the quality of something",
+    "exampleSentence": "Teachers assess students' progress at the end of each term.",
+    "collocations": [
+      "assess performance",
+      "assess risk",
+      "assess impact"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "assume",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to accept something as true without proof",
+    "exampleSentence": "We must not assume everyone agrees with our opinion.",
+    "collocations": [
+      "assume responsibility",
+      "assume role",
+      "assume position"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "available",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "able to be used or obtained",
+    "exampleSentence": "The report is available online for free.",
+    "collocations": [
+      "available resources",
+      "available data",
+      "available options"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "benefit",
+    "bandLevel": 6,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "an advantage or profit gained from something",
+    "exampleSentence": "Regular exercise has many health benefits.",
+    "collocations": [
+      "financial benefit",
+      "health benefit",
+      "social benefit"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "concept",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "an abstract idea or principle",
+    "exampleSentence": "The concept of democracy is taught in schools worldwide.",
+    "collocations": [
+      "key concept",
+      "basic concept",
+      "concept theory"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "consist",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to be made up of something",
+    "exampleSentence": "The team consists of five members.",
+    "collocations": [
+      "consist primarily",
+      "consist mainly",
+      "consist entirely"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "context",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Culture"
+    ],
+    "meaning": "the situation or background in which something happens",
+    "exampleSentence": "You need to understand the context to interpret the text correctly.",
+    "collocations": [
+      "historical context",
+      "cultural context",
+      "social context"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "contract",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Law"
+    ],
+    "meaning": "a legal agreement between parties",
+    "exampleSentence": "The company signed a contract with a new supplier.",
+    "collocations": [
+      "sign contract",
+      "breach contract",
+      "contract terms"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "create",
+    "bandLevel": 6,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "to make something new",
+    "exampleSentence": "Artists create paintings to express ideas.",
+    "collocations": [
+      "create opportunity",
+      "create solution",
+      "create environment"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "data",
+    "bandLevel": 6,
+    "topics": [
+      "Technology",
+      "Research"
+    ],
+    "meaning": "facts or information used for analysis",
+    "exampleSentence": "The scientist collected data from the experiment.",
+    "collocations": [
+      "collect data",
+      "analyze data",
+      "store data"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "define",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to explain the meaning of a word or concept",
+    "exampleSentence": "The teacher asked the students to define key terms.",
+    "collocations": [
+      "define clearly",
+      "define precisely",
+      "define concept"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "distribute",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to give or deliver something to people",
+    "exampleSentence": "The charity distributes food to families in need.",
+    "collocations": [
+      "distribute resources",
+      "distribute materials",
+      "distribute information"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "economy",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "the system of production and consumption of goods in a country",
+    "exampleSentence": "The country's economy is growing rapidly.",
+    "collocations": [
+      "global economy",
+      "local economy",
+      "economic growth"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "environment",
+    "bandLevel": 6,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "the natural world or surroundings",
+    "exampleSentence": "We need to protect the environment from pollution.",
+    "collocations": [
+      "natural environment",
+      "urban environment",
+      "work environment"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "establish",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to set up or create something",
+    "exampleSentence": "They established a new research center.",
+    "collocations": [
+      "establish company",
+      "establish rules",
+      "establish relationship"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "estimate",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to roughly calculate or judge the value of something",
+    "exampleSentence": "The engineer estimated the cost of the project.",
+    "collocations": [
+      "estimate cost",
+      "estimate time",
+      "estimate value"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "evident",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Health"
+    ],
+    "meaning": "clearly visible or understood",
+    "exampleSentence": "It was evident that she was tired after the long journey.",
+    "collocations": [
+      "be evident",
+      "clearly evident",
+      "become evident"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "export",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to send goods to another country for sale",
+    "exampleSentence": "The country exports wheat to several nations.",
+    "collocations": [
+      "export products",
+      "export goods",
+      "export services"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "factor",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Science"
+    ],
+    "meaning": "something that contributes to a result",
+    "exampleSentence": "Weather is a key factor in agricultural success.",
+    "collocations": [
+      "key factor",
+      "contributing factor",
+      "important factor"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "finance",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "management of money and investments",
+    "exampleSentence": "He studied finance at university.",
+    "collocations": [
+      "personal finance",
+      "public finance",
+      "corporate finance"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "formula",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a set method or rule for solving a problem",
+    "exampleSentence": "The chemistry class learned a new formula for the solution.",
+    "collocations": [
+      "mathematical formula",
+      "scientific formula",
+      "formula calculation"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "function",
+    "bandLevel": 6,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "a purpose or role of something",
+    "exampleSentence": "The main function of the heart is to pump blood.",
+    "collocations": [
+      "perform function",
+      "primary function",
+      "system function"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "identify",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Health"
+    ],
+    "meaning": "to recognize or establish the identity of something",
+    "exampleSentence": "Scientists identify new species through research.",
+    "collocations": [
+      "identify problem",
+      "identify cause",
+      "identify pattern"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "income",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "money received regularly for work or investment",
+    "exampleSentence": "The family relies on a steady income to pay bills.",
+    "collocations": [
+      "annual income",
+      "personal income",
+      "average income"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "indicate",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "to show or point out",
+    "exampleSentence": "The results indicate a rise in temperature over the year.",
+    "collocations": [
+      "indicate trend",
+      "indicate change",
+      "indicate problem"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "individual",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "a single person considered separately",
+    "exampleSentence": "Every individual has the right to education.",
+    "collocations": [
+      "individual rights",
+      "individual choice",
+      "individual responsibility"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "interpret",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Culture"
+    ],
+    "meaning": "to explain the meaning of something",
+    "exampleSentence": "It is difficult to interpret the results without full data.",
+    "collocations": [
+      "interpret data",
+      "interpret meaning",
+      "interpret text"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "involve",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Health"
+    ],
+    "meaning": "to include or affect someone or something",
+    "exampleSentence": "The project involves students from different departments.",
+    "collocations": [
+      "involve process",
+      "involve participation",
+      "involve activities"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "issue",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "an important topic or problem for debate or discussion",
+    "exampleSentence": "Climate change is a major global issue.",
+    "collocations": [
+      "key issue",
+      "political issue",
+      "social issue"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "labour",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "work, especially physical work",
+    "exampleSentence": "The factory relies on cheap labour.",
+    "collocations": [
+      "labour market",
+      "manual labour",
+      "child labour"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "legal",
+    "bandLevel": 6,
+    "topics": [
+      "Law",
+      "Business"
+    ],
+    "meaning": "relating to the law",
+    "exampleSentence": "They sought legal advice before signing the contract.",
+    "collocations": [
+      "legal system",
+      "legal issue",
+      "legal rights"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "major",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "important, serious, or large",
+    "exampleSentence": "Education is a major factor in personal success.",
+    "collocations": [
+      "major issue",
+      "major role",
+      "major factor"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "method",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a way of doing something",
+    "exampleSentence": "Scientists use a reliable method for experiments.",
+    "collocations": [
+      "research method",
+      "teaching method",
+      "working method"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "occur",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Health"
+    ],
+    "meaning": "to happen",
+    "exampleSentence": "Accidents occur more frequently in winter.",
+    "collocations": [
+      "occur frequently",
+      "occur naturally",
+      "occur suddenly"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "percent",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a part of a total amount expressed in 100 parts",
+    "exampleSentence": "Ten percent of students failed the exam.",
+    "collocations": [
+      "increase percent",
+      "reduce percent",
+      "high percent"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "period",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "a length of time",
+    "exampleSentence": "The project will run for a period of six months.",
+    "collocations": [
+      "long period",
+      "short period",
+      "time period"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "policy",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "a set of rules or guidelines",
+    "exampleSentence": "The government introduced a new policy on recycling.",
+    "collocations": [
+      "government policy",
+      "company policy",
+      "public policy"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "principle",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "a fundamental truth or rule",
+    "exampleSentence": "Honesty is a core principle of their organization.",
+    "collocations": [
+      "basic principle",
+      "key principle",
+      "fundamental principle"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "proceed",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to continue with a course of action",
+    "exampleSentence": "After approval, we can proceed with the plan.",
+    "collocations": [
+      "proceed carefully",
+      "proceed with caution",
+      "proceed immediately"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "process",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a series of actions taken to achieve a result",
+    "exampleSentence": "The hiring process takes two weeks.",
+    "collocations": [
+      "business process",
+      "learning process",
+      "development process"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "require",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Health"
+    ],
+    "meaning": "to need something",
+    "exampleSentence": "This task requires careful attention to detail.",
+    "collocations": [
+      "require permission",
+      "require assistance",
+      "require resources"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "research",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a detailed study of a subject",
+    "exampleSentence": "She is conducting research on renewable energy.",
+    "collocations": [
+      "conduct research",
+      "scientific research",
+      "academic research"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "respond",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to react or answer",
+    "exampleSentence": "The government must respond to citizens' concerns.",
+    "collocations": [
+      "respond quickly",
+      "respond appropriately",
+      "respond effectively"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "role",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "the function or part played by someone or something",
+    "exampleSentence": "Teachers play a key role in student development.",
+    "collocations": [
+      "important role",
+      "major role",
+      "supporting role"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "section",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a distinct part of something",
+    "exampleSentence": "Read the first section of the report.",
+    "collocations": [
+      "section heading",
+      "section summary",
+      "section content"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "significant",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "important or large enough to be noticed",
+    "exampleSentence": "The study found a significant improvement in test scores.",
+    "collocations": [
+      "significant impact",
+      "significant increase",
+      "significant change"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "similar",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "having a resemblance in appearance or nature",
+    "exampleSentence": "The two theories are similar in their approach.",
+    "collocations": [
+      "similar results",
+      "similar pattern",
+      "similar situation"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "source",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "the origin of something",
+    "exampleSentence": "The report identifies the source of the problem.",
+    "collocations": [
+      "reliable source",
+      "primary source",
+      "data source"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "specific",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "clearly defined or identified",
+    "exampleSentence": "The teacher gave specific instructions for the assignment.",
+    "collocations": [
+      "specific purpose",
+      "specific requirement",
+      "specific example"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "structure",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "the arrangement of parts in a system",
+    "exampleSentence": "The structure of the essay must be clear.",
+    "collocations": [
+      "organizational structure",
+      "basic structure",
+      "social structure"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "theory",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "a system of ideas used to explain something",
+    "exampleSentence": "Scientists test a theory through experiments.",
+    "collocations": [
+      "scientific theory",
+      "economic theory",
+      "theory development"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "vary",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "to be different or change",
+    "exampleSentence": "Prices vary depending on demand.",
+    "collocations": [
+      "vary greatly",
+      "vary widely",
+      "vary significantly"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "beneficial",
+    "bandLevel": 6,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "producing good results or helpful effects",
+    "exampleSentence": "Regular exercise is beneficial for mental health.",
+    "collocations": [
+      "beneficial effect",
+      "beneficial outcome",
+      "beneficial impact"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "capacity",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "the ability to hold or produce something",
+    "exampleSentence": "The stadium has a capacity of 50,000 people.",
+    "collocations": [
+      "full capacity",
+      "production capacity",
+      "storage capacity"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "clarify",
+    "bandLevel": 6,
+    "topics": [
+      "Education",
+      "Academic"
+    ],
+    "meaning": "to make something clear or easier to understand",
+    "exampleSentence": "The teacher clarified the instructions for the students.",
+    "collocations": [
+      "clarify meaning",
+      "clarify issue",
+      "clarify situation"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "complex",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "consisting of many connected parts",
+    "exampleSentence": "The human brain is a complex system.",
+    "collocations": [
+      "complex problem",
+      "complex system",
+      "complex structure"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "conclude",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to decide or state something after consideration",
+    "exampleSentence": "The researchers concluded that the treatment was effective.",
+    "collocations": [
+      "conclude study",
+      "conclude research",
+      "conclude report"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "consequence",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "a result of an action or decision",
+    "exampleSentence": "Pollution has serious consequences for the environment.",
+    "collocations": [
+      "serious consequence",
+      "direct consequence",
+      "negative consequence"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "contrast",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to compare two things to show differences",
+    "exampleSentence": "The essay contrasts urban and rural life.",
+    "collocations": [
+      "in contrast",
+      "contrast with",
+      "sharp contrast"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "decline",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to decrease or become worse",
+    "exampleSentence": "Sales declined after the economic crisis.",
+    "collocations": [
+      "economic decline",
+      "decline rapidly",
+      "sharp decline"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "demonstrate",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to show clearly by giving proof or evidence",
+    "exampleSentence": "The experiment demonstrates how the reaction occurs.",
+    "collocations": [
+      "demonstrate ability",
+      "demonstrate effect",
+      "demonstrate result"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "derive",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "to obtain or develop from something",
+    "exampleSentence": "Many English words are derived from Latin.",
+    "collocations": [
+      "derive benefit",
+      "derive formula",
+      "derive conclusion"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "discriminate",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "to treat people unfairly based on differences",
+    "exampleSentence": "Laws prevent employers from discriminating against workers.",
+    "collocations": [
+      "discriminate against",
+      "racial discrimination",
+      "gender discrimination"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "emerge",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to appear or become known",
+    "exampleSentence": "New problems emerged during the project.",
+    "collocations": [
+      "emerge from",
+      "emerge as",
+      "emerge gradually"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "ensure",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to make certain something happens",
+    "exampleSentence": "The manager ensures quality control.",
+    "collocations": [
+      "ensure safety",
+      "ensure success",
+      "ensure quality"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "enhance",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to improve the quality or value of something",
+    "exampleSentence": "New tools enhance the learning experience.",
+    "collocations": [
+      "enhance performance",
+      "enhance quality",
+      "enhance skills"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "estimation",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a rough calculation or judgement of value",
+    "exampleSentence": "The estimation of costs was higher than expected.",
+    "collocations": [
+      "cost estimation",
+      "accurate estimation",
+      "rough estimation"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "evolution",
+    "bandLevel": 6,
+    "topics": [
+      "Science",
+      "Academic"
+    ],
+    "meaning": "the gradual development or change over time",
+    "exampleSentence": "The evolution of technology has transformed society.",
+    "collocations": [
+      "cultural evolution",
+      "technological evolution",
+      "social evolution"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "expand",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to increase in size, number, or importance",
+    "exampleSentence": "The company plans to expand into new markets.",
+    "collocations": [
+      "expand business",
+      "expand market",
+      "expand operations"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "explore",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "to investigate or examine something thoroughly",
+    "exampleSentence": "Researchers explore new methods to improve efficiency.",
+    "collocations": [
+      "explore idea",
+      "explore option",
+      "explore possibility"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "external",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "coming from outside",
+    "exampleSentence": "External factors influenced the company's performance.",
+    "collocations": [
+      "external factor",
+      "external influence",
+      "external pressure"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "flexible",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "able to change or adapt easily",
+    "exampleSentence": "Flexible schedules improve employee satisfaction.",
+    "collocations": [
+      "flexible approach",
+      "flexible working",
+      "flexible policy"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "framework",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a basic structure underlying a system or concept",
+    "exampleSentence": "The research follows a clear theoretical framework.",
+    "collocations": [
+      "legal framework",
+      "theoretical framework",
+      "policy framework"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "global",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "relating to the whole world",
+    "exampleSentence": "Global cooperation is essential to solve climate change.",
+    "collocations": [
+      "global economy",
+      "global market",
+      "global issue"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "impact",
+    "bandLevel": 6,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "the effect or influence of something",
+    "exampleSentence": "The policy had a positive impact on education.",
+    "collocations": [
+      "environmental impact",
+      "economic impact",
+      "social impact"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "implement",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to put a plan or system into action",
+    "exampleSentence": "The company implemented new safety measures.",
+    "collocations": [
+      "implement policy",
+      "implement strategy",
+      "implement system"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "improve",
+    "bandLevel": 6,
+    "topics": [
+      "Education",
+      "Health"
+    ],
+    "meaning": "to make something better",
+    "exampleSentence": "The program aims to improve students' skills.",
+    "collocations": [
+      "improve performance",
+      "improve quality",
+      "improve efficiency"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "increase",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to become greater in amount or number",
+    "exampleSentence": "Prices increased due to high demand.",
+    "collocations": [
+      "increase production",
+      "increase demand",
+      "increase revenue"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "influence",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "the power to affect someone or something",
+    "exampleSentence": "Media influences public opinion.",
+    "collocations": [
+      "strong influence",
+      "positive influence",
+      "direct influence"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "investigate",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to examine something carefully to find facts",
+    "exampleSentence": "Police investigate the cause of the accident.",
+    "collocations": [
+      "investigate case",
+      "investigate issue",
+      "investigate problem"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "involve",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to include or require participation",
+    "exampleSentence": "The project involves teamwork and research.",
+    "collocations": [
+      "involve effort",
+      "involve participants",
+      "involve stakeholders"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "maintain",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to keep something in good condition",
+    "exampleSentence": "The company maintains high standards.",
+    "collocations": [
+      "maintain balance",
+      "maintain quality",
+      "maintain relationship"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "network",
+    "bandLevel": 6,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "a system of connected people or things",
+    "exampleSentence": "Professionals build a strong network in their industry.",
+    "collocations": [
+      "social network",
+      "computer network",
+      "professional network"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "occur",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "to happen",
+    "exampleSentence": "Natural disasters occur frequently in this region.",
+    "collocations": [
+      "occur naturally",
+      "occur frequently",
+      "occur unexpectedly"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "overall",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "considering everything",
+    "exampleSentence": "Overall, the project was successful.",
+    "collocations": [
+      "overall performance",
+      "overall impact",
+      "overall result"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "participate",
+    "bandLevel": 6,
+    "topics": [
+      "Education",
+      "Society"
+    ],
+    "meaning": "to take part in an activity",
+    "exampleSentence": "Students participate in class discussions regularly.",
+    "collocations": [
+      "participate actively",
+      "participate fully",
+      "participate in events"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "particular",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "specific or special",
+    "exampleSentence": "We need to focus on this particular problem.",
+    "collocations": [
+      "particular interest",
+      "particular case",
+      "particular reason"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "perspective",
+    "bandLevel": 6,
+    "topics": [
+      "Education",
+      "Culture"
+    ],
+    "meaning": "a point of view or way of seeing things",
+    "exampleSentence": "The article provides a new perspective on education.",
+    "collocations": [
+      "global perspective",
+      "different perspective",
+      "unique perspective"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "policy",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "a set of rules or guidelines",
+    "exampleSentence": "The government introduced a new environmental policy.",
+    "collocations": [
+      "public policy",
+      "government policy",
+      "company policy"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "potential",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "the ability to develop or succeed",
+    "exampleSentence": "She has the potential to become a great scientist.",
+    "collocations": [
+      "potential impact",
+      "potential risk",
+      "potential benefit"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "previous",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "existing or occurring before something else",
+    "exampleSentence": "Previous studies showed similar results.",
+    "collocations": [
+      "previous experience",
+      "previous research",
+      "previous version"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "primary",
+    "bandLevel": 6,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "main or most important",
+    "exampleSentence": "Education is the primary goal of the program.",
+    "collocations": [
+      "primary objective",
+      "primary source",
+      "primary focus"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "principle",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "a fundamental truth or rule",
+    "exampleSentence": "Honesty is a core principle of their teaching method.",
+    "collocations": [
+      "basic principle",
+      "key principle",
+      "fundamental principle"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "process",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a series of actions taken to achieve a result",
+    "exampleSentence": "The manufacturing process ensures high quality.",
+    "collocations": [
+      "business process",
+      "development process",
+      "learning process"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "professional",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "relating to work that requires special training",
+    "exampleSentence": "She is a professional engineer with 10 years of experience.",
+    "collocations": [
+      "professional skill",
+      "professional development",
+      "professional behavior"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "project",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a planned piece of work with a particular aim",
+    "exampleSentence": "The students completed a group project on climate change.",
+    "collocations": [
+      "research project",
+      "development project",
+      "school project"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "range",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "a set of different things of the same type",
+    "exampleSentence": "The museum offers a range of activities for visitors.",
+    "collocations": [
+      "wide range",
+      "full range",
+      "varied range"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "recommend",
+    "bandLevel": 6,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to suggest something as suitable or beneficial",
+    "exampleSentence": "I recommend this book for all students of science.",
+    "collocations": [
+      "recommend strongly",
+      "recommend use",
+      "recommend method"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "require",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to need something for a particular purpose",
+    "exampleSentence": "This project requires careful planning.",
+    "collocations": [
+      "require approval",
+      "require attention",
+      "require resources"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "research",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a detailed study to discover new facts",
+    "exampleSentence": "He is conducting research on renewable energy sources.",
+    "collocations": [
+      "conduct research",
+      "scientific research",
+      "academic research"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "respond",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to answer or react to something",
+    "exampleSentence": "The company must respond to customer complaints quickly.",
+    "collocations": [
+      "respond appropriately",
+      "respond effectively",
+      "respond quickly"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "role",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "the function or part played by someone or something",
+    "exampleSentence": "Teachers play an important role in society.",
+    "collocations": [
+      "major role",
+      "supporting role",
+      "important role"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "section",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a distinct part of something",
+    "exampleSentence": "Read the first section of the report carefully.",
+    "collocations": [
+      "section heading",
+      "section content",
+      "section summary"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "significant",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "important or large enough to be noticed",
+    "exampleSentence": "There was a significant improvement in student performance.",
+    "collocations": [
+      "significant impact",
+      "significant change",
+      "significant increase"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "similar",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "having a resemblance in appearance or nature",
+    "exampleSentence": "The two experiments produced similar results.",
+    "collocations": [
+      "similar pattern",
+      "similar situation",
+      "similar method"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "source",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "the origin of something",
+    "exampleSentence": "The source of the information is credible.",
+    "collocations": [
+      "primary source",
+      "reliable source",
+      "data source"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "specific",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "clearly defined or identified",
+    "exampleSentence": "Follow the specific instructions given by the teacher.",
+    "collocations": [
+      "specific purpose",
+      "specific requirement",
+      "specific example"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "structure",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "the arrangement of parts in a system",
+    "exampleSentence": "The structure of the essay was easy to follow.",
+    "collocations": [
+      "social structure",
+      "organizational structure",
+      "basic structure"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "theory",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "a set of ideas to explain something",
+    "exampleSentence": "The theory was tested through experiments.",
+    "collocations": [
+      "scientific theory",
+      "economic theory",
+      "theory development"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "vary",
+    "bandLevel": 6,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "to be different or change",
+    "exampleSentence": "Temperatures vary across regions.",
+    "collocations": [
+      "vary significantly",
+      "vary widely",
+      "vary greatly"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "vision",
+    "bandLevel": 6,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "the ability to plan for the future with imagination",
+    "exampleSentence": "The company's vision is to be a leader in sustainability.",
+    "collocations": [
+      "long-term vision",
+      "strategic vision",
+      "clear vision"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "wealth",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "a large amount of money or valuable possessions",
+    "exampleSentence": "Education can lead to greater wealth in life.",
+    "collocations": [
+      "accumulate wealth",
+      "personal wealth",
+      "national wealth"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "widespread",
+    "bandLevel": 6,
+    "topics": [
+      "Society",
+      "Environment"
+    ],
+    "meaning": "existing or happening over a large area",
+    "exampleSentence": "There is widespread support for the new policy.",
+    "collocations": [
+      "widespread use",
+      "widespread impact",
+      "widespread support"
+    ],
+    "cefrLevel": "B2"
+  },
+  {
+    "word": "abstract",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "existing in thought or as an idea but not having a physical reality",
+    "exampleSentence": "He struggled to understand the abstract concepts in physics.",
+    "collocations": [
+      "abstract idea",
+      "abstract concept",
+      "abstract theory"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "acquire",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to obtain or gain something",
+    "exampleSentence": "She acquired new skills through the training program.",
+    "collocations": [
+      "acquire knowledge",
+      "acquire skills",
+      "acquire assets"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "adjust",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to change something slightly to achieve the desired effect",
+    "exampleSentence": "He adjusted the settings to improve performance.",
+    "collocations": [
+      "adjust behavior",
+      "adjust settings",
+      "adjust approach"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "advocate",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "to publicly support or recommend a particular cause or policy",
+    "exampleSentence": "She advocates for equal access to education.",
+    "collocations": [
+      "advocate strongly",
+      "advocate policy",
+      "advocate change"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "allocate",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to distribute resources for a specific purpose",
+    "exampleSentence": "The manager allocated funds for the new project.",
+    "collocations": [
+      "allocate resources",
+      "allocate funds",
+      "allocate time"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "anticipate",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to expect or predict something",
+    "exampleSentence": "The team anticipated problems before they occurred.",
+    "collocations": [
+      "anticipate demand",
+      "anticipate change",
+      "anticipate outcome"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "assign",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to give a task or responsibility to someone",
+    "exampleSentence": "The teacher assigned homework to the students.",
+    "collocations": [
+      "assign task",
+      "assign responsibility",
+      "assign work"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "assume",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to accept something as true without proof",
+    "exampleSentence": "We assumed that the data was accurate.",
+    "collocations": [
+      "assume responsibility",
+      "assume role",
+      "assume position"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "authoritative",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "showing confidence and knowledge; reliable",
+    "exampleSentence": "The report is an authoritative source on climate change.",
+    "collocations": [
+      "authoritative source",
+      "authoritative report",
+      "authoritative opinion"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "brief",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "short in duration or concise in expression",
+    "exampleSentence": "The manager gave a brief summary of the meeting.",
+    "collocations": [
+      "brief explanation",
+      "brief overview",
+      "brief report"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "capable",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "having the ability to do something",
+    "exampleSentence": "She is capable of handling complex tasks independently.",
+    "collocations": [
+      "capable leader",
+      "capable team",
+      "capable employee"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "cite",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to mention as evidence or example",
+    "exampleSentence": "The author cited multiple studies to support the argument.",
+    "collocations": [
+      "cite source",
+      "cite example",
+      "cite research"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "coherent",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "logical and well-organized",
+    "exampleSentence": "The essay was coherent and easy to follow.",
+    "collocations": [
+      "coherent argument",
+      "coherent structure",
+      "coherent plan"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "coincide",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "to happen at the same time",
+    "exampleSentence": "The festival coincided with the public holiday.",
+    "collocations": [
+      "coincide exactly",
+      "coincide perfectly",
+      "coincide with"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "collapse",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Environment"
+    ],
+    "meaning": "to fall down or fail suddenly",
+    "exampleSentence": "The building collapsed after the earthquake.",
+    "collocations": [
+      "collapse completely",
+      "financial collapse",
+      "structural collapse"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "commence",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to begin something",
+    "exampleSentence": "The project will commence next week.",
+    "collocations": [
+      "commence project",
+      "commence operation",
+      "commence process"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "compatible",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "able to exist or work together without problems",
+    "exampleSentence": "The software is compatible with multiple operating systems.",
+    "collocations": [
+      "fully compatible",
+      "compatible device",
+      "compatible system"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "compile",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "to collect information from different sources",
+    "exampleSentence": "The researchers compiled data from several experiments.",
+    "collocations": [
+      "compile data",
+      "compile report",
+      "compile information"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "complement",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "something that completes or goes well with something",
+    "exampleSentence": "The new software complements existing tools.",
+    "collocations": [
+      "perfect complement",
+      "complement feature",
+      "complement system"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "comprehensive",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "including all or nearly all elements; thorough",
+    "exampleSentence": "The report provides a comprehensive review of the topic.",
+    "collocations": [
+      "comprehensive analysis",
+      "comprehensive report",
+      "comprehensive study"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "concurrent",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "happening at the same time",
+    "exampleSentence": "Two concurrent events caused scheduling conflicts.",
+    "collocations": [
+      "concurrent processes",
+      "concurrent events",
+      "concurrent tasks"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "confine",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Health"
+    ],
+    "meaning": "to restrict within limits",
+    "exampleSentence": "Patients were confined to their rooms during recovery.",
+    "collocations": [
+      "confine strictly",
+      "confine area",
+      "confine attention"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "conform",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "to comply with rules or standards",
+    "exampleSentence": "Employees must conform to company policies.",
+    "collocations": [
+      "conform fully",
+      "conform standard",
+      "conform rules"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "consecutive",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "following one after another without interruption",
+    "exampleSentence": "The team won three consecutive matches.",
+    "collocations": [
+      "consecutive days",
+      "consecutive events",
+      "consecutive years"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "considerable",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "great in size, amount, or importance",
+    "exampleSentence": "The project required considerable effort to complete.",
+    "collocations": [
+      "considerable amount",
+      "considerable impact",
+      "considerable difference"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "constitute",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to form or make up",
+    "exampleSentence": "Women constitute a large part of the workforce.",
+    "collocations": [
+      "constitute part",
+      "constitute majority",
+      "constitute group"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "constrain",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to restrict or limit",
+    "exampleSentence": "Budget constraints prevented expansion.",
+    "collocations": [
+      "constrain action",
+      "constrain development",
+      "constrain growth"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "consult",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to seek advice or information",
+    "exampleSentence": "Students can consult the library for reference books.",
+    "collocations": [
+      "consult expert",
+      "consult advisor",
+      "consult manual"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "contemporary",
+    "bandLevel": 7,
+    "topics": [
+      "Culture",
+      "Academic"
+    ],
+    "meaning": "belonging to the same period of time; modern",
+    "exampleSentence": "Contemporary art reflects current societal issues.",
+    "collocations": [
+      "contemporary society",
+      "contemporary artist",
+      "contemporary literature"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "contrast",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to compare to show differences",
+    "exampleSentence": "The study contrasts urban and rural lifestyles.",
+    "collocations": [
+      "contrast sharply",
+      "contrast effectively",
+      "contrast clearly"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "contribute",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "to give or add to something",
+    "exampleSentence": "Volunteers contribute time to community projects.",
+    "collocations": [
+      "contribute actively",
+      "contribute significantly",
+      "contribute financially"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "convene",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to bring together for a meeting or activity",
+    "exampleSentence": "The board convened to discuss the new policy.",
+    "collocations": [
+      "convene meeting",
+      "convene session",
+      "convene committee"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "conventional",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Culture"
+    ],
+    "meaning": "based on traditional ideas or practices",
+    "exampleSentence": "The design uses conventional methods for efficiency.",
+    "collocations": [
+      "conventional approach",
+      "conventional method",
+      "conventional wisdom"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "convert",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to change from one form to another",
+    "exampleSentence": "The factory converts waste into energy.",
+    "collocations": [
+      "convert format",
+      "convert currency",
+      "convert resources"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "coordinate",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to organize people or activities to work together effectively",
+    "exampleSentence": "She coordinates multiple teams for the project.",
+    "collocations": [
+      "coordinate efforts",
+      "coordinate activities",
+      "coordinate resources"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "corporate",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "relating to a large company or group",
+    "exampleSentence": "Corporate responsibility is essential for modern companies.",
+    "collocations": [
+      "corporate policy",
+      "corporate culture",
+      "corporate strategy"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "criteria",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "standards used to judge or decide something",
+    "exampleSentence": "The applicants were judged against strict criteria.",
+    "collocations": [
+      "evaluation criteria",
+      "selection criteria",
+      "performance criteria"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "crucial",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "extremely important",
+    "exampleSentence": "Timing is crucial for the success of the launch.",
+    "collocations": [
+      "crucial factor",
+      "crucial role",
+      "crucial decision"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "currency",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "system of money in general use",
+    "exampleSentence": "The country introduced a new currency last year.",
+    "collocations": [
+      "foreign currency",
+      "local currency",
+      "currency exchange"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "cycle",
+    "bandLevel": 7,
+    "topics": [
+      "Environment",
+      "Academic"
+    ],
+    "meaning": "a series of events that repeat regularly",
+    "exampleSentence": "The water cycle is essential for life on Earth.",
+    "collocations": [
+      "production cycle",
+      "learning cycle",
+      "life cycle"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "debate",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "a formal discussion on a particular topic",
+    "exampleSentence": "The debate over climate policy continues.",
+    "collocations": [
+      "public debate",
+      "political debate",
+      "class debate"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "declare",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to announce something officially",
+    "exampleSentence": "The government declared a state of emergency.",
+    "collocations": [
+      "declare independence",
+      "declare bankruptcy",
+      "declare war"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "demonstrate",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Technology"
+    ],
+    "meaning": "to show clearly or prove something",
+    "exampleSentence": "The experiment demonstrates the principle of physics.",
+    "collocations": [
+      "demonstrate ability",
+      "demonstrate skill",
+      "demonstrate principle"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "denote",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to be a sign of; indicate",
+    "exampleSentence": "The symbol denotes a protected area.",
+    "collocations": [
+      "denote meaning",
+      "denote symbol",
+      "denote concept"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "depression",
+    "bandLevel": 7,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "a mental health condition characterized by persistent sadness",
+    "exampleSentence": "Depression affects millions worldwide.",
+    "collocations": [
+      "clinical depression",
+      "major depression",
+      "economic depression"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "derive",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to obtain something from a source",
+    "exampleSentence": "Many English words derive from Latin.",
+    "collocations": [
+      "derive benefit",
+      "derive meaning",
+      "derive advantage"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "designate",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to officially choose someone or something for a specific purpose",
+    "exampleSentence": "She was designated as the project leader.",
+    "collocations": [
+      "designate role",
+      "designate area",
+      "designate responsibility"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "detect",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Health"
+    ],
+    "meaning": "to discover or identify the presence of something",
+    "exampleSentence": "The sensors can detect smoke in seconds.",
+    "collocations": [
+      "detect error",
+      "detect signal",
+      "detect disease"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "differ",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to be unlike or distinct",
+    "exampleSentence": "Opinions differ on this controversial topic.",
+    "collocations": [
+      "differ significantly",
+      "differ slightly",
+      "differ widely"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "dimension",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a measurable extent of some kind, such as length or width",
+    "exampleSentence": "The dimensions of the room were carefully measured.",
+    "collocations": [
+      "physical dimension",
+      "key dimension",
+      "spatial dimension"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "discrete",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "separate and distinct",
+    "exampleSentence": "The data is divided into discrete categories.",
+    "collocations": [
+      "discrete variable",
+      "discrete component",
+      "discrete unit"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "displace",
+    "bandLevel": 7,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "to force someone or something to move from its usual place",
+    "exampleSentence": "The flood displaced hundreds of families.",
+    "collocations": [
+      "displace population",
+      "displace worker",
+      "displace community"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "display",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to show or exhibit something clearly",
+    "exampleSentence": "The museum displays ancient artifacts.",
+    "collocations": [
+      "display information",
+      "display feature",
+      "display item"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "distort",
+    "bandLevel": 7,
+    "topics": [
+      "Media",
+      "Academic"
+    ],
+    "meaning": "to change something from its true meaning or shape",
+    "exampleSentence": "The statistics were distorted to fit the narrative.",
+    "collocations": [
+      "distort image",
+      "distort facts",
+      "distort perception"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "diverse",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Culture"
+    ],
+    "meaning": "showing a great deal of variety",
+    "exampleSentence": "The university has a diverse student population.",
+    "collocations": [
+      "diverse culture",
+      "diverse opinion",
+      "diverse background"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "domain",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "an area of knowledge or activity",
+    "exampleSentence": "Her expertise lies in the domain of biotechnology.",
+    "collocations": [
+      "academic domain",
+      "professional domain",
+      "knowledge domain"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "draft",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "a preliminary version of a written document",
+    "exampleSentence": "He prepared a draft of the proposal.",
+    "collocations": [
+      "draft report",
+      "draft document",
+      "draft plan"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "duration",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "the length of time something lasts",
+    "exampleSentence": "The duration of the course is three months.",
+    "collocations": [
+      "short duration",
+      "long duration",
+      "fixed duration"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "elaborate",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to explain in more detail",
+    "exampleSentence": "Please elaborate on your research findings.",
+    "collocations": [
+      "elaborate plan",
+      "elaborate explanation",
+      "elaborate design"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "emerge",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to appear or become visible",
+    "exampleSentence": "New trends are emerging in the tech industry.",
+    "collocations": [
+      "emerge clearly",
+      "emerge suddenly",
+      "emerge gradually"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "emphasize",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to give special importance to something",
+    "exampleSentence": "The teacher emphasized the key points of the lesson.",
+    "collocations": [
+      "emphasize importance",
+      "emphasize role",
+      "emphasize aspect"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "enable",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Education"
+    ],
+    "meaning": "to make something possible or easy",
+    "exampleSentence": "The software enables users to track their progress.",
+    "collocations": [
+      "enable access",
+      "enable functionality",
+      "enable process"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "encounter",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to meet or experience something unexpectedly",
+    "exampleSentence": "We encountered several challenges during the project.",
+    "collocations": [
+      "encounter problem",
+      "encounter difficulty",
+      "encounter issue"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "enhance",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to improve or increase the quality of something",
+    "exampleSentence": "The new features enhance user experience.",
+    "collocations": [
+      "enhance performance",
+      "enhance quality",
+      "enhance efficiency"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "enormous",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Environment"
+    ],
+    "meaning": "very large in size or amount",
+    "exampleSentence": "The company made an enormous profit last year.",
+    "collocations": [
+      "enormous impact",
+      "enormous size",
+      "enormous benefit"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "ensure",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to make certain that something happens",
+    "exampleSentence": "We ensure quality in all our products.",
+    "collocations": [
+      "ensure success",
+      "ensure accuracy",
+      "ensure compliance"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "entity",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "something that exists independently",
+    "exampleSentence": "The company is a separate legal entity.",
+    "collocations": [
+      "legal entity",
+      "independent entity",
+      "corporate entity"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "equivalent",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "equal in value, amount, or meaning",
+    "exampleSentence": "One dollar is equivalent to about 0.85 euros.",
+    "collocations": [
+      "direct equivalent",
+      "approximate equivalent",
+      "equivalent value"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "eradicate",
+    "bandLevel": 7,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "to completely get rid of something",
+    "exampleSentence": "The government aims to eradicate illiteracy.",
+    "collocations": [
+      "eradicate disease",
+      "eradicate problem",
+      "eradicate poverty"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "establish",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to start or create something officially",
+    "exampleSentence": "They established a new research center.",
+    "collocations": [
+      "establish relationship",
+      "establish company",
+      "establish guidelines"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "evaluate",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to assess the value or quality of something",
+    "exampleSentence": "Teachers evaluate students' work each semester.",
+    "collocations": [
+      "evaluate performance",
+      "evaluate outcome",
+      "evaluate quality"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "evident",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "obvious or clear",
+    "exampleSentence": "The benefits of the program are evident.",
+    "collocations": [
+      "clearly evident",
+      "become evident",
+      "remain evident"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "exceed",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to go beyond a limit or expectation",
+    "exampleSentence": "Sales exceeded last year's figures.",
+    "collocations": [
+      "exceed expectations",
+      "exceed limit",
+      "exceed target"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "exclude",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to prevent someone or something from being included",
+    "exampleSentence": "Certain cases were excluded from the study.",
+    "collocations": [
+      "exclude option",
+      "exclude possibility",
+      "exclude group"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "exhibit",
+    "bandLevel": 7,
+    "topics": [
+      "Culture",
+      "Education"
+    ],
+    "meaning": "to show something publicly",
+    "exampleSentence": "The gallery exhibits modern art.",
+    "collocations": [
+      "exhibit skill",
+      "exhibit behavior",
+      "exhibit artwork"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "expand",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to increase in size, number, or scope",
+    "exampleSentence": "The company plans to expand into Asia.",
+    "collocations": [
+      "expand market",
+      "expand operations",
+      "expand scope"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "expertise",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "specialized knowledge or skill",
+    "exampleSentence": "The project requires technical expertise.",
+    "collocations": [
+      "technical expertise",
+      "professional expertise",
+      "expertise area"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "explicit",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "clearly expressed and leaving no doubt",
+    "exampleSentence": "The instructions were explicit and easy to follow.",
+    "collocations": [
+      "explicit instruction",
+      "explicit content",
+      "explicit statement"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "facilitate",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to make something easier",
+    "exampleSentence": "Technology facilitates communication across the globe.",
+    "collocations": [
+      "facilitate process",
+      "facilitate learning",
+      "facilitate discussion"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "feature",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "a distinctive attribute or aspect",
+    "exampleSentence": "The phone has many innovative features.",
+    "collocations": [
+      "key feature",
+      "distinct feature",
+      "main feature"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "flexible",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "able to adapt to new conditions",
+    "exampleSentence": "The schedule is flexible to accommodate staff needs.",
+    "collocations": [
+      "flexible approach",
+      "flexible schedule",
+      "flexible system"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "focus",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to concentrate attention or effort",
+    "exampleSentence": "Students should focus on their assignments.",
+    "collocations": [
+      "focus attention",
+      "focus effort",
+      "focus area"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "function",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "an activity or purpose natural to something",
+    "exampleSentence": "The main function of the heart is to pump blood.",
+    "collocations": [
+      "primary function",
+      "function properly",
+      "function effectively"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "generate",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to produce or create",
+    "exampleSentence": "The new policies generate revenue for the company.",
+    "collocations": [
+      "generate income",
+      "generate energy",
+      "generate interest"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "grant",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to give or allow formally",
+    "exampleSentence": "The university granted him a scholarship.",
+    "collocations": [
+      "grant permission",
+      "grant access",
+      "grant funding"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "highlight",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to emphasize or draw attention to",
+    "exampleSentence": "The report highlights the key issues.",
+    "collocations": [
+      "highlight importance",
+      "highlight problem",
+      "highlight feature"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "hypothesis",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "an idea proposed as true for testing",
+    "exampleSentence": "The experiment tested the initial hypothesis.",
+    "collocations": [
+      "formulate hypothesis",
+      "test hypothesis",
+      "validate hypothesis"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "identify",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to recognize or establish the identity of something",
+    "exampleSentence": "Scientists identified a new species of butterfly.",
+    "collocations": [
+      "identify problem",
+      "identify source",
+      "identify solution"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "illustrate",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Academic"
+    ],
+    "meaning": "to explain or make clear using examples",
+    "exampleSentence": "The teacher illustrated the concept with diagrams.",
+    "collocations": [
+      "illustrate point",
+      "illustrate concept",
+      "illustrate example"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "impact",
+    "bandLevel": 7,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "a strong effect or influence",
+    "exampleSentence": "The policy had a positive impact on the economy.",
+    "collocations": [
+      "significant impact",
+      "major impact",
+      "direct impact"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "implement",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to put a plan or system into action",
+    "exampleSentence": "The company implemented new security measures.",
+    "collocations": [
+      "implement policy",
+      "implement strategy",
+      "implement system"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "implicate",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to suggest involvement in a crime or problem",
+    "exampleSentence": "The report implicates poor management in the failure.",
+    "collocations": [
+      "implicate someone",
+      "implicate policy",
+      "implicate decision"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "impose",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to force something to be accepted or followed",
+    "exampleSentence": "The government imposed new tax regulations.",
+    "collocations": [
+      "impose law",
+      "impose restriction",
+      "impose penalty"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "incentive",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "something that encourages action",
+    "exampleSentence": "Bonuses act as an incentive for employees.",
+    "collocations": [
+      "financial incentive",
+      "strong incentive",
+      "provide incentive"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "incorporate",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to include as part of something larger",
+    "exampleSentence": "The report incorporates recent research findings.",
+    "collocations": [
+      "incorporate data",
+      "incorporate feedback",
+      "incorporate feature"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "indicate",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to show or point out something",
+    "exampleSentence": "The results indicate a positive trend.",
+    "collocations": [
+      "indicate change",
+      "indicate growth",
+      "indicate risk"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "inevitable",
+    "bandLevel": 7,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "certain to happen and unavoidable",
+    "exampleSentence": "Change is inevitable in technology industries.",
+    "collocations": [
+      "inevitable consequence",
+      "inevitable result",
+      "inevitable outcome"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "infer",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to conclude something from evidence and reasoning",
+    "exampleSentence": "We can infer meaning from the data.",
+    "collocations": [
+      "infer meaning",
+      "infer conclusion",
+      "infer intention"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "infrastructure",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "basic systems and services needed for operation",
+    "exampleSentence": "The country invested in transport infrastructure.",
+    "collocations": [
+      "public infrastructure",
+      "digital infrastructure",
+      "basic infrastructure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "insight",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a deep understanding of something",
+    "exampleSentence": "The survey provides valuable insight into customer behavior.",
+    "collocations": [
+      "gain insight",
+      "valuable insight",
+      "deep insight"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "integrate",
+    "bandLevel": 7,
+    "topics": [
+      "Education",
+      "Technology"
+    ],
+    "meaning": "to combine things so they work together",
+    "exampleSentence": "The system integrates multiple data sources.",
+    "collocations": [
+      "integrate system",
+      "integrate data",
+      "integrate technology"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "interpret",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to explain the meaning of something",
+    "exampleSentence": "Researchers interpret the results carefully.",
+    "collocations": [
+      "interpret data",
+      "interpret results",
+      "interpret text"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "justify",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to show or prove that something is reasonable",
+    "exampleSentence": "He justified his decision with strong evidence.",
+    "collocations": [
+      "justify action",
+      "justify decision",
+      "justify claim"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "layer",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "a level or part arranged over another",
+    "exampleSentence": "The model consists of multiple layers.",
+    "collocations": [
+      "surface layer",
+      "data layer",
+      "protective layer"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "magnitude",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "the great size or importance of something",
+    "exampleSentence": "The magnitude of the earthquake was significant.",
+    "collocations": [
+      "great magnitude",
+      "large magnitude",
+      "magnitude impact"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "manipulate",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Society"
+    ],
+    "meaning": "to control or influence unfairly",
+    "exampleSentence": "Media can manipulate public opinion.",
+    "collocations": [
+      "manipulate data",
+      "manipulate system",
+      "manipulate image"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "minimize",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Environment"
+    ],
+    "meaning": "to reduce something to the smallest possible amount",
+    "exampleSentence": "Companies aim to minimize environmental impact.",
+    "collocations": [
+      "minimize risk",
+      "minimize cost",
+      "minimize damage"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "monitor",
+    "bandLevel": 7,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to observe and check progress or quality",
+    "exampleSentence": "Managers monitor employee performance.",
+    "collocations": [
+      "monitor progress",
+      "monitor system",
+      "monitor performance"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "notion",
+    "bandLevel": 7,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "an idea or belief",
+    "exampleSentence": "The notion of equality is central to democracy.",
+    "collocations": [
+      "basic notion",
+      "common notion",
+      "theoretical notion"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "objective",
+    "bandLevel": 7,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "a goal or aim",
+    "exampleSentence": "The main objective is to increase efficiency.",
+    "collocations": [
+      "main objective",
+      "clear objective",
+      "achieve objective"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "abstract",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "existing in thought or as an idea but not having a physical existence",
+    "exampleSentence": "He wrote an abstract summary of his research.",
+    "collocations": [
+      "abstract concept",
+      "abstract idea",
+      "abstract art"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "accommodate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to provide space or adjust to meet needs",
+    "exampleSentence": "The hotel can accommodate 300 guests.",
+    "collocations": [
+      "accommodate needs",
+      "accommodate guests",
+      "accommodate requirements"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "allocate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to distribute resources for a particular purpose",
+    "exampleSentence": "The manager allocated funds for research projects.",
+    "collocations": [
+      "allocate resources",
+      "allocate budget",
+      "allocate time"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "ambiguous",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "having more than one possible meaning",
+    "exampleSentence": "The instructions were ambiguous and confusing.",
+    "collocations": [
+      "ambiguous statement",
+      "ambiguous meaning",
+      "ambiguous context"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "analogy",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Academic"
+    ],
+    "meaning": "a comparison between two things for explanation",
+    "exampleSentence": "The teacher used an analogy to explain the process.",
+    "collocations": [
+      "draw analogy",
+      "use analogy",
+      "clear analogy"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "apparent",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "clearly visible or understood",
+    "exampleSentence": "It was apparent that he was nervous.",
+    "collocations": [
+      "be apparent",
+      "remain apparent",
+      "become apparent"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "arbitrary",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "based on random choice or personal whim rather than reason",
+    "exampleSentence": "The selection process seemed completely arbitrary.",
+    "collocations": [
+      "arbitrary decision",
+      "arbitrary choice",
+      "arbitrary rule"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "articulate",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to express clearly in words",
+    "exampleSentence": "She can articulate complex ideas clearly.",
+    "collocations": [
+      "articulate idea",
+      "articulate argument",
+      "articulate view"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "assert",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to state a fact or belief confidently",
+    "exampleSentence": "He asserted his opinion during the meeting.",
+    "collocations": [
+      "assert authority",
+      "assert control",
+      "assert position"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "attain",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to achieve something after effort",
+    "exampleSentence": "She attained a high level of proficiency.",
+    "collocations": [
+      "attain goal",
+      "attain level",
+      "attain status"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "attribute",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to regard something as being caused by",
+    "exampleSentence": "They attribute their success to teamwork.",
+    "collocations": [
+      "attribute to",
+      "attribute success",
+      "attribute factor"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "bias",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "prejudice in favor of or against something",
+    "exampleSentence": "The study showed bias in the selection process.",
+    "collocations": [
+      "cultural bias",
+      "unconscious bias",
+      "bias effect"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "coherent",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "logically connected and consistent",
+    "exampleSentence": "Her argument was clear and coherent.",
+    "collocations": [
+      "coherent argument",
+      "coherent plan",
+      "coherent structure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "compile",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "to collect and assemble information",
+    "exampleSentence": "The team compiled the annual report.",
+    "collocations": [
+      "compile data",
+      "compile list",
+      "compile report"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "complement",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "something that completes or enhances",
+    "exampleSentence": "The design complements the architecture of the building.",
+    "collocations": [
+      "complement feature",
+      "complement role",
+      "complement aspect"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "comprehensive",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "including all or nearly all elements",
+    "exampleSentence": "The report provides a comprehensive analysis.",
+    "collocations": [
+      "comprehensive study",
+      "comprehensive plan",
+      "comprehensive review"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "concrete",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "real and specific rather than abstract",
+    "exampleSentence": "The proposal included concrete examples.",
+    "collocations": [
+      "concrete evidence",
+      "concrete example",
+      "concrete solution"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "confer",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to grant or bestow",
+    "exampleSentence": "The university conferred degrees to the graduates.",
+    "collocations": [
+      "confer degree",
+      "confer title",
+      "confer honor"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "conflict",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "a serious disagreement or argument",
+    "exampleSentence": "The project suffered from internal conflict.",
+    "collocations": [
+      "conflict situation",
+      "conflict resolution",
+      "conflict issue"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "constrain",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to limit or restrict",
+    "exampleSentence": "Budget constraints affected project scope.",
+    "collocations": [
+      "constrain action",
+      "constrain decision",
+      "constrain resources"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "consult",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to seek advice or information",
+    "exampleSentence": "The manager consulted with the legal team.",
+    "collocations": [
+      "consult expert",
+      "consult advisor",
+      "consult professional"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "contemporary",
+    "bandLevel": 8,
+    "topics": [
+      "Culture",
+      "Academic"
+    ],
+    "meaning": "belonging to the present time",
+    "exampleSentence": "She studies contemporary literature.",
+    "collocations": [
+      "contemporary art",
+      "contemporary society",
+      "contemporary culture"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "contrast",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to compare differences",
+    "exampleSentence": "The report contrasts urban and rural lifestyles.",
+    "collocations": [
+      "draw contrast",
+      "in contrast",
+      "contrast sharply"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "contribute",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to give or add to a cause",
+    "exampleSentence": "Employees contribute to charity programs.",
+    "collocations": [
+      "contribute effort",
+      "contribute resource",
+      "contribute idea"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "conventional",
+    "bandLevel": 8,
+    "topics": [
+      "Culture",
+      "Academic"
+    ],
+    "meaning": "based on traditional practices",
+    "exampleSentence": "They used conventional methods in their research.",
+    "collocations": [
+      "conventional approach",
+      "conventional method",
+      "conventional wisdom"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "convey",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to communicate or express",
+    "exampleSentence": "The article conveys the author's message effectively.",
+    "collocations": [
+      "convey meaning",
+      "convey idea",
+      "convey information"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "convince",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to persuade someone",
+    "exampleSentence": "He convinced the board to approve the plan.",
+    "collocations": [
+      "convince audience",
+      "convince authority",
+      "convince customer"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "criteria",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "standards by which something is judged",
+    "exampleSentence": "The selection was based on clear criteria.",
+    "collocations": [
+      "selection criteria",
+      "evaluation criteria",
+      "performance criteria"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "crucial",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "extremely important",
+    "exampleSentence": "Timing is crucial for project success.",
+    "collocations": [
+      "crucial factor",
+      "crucial decision",
+      "crucial role"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "deduce",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to reach a conclusion using reasoning",
+    "exampleSentence": "We can deduce the answer from the evidence.",
+    "collocations": [
+      "deduce conclusion",
+      "deduce result",
+      "deduce fact"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "define",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to explain the meaning of something",
+    "exampleSentence": "Please define the key terms.",
+    "collocations": [
+      "define concept",
+      "define term",
+      "define principle"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "derive",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to obtain something from a source",
+    "exampleSentence": "Many English words derive from Latin.",
+    "collocations": [
+      "derive benefit",
+      "derive meaning",
+      "derive conclusion"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "devote",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Society"
+    ],
+    "meaning": "to give time or effort to something",
+    "exampleSentence": "She devoted herself to studying medicine.",
+    "collocations": [
+      "devote time",
+      "devote effort",
+      "devote attention"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "discrete",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "separate and distinct",
+    "exampleSentence": "The data is divided into discrete categories.",
+    "collocations": [
+      "discrete component",
+      "discrete unit",
+      "discrete element"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "displace",
+    "bandLevel": 8,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "to force something or someone out of its usual place",
+    "exampleSentence": "Floods displaced thousands of people.",
+    "collocations": [
+      "displace population",
+      "displace resource",
+      "displace habitat"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "display",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to show or exhibit something",
+    "exampleSentence": "The gallery displays modern artwork.",
+    "collocations": [
+      "display feature",
+      "display information",
+      "display content"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "distinct",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "clearly different or separate",
+    "exampleSentence": "There are three distinct types of behavior.",
+    "collocations": [
+      "distinct category",
+      "distinct difference",
+      "distinct characteristic"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "distort",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Media"
+    ],
+    "meaning": "to change something so it is no longer accurate",
+    "exampleSentence": "The image was distorted on the screen.",
+    "collocations": [
+      "distort reality",
+      "distort fact",
+      "distort message"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "diverse",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "showing variety",
+    "exampleSentence": "The school has a diverse student population.",
+    "collocations": [
+      "diverse background",
+      "diverse range",
+      "diverse culture"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "document",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to record information officially",
+    "exampleSentence": "The events were carefully documented.",
+    "collocations": [
+      "document process",
+      "document evidence",
+      "document procedure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "eliminate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Health"
+    ],
+    "meaning": "to remove or get rid of something",
+    "exampleSentence": "The program aims to eliminate errors.",
+    "collocations": [
+      "eliminate risk",
+      "eliminate possibility",
+      "eliminate problem"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "empirical",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "based on observation or experiment rather than theory",
+    "exampleSentence": "The study provided empirical evidence for the theory.",
+    "collocations": [
+      "empirical data",
+      "empirical research",
+      "empirical study"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "enable",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to make something possible",
+    "exampleSentence": "The software enables remote collaboration.",
+    "collocations": [
+      "enable access",
+      "enable feature",
+      "enable process"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "encounter",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "to experience or meet something",
+    "exampleSentence": "They encountered unexpected challenges.",
+    "collocations": [
+      "encounter problem",
+      "encounter issue",
+      "encounter difficulty"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "enhance",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to improve or increase",
+    "exampleSentence": "The update enhances performance.",
+    "collocations": [
+      "enhance quality",
+      "enhance function",
+      "enhance feature"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "enormous",
+    "bandLevel": 8,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "very large",
+    "exampleSentence": "The project had an enormous impact.",
+    "collocations": [
+      "enormous size",
+      "enormous amount",
+      "enormous influence"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "equivalent",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "equal in value or meaning",
+    "exampleSentence": "One kilogram is roughly equivalent to 2.2 pounds.",
+    "collocations": [
+      "equivalent value",
+      "equivalent amount",
+      "equivalent effect"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "establish",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to start or create something",
+    "exampleSentence": "They established a new protocol.",
+    "collocations": [
+      "establish system",
+      "establish company",
+      "establish guidelines"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "evaluate",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to assess the value or quality of something",
+    "exampleSentence": "Teachers evaluate student performance regularly.",
+    "collocations": [
+      "evaluate performance",
+      "evaluate outcome",
+      "evaluate data"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "evident",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "clear and obvious",
+    "exampleSentence": "The improvements were evident.",
+    "collocations": [
+      "be evident",
+      "remain evident",
+      "become evident"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "exceed",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to go beyond a limit",
+    "exampleSentence": "Profits exceeded expectations.",
+    "collocations": [
+      "exceed limit",
+      "exceed expectation",
+      "exceed target"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "exclude",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to prevent from including",
+    "exampleSentence": "Certain cases were excluded.",
+    "collocations": [
+      "exclude option",
+      "exclude group",
+      "exclude possibility"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "exhibit",
+    "bandLevel": 8,
+    "topics": [
+      "Culture",
+      "Education"
+    ],
+    "meaning": "to show publicly",
+    "exampleSentence": "The museum exhibits historical artifacts.",
+    "collocations": [
+      "exhibit behavior",
+      "exhibit skill",
+      "exhibit work"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "expand",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to increase in size or scope",
+    "exampleSentence": "They plan to expand operations overseas.",
+    "collocations": [
+      "expand market",
+      "expand operations",
+      "expand network"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "expertise",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "specialized knowledge or skill",
+    "exampleSentence": "The project required technical expertise.",
+    "collocations": [
+      "technical expertise",
+      "professional expertise",
+      "expertise area"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "facilitate",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to make something easier or help it happen",
+    "exampleSentence": "The new software facilitates communication.",
+    "collocations": [
+      "facilitate process",
+      "facilitate learning",
+      "facilitate discussion"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "finite",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "having limits or bounds",
+    "exampleSentence": "Resources on the planet are finite.",
+    "collocations": [
+      "finite resource",
+      "finite capacity",
+      "finite number"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "fluctuate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Environment"
+    ],
+    "meaning": "to change or vary irregularly",
+    "exampleSentence": "Stock prices fluctuate daily.",
+    "collocations": [
+      "fluctuate rate",
+      "fluctuate level",
+      "fluctuate price"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "framework",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "a basic structure underlying a system",
+    "exampleSentence": "The framework guides the development process.",
+    "collocations": [
+      "policy framework",
+      "legal framework",
+      "framework structure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "fundamental",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "forming a necessary base or core",
+    "exampleSentence": "Understanding grammar is fundamental for language learning.",
+    "collocations": [
+      "fundamental principle",
+      "fundamental concept",
+      "fundamental rule"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "generate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to produce or create",
+    "exampleSentence": "Solar panels generate electricity.",
+    "collocations": [
+      "generate energy",
+      "generate income",
+      "generate data"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "highlight",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Culture"
+    ],
+    "meaning": "to emphasize or make prominent",
+    "exampleSentence": "The report highlights key findings.",
+    "collocations": [
+      "highlight issue",
+      "highlight point",
+      "highlight aspect"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "hypothesis",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "an idea or explanation to test",
+    "exampleSentence": "The scientist tested the hypothesis through experiments.",
+    "collocations": [
+      "test hypothesis",
+      "propose hypothesis",
+      "validate hypothesis"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "identical",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "exactly the same",
+    "exampleSentence": "The twins wore identical clothes.",
+    "collocations": [
+      "identical item",
+      "identical result",
+      "identical process"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "illustrate",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Academic"
+    ],
+    "meaning": "to explain using examples or pictures",
+    "exampleSentence": "The diagram illustrates the process clearly.",
+    "collocations": [
+      "illustrate concept",
+      "illustrate example",
+      "illustrate method"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "immense",
+    "bandLevel": 8,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "extremely large or great",
+    "exampleSentence": "The project had an immense impact on the community.",
+    "collocations": [
+      "immense value",
+      "immense size",
+      "immense influence"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "implement",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to put a plan or system into effect",
+    "exampleSentence": "The company implemented the new policy efficiently.",
+    "collocations": [
+      "implement strategy",
+      "implement system",
+      "implement plan"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "imply",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to suggest without stating directly",
+    "exampleSentence": "The results imply a need for change.",
+    "collocations": [
+      "imply meaning",
+      "imply consequence",
+      "imply relationship"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "incentive",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "something that motivates action",
+    "exampleSentence": "Tax breaks provide an incentive for investment.",
+    "collocations": [
+      "financial incentive",
+      "strong incentive",
+      "provide incentive"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "incidence",
+    "bandLevel": 8,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "the occurrence rate of something",
+    "exampleSentence": "The incidence of disease has increased.",
+    "collocations": [
+      "incidence rate",
+      "high incidence",
+      "incidence level"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "incline",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to tend to think or act in a certain way",
+    "exampleSentence": "She is inclined to accept the proposal.",
+    "collocations": [
+      "incline toward",
+      "incline opinion",
+      "incline behavior"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "incorporate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to include as part of something",
+    "exampleSentence": "The app incorporates user feedback.",
+    "collocations": [
+      "incorporate feature",
+      "incorporate data",
+      "incorporate idea"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "index",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "an alphabetical or numerical list for reference",
+    "exampleSentence": "The book includes an index of terms.",
+    "collocations": [
+      "financial index",
+      "index value",
+      "index term"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "inhibit",
+    "bandLevel": 8,
+    "topics": [
+      "Health",
+      "Academic"
+    ],
+    "meaning": "to restrain or prevent",
+    "exampleSentence": "Fear can inhibit progress.",
+    "collocations": [
+      "inhibit growth",
+      "inhibit process",
+      "inhibit function"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "initial",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "occurring at the beginning",
+    "exampleSentence": "The initial phase was challenging.",
+    "collocations": [
+      "initial stage",
+      "initial step",
+      "initial reaction"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "initiate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to start something",
+    "exampleSentence": "They initiated the project last month.",
+    "collocations": [
+      "initiate process",
+      "initiate program",
+      "initiate action"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "innovate",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to introduce new ideas or methods",
+    "exampleSentence": "The company must innovate to stay competitive.",
+    "collocations": [
+      "innovate product",
+      "innovate process",
+      "innovate solution"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "insightful",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "showing deep understanding",
+    "exampleSentence": "The article provides insightful analysis of the issue.",
+    "collocations": [
+      "insightful comment",
+      "insightful analysis",
+      "insightful observation"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "integral",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "necessary and essential to completeness",
+    "exampleSentence": "Teamwork is an integral part of success.",
+    "collocations": [
+      "integral part",
+      "integral component",
+      "integral role"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "intensify",
+    "bandLevel": 8,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "to become stronger or more extreme",
+    "exampleSentence": "The storm began to intensify overnight.",
+    "collocations": [
+      "intensify effort",
+      "intensify conflict",
+      "intensify pressure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "interpretation",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "an explanation or understanding of something",
+    "exampleSentence": "Different scholars offer different interpretations of the text.",
+    "collocations": [
+      "legal interpretation",
+      "personal interpretation",
+      "data interpretation"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "intervene",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Health"
+    ],
+    "meaning": "to act to change a situation",
+    "exampleSentence": "Authorities intervened to prevent violence.",
+    "collocations": [
+      "intervene early",
+      "intervene directly",
+      "intervene decisively"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "intricate",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "very detailed and complicated",
+    "exampleSentence": "The machine has an intricate design.",
+    "collocations": [
+      "intricate design",
+      "intricate system",
+      "intricate pattern"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "isolate",
+    "bandLevel": 8,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "to separate from others",
+    "exampleSentence": "Patients were isolated to prevent infection.",
+    "collocations": [
+      "isolate variable",
+      "isolate case",
+      "isolate problem"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "justify",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to show something is reasonable",
+    "exampleSentence": "He justified his decision with evidence.",
+    "collocations": [
+      "justify action",
+      "justify decision",
+      "justify claim"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "leverage",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to use something to maximum advantage",
+    "exampleSentence": "The company leveraged technology to improve sales.",
+    "collocations": [
+      "leverage resources",
+      "leverage data",
+      "leverage advantage"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "likewise",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "in the same way; similarly",
+    "exampleSentence": "Students improved; likewise, teachers benefited.",
+    "collocations": [
+      "likewise apply",
+      "likewise effect",
+      "likewise situation"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "manipulate",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Society"
+    ],
+    "meaning": "to control or influence unfairly",
+    "exampleSentence": "Media can manipulate public opinion.",
+    "collocations": [
+      "manipulate data",
+      "manipulate system",
+      "manipulate perception"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "maximize",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to increase something as much as possible",
+    "exampleSentence": "The company aims to maximize profit.",
+    "collocations": [
+      "maximize efficiency",
+      "maximize output",
+      "maximize benefit"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "mediate",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to help resolve a conflict between parties",
+    "exampleSentence": "The manager mediated the dispute.",
+    "collocations": [
+      "mediate conflict",
+      "mediate dispute",
+      "mediate negotiation"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "minimal",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "very small in amount",
+    "exampleSentence": "The project required minimal investment.",
+    "collocations": [
+      "minimal impact",
+      "minimal cost",
+      "minimal effort"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "modify",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Education"
+    ],
+    "meaning": "to make partial changes",
+    "exampleSentence": "They modified the design to improve usability.",
+    "collocations": [
+      "modify system",
+      "modify policy",
+      "modify structure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "monitor",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to observe and check progress or quality over time",
+    "exampleSentence": "Managers monitor employee performance regularly.",
+    "collocations": [
+      "monitor system",
+      "monitor progress",
+      "monitor performance"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "notable",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "worthy of attention; remarkable",
+    "exampleSentence": "There was a notable improvement in results.",
+    "collocations": [
+      "notable change",
+      "notable achievement",
+      "notable difference"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "objective",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "a goal or aim",
+    "exampleSentence": "The main objective is to increase efficiency.",
+    "collocations": [
+      "clear objective",
+      "main objective",
+      "achieve objective"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "obtain",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to get or acquire something",
+    "exampleSentence": "Students obtain certificates after completing the course.",
+    "collocations": [
+      "obtain data",
+      "obtain permission",
+      "obtain results"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "occur",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "to happen or take place",
+    "exampleSentence": "The accident occurred late at night.",
+    "collocations": [
+      "occur naturally",
+      "occur frequently",
+      "occur suddenly"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "offset",
+    "bandLevel": 8,
+    "topics": [
+      "Environment",
+      "Business"
+    ],
+    "meaning": "to counterbalance or compensate for something",
+    "exampleSentence": "Trees can offset carbon emissions.",
+    "collocations": [
+      "offset cost",
+      "offset loss",
+      "offset impact"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "ongoing",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "continuing or in progress",
+    "exampleSentence": "The investigation is ongoing.",
+    "collocations": [
+      "ongoing project",
+      "ongoing issue",
+      "ongoing development"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "optimize",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to make the best or most effective use of something",
+    "exampleSentence": "The company optimized its workflow.",
+    "collocations": [
+      "optimize performance",
+      "optimize process",
+      "optimize system"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "overall",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "considering everything as a whole",
+    "exampleSentence": "Overall, the results were positive.",
+    "collocations": [
+      "overall impact",
+      "overall performance",
+      "overall effect"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "parallel",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "similar or happening at the same time",
+    "exampleSentence": "The two studies ran in parallel.",
+    "collocations": [
+      "parallel process",
+      "parallel system",
+      "parallel structure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "parameter",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "a limit or boundary that defines a system",
+    "exampleSentence": "The model operates within defined parameters.",
+    "collocations": [
+      "key parameter",
+      "adjust parameter",
+      "parameter value"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "persist",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "to continue to exist or occur",
+    "exampleSentence": "Problems persist despite efforts to solve them.",
+    "collocations": [
+      "persist problem",
+      "persist issue",
+      "persist over time"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "phase",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a distinct stage in a process",
+    "exampleSentence": "The project is in its final phase.",
+    "collocations": [
+      "initial phase",
+      "development phase",
+      "final phase"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "portion",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "a part of a whole",
+    "exampleSentence": "A large portion of the budget was allocated.",
+    "collocations": [
+      "large portion",
+      "small portion",
+      "portion of"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "previous",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "coming before in time",
+    "exampleSentence": "The results confirmed previous findings.",
+    "collocations": [
+      "previous research",
+      "previous study",
+      "previous version"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "prioritize",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to treat something as most important",
+    "exampleSentence": "The team prioritized urgent tasks.",
+    "collocations": [
+      "prioritize task",
+      "prioritize goal",
+      "prioritize need"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "proceed",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to continue after a pause",
+    "exampleSentence": "We will proceed with the plan.",
+    "collocations": [
+      "proceed carefully",
+      "proceed accordingly",
+      "proceed with"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "prohibit",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to formally forbid something",
+    "exampleSentence": "The law prohibits smoking indoors.",
+    "collocations": [
+      "prohibit activity",
+      "prohibit action",
+      "prohibit behavior"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "prominent",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "important or easily seen",
+    "exampleSentence": "She is a prominent figure in science.",
+    "collocations": [
+      "prominent role",
+      "prominent leader",
+      "prominent feature"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "promote",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to support or encourage something",
+    "exampleSentence": "The campaign promotes healthy living.",
+    "collocations": [
+      "promote awareness",
+      "promote growth",
+      "promote product"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "monitor",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to observe and check progress or quality over time",
+    "exampleSentence": "Managers monitor employee performance regularly.",
+    "collocations": [
+      "monitor system",
+      "monitor progress",
+      "monitor performance"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "notable",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "worthy of attention; remarkable",
+    "exampleSentence": "There was a notable improvement in results.",
+    "collocations": [
+      "notable change",
+      "notable achievement",
+      "notable difference"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "objective",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "a goal or aim",
+    "exampleSentence": "The main objective is to increase efficiency.",
+    "collocations": [
+      "clear objective",
+      "main objective",
+      "achieve objective"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "obtain",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to get or acquire something",
+    "exampleSentence": "Students obtain certificates after completing the course.",
+    "collocations": [
+      "obtain data",
+      "obtain permission",
+      "obtain results"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "occur",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "to happen or take place",
+    "exampleSentence": "The accident occurred late at night.",
+    "collocations": [
+      "occur naturally",
+      "occur frequently",
+      "occur suddenly"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "offset",
+    "bandLevel": 8,
+    "topics": [
+      "Environment",
+      "Business"
+    ],
+    "meaning": "to counterbalance or compensate for something",
+    "exampleSentence": "Trees can offset carbon emissions.",
+    "collocations": [
+      "offset cost",
+      "offset loss",
+      "offset impact"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "ongoing",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "continuing or in progress",
+    "exampleSentence": "The investigation is ongoing.",
+    "collocations": [
+      "ongoing project",
+      "ongoing issue",
+      "ongoing development"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "optimize",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Business"
+    ],
+    "meaning": "to make the best or most effective use of something",
+    "exampleSentence": "The company optimized its workflow.",
+    "collocations": [
+      "optimize performance",
+      "optimize process",
+      "optimize system"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "overall",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "considering everything as a whole",
+    "exampleSentence": "Overall, the results were positive.",
+    "collocations": [
+      "overall impact",
+      "overall performance",
+      "overall effect"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "parallel",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "similar or happening at the same time",
+    "exampleSentence": "The two studies ran in parallel.",
+    "collocations": [
+      "parallel process",
+      "parallel system",
+      "parallel structure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "parameter",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "a limit or boundary that defines a system",
+    "exampleSentence": "The model operates within defined parameters.",
+    "collocations": [
+      "key parameter",
+      "adjust parameter",
+      "parameter value"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "persist",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "to continue to exist or occur",
+    "exampleSentence": "Problems persist despite efforts to solve them.",
+    "collocations": [
+      "persist problem",
+      "persist issue",
+      "persist over time"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "phase",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "a distinct stage in a process",
+    "exampleSentence": "The project is in its final phase.",
+    "collocations": [
+      "initial phase",
+      "development phase",
+      "final phase"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "portion",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "a part of a whole",
+    "exampleSentence": "A large portion of the budget was allocated.",
+    "collocations": [
+      "large portion",
+      "small portion",
+      "portion of"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "previous",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "coming before in time",
+    "exampleSentence": "The results confirmed previous findings.",
+    "collocations": [
+      "previous research",
+      "previous study",
+      "previous version"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "prioritize",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to treat something as most important",
+    "exampleSentence": "The team prioritized urgent tasks.",
+    "collocations": [
+      "prioritize task",
+      "prioritize goal",
+      "prioritize need"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "proceed",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to continue after a pause",
+    "exampleSentence": "We will proceed with the plan.",
+    "collocations": [
+      "proceed carefully",
+      "proceed accordingly",
+      "proceed with"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "prohibit",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to formally forbid something",
+    "exampleSentence": "The law prohibits smoking indoors.",
+    "collocations": [
+      "prohibit activity",
+      "prohibit action",
+      "prohibit behavior"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "prominent",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "important or easily seen",
+    "exampleSentence": "She is a prominent figure in science.",
+    "collocations": [
+      "prominent role",
+      "prominent leader",
+      "prominent feature"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "promote",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to support or encourage something",
+    "exampleSentence": "The campaign promotes healthy living.",
+    "collocations": [
+      "promote awareness",
+      "promote growth",
+      "promote product"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "abstract",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "existing in thought or as an idea but not having a physical reality",
+    "exampleSentence": "The paper discusses abstract concepts in philosophy.",
+    "collocations": [
+      "abstract idea",
+      "abstract concept",
+      "abstract theory"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "acquire",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to obtain or gain something",
+    "exampleSentence": "Students acquire knowledge through reading and practice.",
+    "collocations": [
+      "acquire skill",
+      "acquire knowledge",
+      "acquire experience"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "adapt",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Technology"
+    ],
+    "meaning": "to adjust or modify for new conditions",
+    "exampleSentence": "The company adapted its strategy to the market changes.",
+    "collocations": [
+      "adapt system",
+      "adapt approach",
+      "adapt method"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "aggregate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "formed by combining several elements",
+    "exampleSentence": "We analyzed the aggregate data from all sources.",
+    "collocations": [
+      "aggregate score",
+      "aggregate data",
+      "aggregate result"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "allocate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to distribute resources or duties for a purpose",
+    "exampleSentence": "The manager allocated tasks to the team members.",
+    "collocations": [
+      "allocate resources",
+      "allocate time",
+      "allocate funds"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "analogous",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "similar or comparable in certain respects",
+    "exampleSentence": "The human brain is analogous to a computer in many ways.",
+    "collocations": [
+      "analogous situation",
+      "analogous example",
+      "analogous structure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "anticipate",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to expect or predict something",
+    "exampleSentence": "The team anticipated potential problems in the project.",
+    "collocations": [
+      "anticipate outcome",
+      "anticipate problem",
+      "anticipate effect"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "arbitrary",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "based on random choice or personal whim, not reason",
+    "exampleSentence": "The rules seemed arbitrary to most participants.",
+    "collocations": [
+      "arbitrary decision",
+      "arbitrary choice",
+      "arbitrary rule"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "assign",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "to give a task or responsibility to someone",
+    "exampleSentence": "The teacher assigned homework to all students.",
+    "collocations": [
+      "assign task",
+      "assign role",
+      "assign duty"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "assume",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to suppose something without proof",
+    "exampleSentence": "We assumed that the data was correct.",
+    "collocations": [
+      "assume responsibility",
+      "assume role",
+      "assume position"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "brief",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "short in duration or concise in expression",
+    "exampleSentence": "Please give a brief summary of the article.",
+    "collocations": [
+      "brief statement",
+      "brief period",
+      "brief overview"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "capable",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "having the ability or qualities to do something",
+    "exampleSentence": "She is capable of leading the team successfully.",
+    "collocations": [
+      "capable leader",
+      "capable student",
+      "capable team"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "coherent",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "logical and consistent",
+    "exampleSentence": "The essay was clear and coherent.",
+    "collocations": [
+      "coherent argument",
+      "coherent structure",
+      "coherent explanation"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "compile",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "to collect information from different sources",
+    "exampleSentence": "The researchers compiled the results into a report.",
+    "collocations": [
+      "compile data",
+      "compile information",
+      "compile report"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "complement",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "something that completes or enhances something else",
+    "exampleSentence": "The new software complements existing tools.",
+    "collocations": [
+      "complement role",
+      "complement system",
+      "complement design"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "concurrent",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "happening at the same time",
+    "exampleSentence": "The project involved concurrent activities.",
+    "collocations": [
+      "concurrent process",
+      "concurrent events",
+      "concurrent tasks"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "confine",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "to keep within limits",
+    "exampleSentence": "The discussion was confined to the main topic.",
+    "collocations": [
+      "confine area",
+      "confine discussion",
+      "confine space"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "conform",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "to comply with rules or standards",
+    "exampleSentence": "Students are expected to conform to school regulations.",
+    "collocations": [
+      "conform rule",
+      "conform standard",
+      "conform behavior"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "consensus",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "general agreement among a group",
+    "exampleSentence": "There was a consensus on the policy changes.",
+    "collocations": [
+      "reach consensus",
+      "general consensus",
+      "build consensus"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "constrain",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to limit or restrict",
+    "exampleSentence": "Budget constraints affected project scope.",
+    "collocations": [
+      "constrain growth",
+      "constrain action",
+      "constrain choice"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "construct",
+    "bandLevel": 8,
+    "topics": [
+      "Technology",
+      "Academic"
+    ],
+    "meaning": "to build or form by putting parts together",
+    "exampleSentence": "Engineers constructed a bridge across the river.",
+    "collocations": [
+      "construct model",
+      "construct system",
+      "construct structure"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "consult",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Education"
+    ],
+    "meaning": "to seek advice or information",
+    "exampleSentence": "Students consult teachers for guidance.",
+    "collocations": [
+      "consult expert",
+      "consult advisor",
+      "consult document"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "convey",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to communicate or express",
+    "exampleSentence": "The report conveys the key findings effectively.",
+    "collocations": [
+      "convey message",
+      "convey meaning",
+      "convey information"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "convince",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to make someone believe or agree",
+    "exampleSentence": "She convinced the team to adopt the new plan.",
+    "collocations": [
+      "convince audience",
+      "convince team",
+      "convince client"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "correspond",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to match or be in agreement with something",
+    "exampleSentence": "The data correspond to the survey results.",
+    "collocations": [
+      "correspond closely",
+      "correspond with",
+      "correspond data"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "criteria",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "standards by which something is judged",
+    "exampleSentence": "The applications were evaluated according to criteria.",
+    "collocations": [
+      "evaluation criteria",
+      "selection criteria",
+      "criteria list"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "crucial",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "extremely important",
+    "exampleSentence": "It is crucial to meet deadlines.",
+    "collocations": [
+      "crucial factor",
+      "crucial role",
+      "crucial step"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "currency",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "the system of money used in a country",
+    "exampleSentence": "The exchange rate affects currency values.",
+    "collocations": [
+      "foreign currency",
+      "currency exchange",
+      "currency value"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "deduce",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to reach a conclusion using reasoning",
+    "exampleSentence": "We can deduce the result from the data.",
+    "collocations": [
+      "deduce information",
+      "deduce conclusion",
+      "deduce fact"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "deficit",
+    "bandLevel": 8,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "the amount by which something is lacking",
+    "exampleSentence": "The government faced a budget deficit.",
+    "collocations": [
+      "budget deficit",
+      "trade deficit",
+      "deficit level"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "demonstrate",
+    "bandLevel": 8,
+    "topics": [
+      "Education",
+      "Academic"
+    ],
+    "meaning": "to show clearly by example or evidence",
+    "exampleSentence": "The experiment demonstrates the principle of gravity.",
+    "collocations": [
+      "demonstrate skill",
+      "demonstrate ability",
+      "demonstrate concept"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "deny",
+    "bandLevel": 8,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to state that something is not true",
+    "exampleSentence": "He denied the accusations.",
+    "collocations": [
+      "deny claim",
+      "deny access",
+      "deny responsibility"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "deplete",
+    "bandLevel": 8,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "to use up resources gradually",
+    "exampleSentence": "Overfishing can deplete fish stocks.",
+    "collocations": [
+      "deplete resources",
+      "deplete stock",
+      "deplete energy"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "derive",
+    "bandLevel": 8,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to obtain from a source",
+    "exampleSentence": "Many words in English are derived from Latin.",
+    "collocations": [
+      "derive benefit",
+      "derive meaning",
+      "derive conclusion"
+    ],
+    "cefrLevel": "C1"
+  },
+  {
+    "word": "aberration",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "a departure from what is normal or expected",
+    "exampleSentence": "The sudden drop in sales was an aberration.",
+    "collocations": [
+      "statistical aberration",
+      "unusual aberration",
+      "behavioral aberration"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "abstruse",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "difficult to understand; obscure",
+    "exampleSentence": "The professor’s lecture was highly abstruse.",
+    "collocations": [
+      "abstruse concept",
+      "abstruse argument",
+      "abstruse theory"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "acumen",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "keen insight or sharpness in understanding",
+    "exampleSentence": "Her business acumen is impressive.",
+    "collocations": [
+      "business acumen",
+      "political acumen",
+      "strategic acumen"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "admonish",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "to warn or reprimand someone firmly",
+    "exampleSentence": "The teacher admonished the students for being late.",
+    "collocations": [
+      "admonish student",
+      "admonish team",
+      "admonish staff"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "adroit",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "skillful, clever, or resourceful",
+    "exampleSentence": "She is adroit at negotiations.",
+    "collocations": [
+      "adroit handling",
+      "adroit maneuver",
+      "adroit approach"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "alacrity",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "brisk and cheerful readiness",
+    "exampleSentence": "He accepted the challenge with alacrity.",
+    "collocations": [
+      "respond with alacrity",
+      "accept with alacrity",
+      "show alacrity"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "anathema",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "something or someone that one vehemently dislikes",
+    "exampleSentence": "Violence is an anathema to civilized society.",
+    "collocations": [
+      "complete anathema",
+      "social anathema",
+      "political anathema"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "antediluvian",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Culture"
+    ],
+    "meaning": "extremely old-fashioned",
+    "exampleSentence": "His ideas about technology are antediluvian.",
+    "collocations": [
+      "antediluvian belief",
+      "antediluvian practice",
+      "antediluvian method"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "apocryphal",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Culture"
+    ],
+    "meaning": "of doubtful authenticity, although widely circulated as true",
+    "exampleSentence": "The story about the king is probably apocryphal.",
+    "collocations": [
+      "apocryphal story",
+      "apocryphal account",
+      "apocryphal tale"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "approbation",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "approval or praise",
+    "exampleSentence": "His work met with approbation from critics.",
+    "collocations": [
+      "receive approbation",
+      "earn approbation",
+      "public approbation"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "arcane",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "understood by few; mysterious or secret",
+    "exampleSentence": "The software uses arcane algorithms.",
+    "collocations": [
+      "arcane knowledge",
+      "arcane method",
+      "arcane rules"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "assiduous",
+    "bandLevel": 9,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "showing great care and perseverance",
+    "exampleSentence": "She completed the project with assiduous attention.",
+    "collocations": [
+      "assiduous effort",
+      "assiduous work",
+      "assiduous study"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "assuage",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Health"
+    ],
+    "meaning": "to make an unpleasant feeling less intense",
+    "exampleSentence": "The government tried to assuage public fears.",
+    "collocations": [
+      "assuage concern",
+      "assuage fear",
+      "assuage pain"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "augury",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Culture"
+    ],
+    "meaning": "a sign of what will happen in the future",
+    "exampleSentence": "The economic indicators were an augury of recession.",
+    "collocations": [
+      "positive augury",
+      "negative augury",
+      "ominous augury"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "austere",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Culture"
+    ],
+    "meaning": "severe or strict in manner or attitude",
+    "exampleSentence": "The monastery has an austere environment.",
+    "collocations": [
+      "austere lifestyle",
+      "austere environment",
+      "austere rules"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "avarice",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "extreme greed for wealth or material gain",
+    "exampleSentence": "His avarice led to unethical decisions.",
+    "collocations": [
+      "insatiable avarice",
+      "personal avarice",
+      "corporate avarice"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "axiomatic",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "self-evident or unquestionable",
+    "exampleSentence": "It is axiomatic that the Earth orbits the Sun.",
+    "collocations": [
+      "axiomatic truth",
+      "axiomatic principle",
+      "axiomatic statement"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "beguile",
+    "bandLevel": 9,
+    "topics": [
+      "Culture",
+      "Society"
+    ],
+    "meaning": "to charm or enchant, often in a deceptive way",
+    "exampleSentence": "He beguiled the audience with his storytelling.",
+    "collocations": [
+      "beguile audience",
+      "beguile visitor",
+      "beguile reader"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "blandishment",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "flattering speech or action used to persuade someone gently",
+    "exampleSentence": "The manager’s blandishments convinced the employees.",
+    "collocations": [
+      "offer blandishment",
+      "use blandishment",
+      "employ blandishment"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "boon",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Environment"
+    ],
+    "meaning": "a thing that is helpful or beneficial",
+    "exampleSentence": "The new policy is a boon for small businesses.",
+    "collocations": [
+      "considerable boon",
+      "economic boon",
+      "social boon"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "burgeon",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to grow or develop rapidly",
+    "exampleSentence": "Tech startups continue to burgeon in the city.",
+    "collocations": [
+      "burgeon industry",
+      "burgeon population",
+      "burgeon sector"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "cacophony",
+    "bandLevel": 9,
+    "topics": [
+      "Culture",
+      "Society"
+    ],
+    "meaning": "a harsh, discordant mixture of sounds",
+    "exampleSentence": "The market was filled with a cacophony of noise.",
+    "collocations": [
+      "audible cacophony",
+      "musical cacophony",
+      "urban cacophony"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "cajole",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to persuade someone using flattery or coaxing",
+    "exampleSentence": "He cajoled his team into agreeing.",
+    "collocations": [
+      "cajole someone",
+      "cajole staff",
+      "cajole audience"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "callous",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Health"
+    ],
+    "meaning": "showing cruel disregard for others",
+    "exampleSentence": "The callous remarks offended everyone.",
+    "collocations": [
+      "callous attitude",
+      "callous behavior",
+      "callous response"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "candor",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "the quality of being open and honest",
+    "exampleSentence": "She spoke with candor about the mistakes.",
+    "collocations": [
+      "speak with candor",
+      "honest candor",
+      "remarkable candor"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "capitulate",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "to surrender under agreed conditions",
+    "exampleSentence": "The army capitulated after a long siege.",
+    "collocations": [
+      "capitulate enemy",
+      "capitulate forces",
+      "capitulate town"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "catalyst",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "something that provokes significant change or action",
+    "exampleSentence": "The reforms acted as a catalyst for growth.",
+    "collocations": [
+      "key catalyst",
+      "social catalyst",
+      "political catalyst"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "caustic",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Culture"
+    ],
+    "meaning": "sarcastic in a scathing and bitter way",
+    "exampleSentence": "The critic’s review was caustic and harsh.",
+    "collocations": [
+      "caustic remark",
+      "caustic comment",
+      "caustic tone"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "censure",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to express strong disapproval",
+    "exampleSentence": "The committee censured the official for misconduct.",
+    "collocations": [
+      "public censure",
+      "strong censure",
+      "face censure"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "chronic",
+    "bandLevel": 9,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "lasting for a long time or recurring frequently",
+    "exampleSentence": "He suffers from chronic back pain.",
+    "collocations": [
+      "chronic illness",
+      "chronic problem",
+      "chronic condition"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "circumvent",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "to find a way around a rule or obstacle",
+    "exampleSentence": "The company tried to circumvent regulations.",
+    "collocations": [
+      "circumvent law",
+      "circumvent restriction",
+      "circumvent system"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "coalesce",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "to come together to form one group or whole",
+    "exampleSentence": "The small teams coalesced into a larger organization.",
+    "collocations": [
+      "coalesce into",
+      "ideas coalesce",
+      "groups coalesce"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "cogent",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "clear, logical, and convincing",
+    "exampleSentence": "She presented a cogent argument.",
+    "collocations": [
+      "cogent argument",
+      "cogent explanation",
+      "cogent reasoning"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "commensurate",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "corresponding in size or degree",
+    "exampleSentence": "Salary should be commensurate with experience.",
+    "collocations": [
+      "commensurate with",
+      "commensurate reward",
+      "commensurate responsibility"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "compelling",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "evoking interest or attention in a powerful way",
+    "exampleSentence": "The documentary provides compelling evidence.",
+    "collocations": [
+      "compelling reason",
+      "compelling evidence",
+      "compelling argument"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "concur",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to agree with someone",
+    "exampleSentence": "The judges concur with the final decision.",
+    "collocations": [
+      "concur with",
+      "concur opinion",
+      "fully concur"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "condone",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to accept or allow behavior that is wrong",
+    "exampleSentence": "The company does not condone unethical practices.",
+    "collocations": [
+      "condone behavior",
+      "condone action",
+      "publicly condone"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "conflagration",
+    "bandLevel": 9,
+    "topics": [
+      "Environment",
+      "Society"
+    ],
+    "meaning": "a large destructive fire",
+    "exampleSentence": "The forest conflagration destroyed thousands of hectares.",
+    "collocations": [
+      "massive conflagration",
+      "devastating conflagration",
+      "urban conflagration"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "confluence",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "the coming together of things",
+    "exampleSentence": "The project succeeded due to a confluence of factors.",
+    "collocations": [
+      "confluence of",
+      "natural confluence",
+      "economic confluence"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "conundrum",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "a confusing and difficult problem",
+    "exampleSentence": "The policy presents a serious conundrum.",
+    "collocations": [
+      "solve conundrum",
+      "complex conundrum",
+      "difficult conundrum"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "corroborate",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to confirm or support with evidence",
+    "exampleSentence": "The witness corroborated the statement.",
+    "collocations": [
+      "corroborate evidence",
+      "corroborate claim",
+      "corroborate findings"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "culminate",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "to reach a climax or final stage",
+    "exampleSentence": "The project culminated in a successful launch.",
+    "collocations": [
+      "culminate in",
+      "culminate with",
+      "event culminate"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "deference",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "respectful submission to authority",
+    "exampleSentence": "She showed deference to her senior colleague.",
+    "collocations": [
+      "show deference",
+      "out of deference",
+      "deference to authority"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "deleterious",
+    "bandLevel": 9,
+    "topics": [
+      "Health",
+      "Environment"
+    ],
+    "meaning": "causing harm or damage",
+    "exampleSentence": "Pollution has deleterious effects on health.",
+    "collocations": [
+      "deleterious effect",
+      "deleterious impact",
+      "deleterious consequence"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "demur",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to raise objections or hesitate",
+    "exampleSentence": "She demurred at the proposal.",
+    "collocations": [
+      "without demur",
+      "demur about",
+      "slight demur"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "denote",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to indicate or mean something explicitly",
+    "exampleSentence": "The symbol denotes a specific variable.",
+    "collocations": [
+      "denote meaning",
+      "denote value",
+      "denote significance"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "deride",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Culture"
+    ],
+    "meaning": "to mock or ridicule",
+    "exampleSentence": "He was derided for his unpopular opinion.",
+    "collocations": [
+      "deride idea",
+      "deride proposal",
+      "publicly deride"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "despot",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "History"
+    ],
+    "meaning": "a ruler with absolute power who exercises it cruelly",
+    "exampleSentence": "The country was ruled by a despot.",
+    "collocations": [
+      "ruthless despot",
+      "political despot",
+      "dictatorial despot"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "deterrent",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "something that discourages action",
+    "exampleSentence": "Strict laws act as a deterrent to crime.",
+    "collocations": [
+      "strong deterrent",
+      "effective deterrent",
+      "crime deterrent"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "detriment",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "damage or harm",
+    "exampleSentence": "Excessive stress is a detriment to health.",
+    "collocations": [
+      "to the detriment of",
+      "serious detriment",
+      "great detriment"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "dichotomy",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "a division between two contrasting things",
+    "exampleSentence": "There is a clear dichotomy between theory and practice.",
+    "collocations": [
+      "false dichotomy",
+      "clear dichotomy",
+      "dichotomy between"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "diffuse",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Environment"
+    ],
+    "meaning": "to spread widely or thinly",
+    "exampleSentence": "The gas diffused quickly in the air.",
+    "collocations": [
+      "diffuse light",
+      "diffuse information",
+      "diffuse tension"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "diligent",
+    "bandLevel": 9,
+    "topics": [
+      "Education",
+      "Business"
+    ],
+    "meaning": "showing careful and persistent effort",
+    "exampleSentence": "She is a diligent researcher.",
+    "collocations": [
+      "diligent worker",
+      "diligent effort",
+      "diligent student"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "discerning",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "able to judge well",
+    "exampleSentence": "He is a discerning critic.",
+    "collocations": [
+      "discerning eye",
+      "discerning judgment",
+      "discerning reader"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "discretion",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "careful judgment in action",
+    "exampleSentence": "The manager acted with discretion.",
+    "collocations": [
+      "use discretion",
+      "exercise discretion",
+      "professional discretion"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "disparage",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to criticize unfairly",
+    "exampleSentence": "He disparaged the competitor's product.",
+    "collocations": [
+      "disparage reputation",
+      "publicly disparage",
+      "disparage effort"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "disseminate",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Technology"
+    ],
+    "meaning": "to spread information widely",
+    "exampleSentence": "The organization disseminates research findings.",
+    "collocations": [
+      "disseminate information",
+      "disseminate knowledge",
+      "widely disseminate"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "divergent",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "tending to be different or develop in different directions",
+    "exampleSentence": "The two theories are divergent.",
+    "collocations": [
+      "divergent views",
+      "divergent opinion",
+      "divergent path"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "elucidate",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to make something clear by explanation",
+    "exampleSentence": "The professor elucidated the complex theory.",
+    "collocations": [
+      "elucidate concept",
+      "elucidate theory",
+      "clearly elucidate"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "embellish",
+    "bandLevel": 9,
+    "topics": [
+      "Culture",
+      "Academic"
+    ],
+    "meaning": "to make something more attractive by adding decorative details",
+    "exampleSentence": "The writer embellished the story with vivid descriptions.",
+    "collocations": [
+      "embellish story",
+      "embellish detail",
+      "embellish truth"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "eminent",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Academic"
+    ],
+    "meaning": "famous and respected within a field",
+    "exampleSentence": "She is an eminent scientist in her field.",
+    "collocations": [
+      "eminent scholar",
+      "eminent researcher",
+      "eminent figure"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "empirical",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "based on observation or experiment rather than theory",
+    "exampleSentence": "The conclusion is supported by empirical evidence.",
+    "collocations": [
+      "empirical evidence",
+      "empirical study",
+      "empirical research"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "endow",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to provide with a quality, ability, or asset",
+    "exampleSentence": "Nature endowed her with exceptional talent.",
+    "collocations": [
+      "endow with",
+      "endow foundation",
+      "endow institution"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "enigmatic",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Culture"
+    ],
+    "meaning": "mysterious and difficult to understand",
+    "exampleSentence": "The painting has an enigmatic expression.",
+    "collocations": [
+      "enigmatic figure",
+      "enigmatic message",
+      "enigmatic statement"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "ephemeral",
+    "bandLevel": 9,
+    "topics": [
+      "Culture",
+      "Environment"
+    ],
+    "meaning": "lasting for a short time",
+    "exampleSentence": "Fashion trends are often ephemeral.",
+    "collocations": [
+      "ephemeral beauty",
+      "ephemeral trend",
+      "ephemeral nature"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "equanimity",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Health"
+    ],
+    "meaning": "mental calmness and composure",
+    "exampleSentence": "She handled criticism with equanimity.",
+    "collocations": [
+      "maintain equanimity",
+      "display equanimity",
+      "equanimity under pressure"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "esoteric",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "intended for or understood by a small group",
+    "exampleSentence": "The lecture covered esoteric philosophical topics.",
+    "collocations": [
+      "esoteric knowledge",
+      "esoteric subject",
+      "esoteric theory"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "euphoria",
+    "bandLevel": 9,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "a feeling of intense happiness or excitement",
+    "exampleSentence": "The victory caused widespread euphoria.",
+    "collocations": [
+      "feel euphoria",
+      "state of euphoria",
+      "euphoria after success"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "exacerbate",
+    "bandLevel": 9,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "to make a problem worse",
+    "exampleSentence": "Poor policy decisions exacerbate economic inequality.",
+    "collocations": [
+      "exacerbate problem",
+      "exacerbate situation",
+      "exacerbate conflict"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "exemplify",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "to illustrate or serve as an example of",
+    "exampleSentence": "This case exemplifies the challenges of modernization.",
+    "collocations": [
+      "exemplify concept",
+      "exemplify trend",
+      "exemplify principle"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "exhort",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to strongly encourage or urge someone",
+    "exampleSentence": "The leader exhorted the team to work harder.",
+    "collocations": [
+      "exhort people",
+      "exhort action",
+      "exhort team"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "exquisite",
+    "bandLevel": 9,
+    "topics": [
+      "Culture",
+      "Society"
+    ],
+    "meaning": "extremely beautiful or delicate",
+    "exampleSentence": "The artwork is exquisite in detail.",
+    "collocations": [
+      "exquisite design",
+      "exquisite taste",
+      "exquisite craftsmanship"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "extol",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "to praise enthusiastically",
+    "exampleSentence": "The review extolled the benefits of the new policy.",
+    "collocations": [
+      "extol virtues",
+      "extol achievement",
+      "extol quality"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "facilitate",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Academic"
+    ],
+    "meaning": "to make an action or process easier",
+    "exampleSentence": "Technology facilitates global communication.",
+    "collocations": [
+      "facilitate process",
+      "facilitate cooperation",
+      "facilitate development"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "feasible",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Technology"
+    ],
+    "meaning": "possible and practical to do",
+    "exampleSentence": "The project is feasible with proper funding.",
+    "collocations": [
+      "feasible solution",
+      "feasible plan",
+      "feasible approach"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "fortuitous",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "happening by chance in a lucky way",
+    "exampleSentence": "It was a fortuitous encounter.",
+    "collocations": [
+      "fortuitous event",
+      "fortuitous timing",
+      "fortuitous discovery"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "frivolous",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Culture"
+    ],
+    "meaning": "not having serious purpose",
+    "exampleSentence": "The lawsuit was dismissed as frivolous.",
+    "collocations": [
+      "frivolous claim",
+      "frivolous argument",
+      "frivolous behavior"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "garrulous",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Culture"
+    ],
+    "meaning": "excessively talkative",
+    "exampleSentence": "The garrulous speaker continued for hours.",
+    "collocations": [
+      "garrulous person",
+      "garrulous speech",
+      "garrulous nature"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "grandiose",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "impressive but unrealistic or exaggerated",
+    "exampleSentence": "The proposal seemed grandiose and impractical.",
+    "collocations": [
+      "grandiose plan",
+      "grandiose vision",
+      "grandiose ambition"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "gregarious",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Culture"
+    ],
+    "meaning": "fond of company; sociable",
+    "exampleSentence": "He has a gregarious personality.",
+    "collocations": [
+      "gregarious nature",
+      "gregarious personality",
+      "gregarious behavior"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "hinder",
+    "bandLevel": 9,
+    "topics": [
+      "Business",
+      "Society"
+    ],
+    "meaning": "to create difficulty for progress",
+    "exampleSentence": "Lack of funding hindered development.",
+    "collocations": [
+      "hinder progress",
+      "hinder growth",
+      "hinder development"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "hypothetical",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Education"
+    ],
+    "meaning": "based on possible assumptions rather than facts",
+    "exampleSentence": "The professor presented a hypothetical scenario.",
+    "collocations": [
+      "hypothetical situation",
+      "hypothetical case",
+      "hypothetical example"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "impeccable",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Business"
+    ],
+    "meaning": "without any mistakes or faults",
+    "exampleSentence": "She has impeccable grammar.",
+    "collocations": [
+      "impeccable reputation",
+      "impeccable record",
+      "impeccable taste"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "impetuous",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Education"
+    ],
+    "meaning": "acting quickly without careful thought",
+    "exampleSentence": "His impetuous decision caused problems.",
+    "collocations": [
+      "impetuous decision",
+      "impetuous action",
+      "impetuous behavior"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "implicit",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Business"
+    ],
+    "meaning": "implied but not directly stated",
+    "exampleSentence": "There was an implicit agreement between them.",
+    "collocations": [
+      "implicit assumption",
+      "implicit meaning",
+      "implicit understanding"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "improvise",
+    "bandLevel": 9,
+    "topics": [
+      "Culture",
+      "Society"
+    ],
+    "meaning": "to create or perform spontaneously",
+    "exampleSentence": "The speaker had to improvise after the slides failed.",
+    "collocations": [
+      "improvise speech",
+      "improvise solution",
+      "improvise performance"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "inexorable",
+    "bandLevel": 9,
+    "topics": [
+      "Academic",
+      "Society"
+    ],
+    "meaning": "impossible to stop or prevent",
+    "exampleSentence": "The inexorable rise of technology continues.",
+    "collocations": [
+      "inexorable change",
+      "inexorable force",
+      "inexorable progress"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "insidious",
+    "bandLevel": 9,
+    "topics": [
+      "Health",
+      "Society"
+    ],
+    "meaning": "proceeding subtly but with harmful effects",
+    "exampleSentence": "The disease has an insidious development.",
+    "collocations": [
+      "insidious threat",
+      "insidious effect",
+      "insidious danger"
+    ],
+    "cefrLevel": "C2"
+  },
+  {
+    "word": "intrepid",
+    "bandLevel": 9,
+    "topics": [
+      "Society",
+      "Culture"
+    ],
+    "meaning": "fearless and adventurous",
+    "exampleSentence": "The intrepid explorer crossed the desert.",
+    "collocations": [
+      "intrepid explorer",
+      "intrepid journalist",
+      "intrepid traveler"
+    ],
+    "cefrLevel": "C2"
+  }
+]

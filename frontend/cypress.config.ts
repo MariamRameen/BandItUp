@@ -4,6 +4,7 @@ import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/
 export default defineConfig({
   e2e: {
     baseUrl: 'http://localhost:5173',
+    
     env: {
       apiUrl: 'http://localhost:4000',
       users: [
@@ -12,13 +13,14 @@ export default defineConfig({
       ]
     },
 
+    viewportWidth: 1020,
+    viewportHeight: 698,
+
     setupNodeEvents(on, config) {
-     
-
       addMatchImageSnapshotPlugin(on);
-
       return config;
     }
   },
-  projectId: '94n2r8' 
+  projectId: '94n2r8',
+  
 });

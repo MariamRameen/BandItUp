@@ -331,13 +331,15 @@ export default function ReadingFeedback() {
               {session.passage.title}
             </h3>
             <div className="prose dark:prose-invert max-w-none">
-              {session.passage.paragraphs?.map((para, idx) => (
-                <p key={idx} className="mb-4 text-[#333] dark:text-gray-200 leading-relaxed">
-                  <span className="text-xs text-[#999] dark:text-gray-500 mr-2">[{idx + 1}]</span>
-                  {para.content}
-                </p>
-              )) || (
-                <p className="text-[#333] dark:text-gray-200 leading-relaxed">
+{session.passage.paragraphs && session.passage.paragraphs.length > 0 ? (
+                session.passage.paragraphs.map((para, idx) => (
+                  <p key={idx} className="mb-4 text-[#333] dark:text-gray-200 leading-relaxed">
+                    <span className="text-xs text-[#999] dark:text-gray-500 mr-2">[{idx + 1}]</span>
+                    {para.content || para.text}
+                  </p>
+                ))
+              ) : (
+                <p className="text-[#333] dark:text-gray-200 leading-relaxed whitespace-pre-wrap">
                   {session.passage.content}
                 </p>
               )}

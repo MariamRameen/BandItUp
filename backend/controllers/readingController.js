@@ -114,7 +114,11 @@ const startSession = async (req, res) => {
         content: passage.content || passage.paragraphs.map(p => p.text).join('\n\n'),
         topic: passage.topic,
         wordCount: passage.wordCount,
-        paragraphs: passage.paragraphs,
+        paragraphs: passage.paragraphs.map((p, idx) => ({
+          id: p.id || `p${idx + 1}`,
+          content: p.content || p.text, // Map text to content
+          text: p.text || p.content, // Keep text for backwards compatibility
+        })),
         source: passage.source,
       },
       questions: questions.map((q, index) => ({
@@ -138,15 +142,19 @@ const startSession = async (req, res) => {
     res.status(201).json({
       success: true,
       session: {
-        id: session._id,
+        _id: session._id,
+        id: session._id, // Keep for backwards compatibility
         examType: session.examType,
         difficulty: session.difficulty,
         passage: session.passage,
         questions: session.questions.map(q => ({
+          _id: q.id, // Map to _id for frontend
           id: q.id,
-          type: q.type,
+          questionType: q.type, // Map to questionType for frontend
+          type: q.type, // Keep for backwards compatibility
           questionText: q.questionText,
           instruction: q.instruction,
+          instructions: q.instruction, // Alias for frontend
           options: q.options,
           paragraphRef: q.paragraphRef,
           // Don't send correct answers or explanations yet
@@ -348,10 +356,10 @@ const completeSession = async (req, res) => {
     } else {
       // Still complete session even if feedback fails
       session.feedback = {
-        overallAnalysis: `You scored ${session.score}% (${session.correctAnswers}/${session.totalQuestions} correct), achieving a band score of ${session.bandScore}.`,
+        overallFeedback: `You scored ${session.score}% (${session.correctAnswers}/${session.totalQuestions} correct), achieving a band score of ${session.bandScore}.`,
         strengths: [],
-        weaknesses: [],
-        recommendedPractice: [],
+        areasToImprove: [],
+        studyTips: [],
         questionTypeAnalysis,
       };
     }
@@ -378,15 +386,19 @@ const completeSession = async (req, res) => {
  * Format session for completed response
  */
 const formatCompletedSession = (session) => ({
-  id: session._id,
+  _id: session._id,
+  id: session._id, // Keep for backwards compatibility
   examType: session.examType,
   difficulty: session.difficulty,
   passage: session.passage,
   questions: session.questions.map(q => ({
+    _id: q.id, // Map to _id for frontend
     id: q.id,
-    type: q.type,
+    questionType: q.type, // Map to questionType for frontend
+    type: q.type, // Keep for backwards compatibility
     questionText: q.questionText,
     instruction: q.instruction,
+    instructions: q.instruction, // Alias for frontend
     options: q.options,
     correctAnswer: q.correctAnswer,
     userAnswer: q.userAnswer,
@@ -436,15 +448,19 @@ const getSession = async (req, res) => {
     res.json({
       success: true,
       session: {
-        id: session._id,
+        _id: session._id,
+        id: session._id, // Keep for backwards compatibility
         examType: session.examType,
         difficulty: session.difficulty,
         passage: session.passage,
         questions: session.questions.map(q => ({
+          _id: q.id, // Map to _id for frontend
           id: q.id,
-          type: q.type,
+          questionType: q.type, // Map to questionType for frontend
+          type: q.type, // Keep for backwards compatibility
           questionText: q.questionText,
           instruction: q.instruction,
+          instructions: q.instruction, // Alias for frontend
           options: q.options,
           paragraphRef: q.paragraphRef,
           userAnswer: q.userAnswer,

@@ -31,8 +31,8 @@ export type SessionStatus = 'in-progress' | 'completed' | 'abandoned';
 
 export interface Paragraph {
   id: string;
-  content: string;
-  text?: string; // Alias for compatibility
+  content?: string;
+  text?: string; // Primary field from AI, content is alias
 }
 
 export interface ReadingPassage {

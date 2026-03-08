@@ -166,16 +166,16 @@ Provide comprehensive, encouraging feedback that helps the student improve.
 
 ## Output Format (JSON):
 {
-  "overallAnalysis": "<2-3 sentences summarizing performance, what went well, and areas to focus on>",
+  "overallFeedback": "<2-3 sentences summarizing performance, what went well, and areas to focus on>",
   "strengths": [
     "<specific strength with example from their performance>",
     "<another strength>"
   ],
-  "weaknesses": [
+  "areasToImprove": [
     "<specific area to improve with actionable advice>",
     "<another area to improve>"
   ],
-  "recommendedPractice": [
+  "studyTips": [
     "<specific practice activity or strategy>",
     "<another recommendation>",
     "<another recommendation>"

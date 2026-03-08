@@ -22,6 +22,7 @@ export default function ReadingPractice() {
   const [showPassage, setShowPassage] = useState(true);
   const [showConfirmSubmit, setShowConfirmSubmit] = useState(false);
   const [highlightedParagraph, setHighlightedParagraph] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Load session on mount
   useEffect(() => {
@@ -79,7 +80,7 @@ export default function ReadingPractice() {
 
   // Timer countdown
   useEffect(() => {
-    if (!session || session.status !== 'in-progress' || timeLeft <= 0) return;
+    if (!session || session.status !== 'in-progress' || timeLeft <= 0 || isPaused) return;
 
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
@@ -93,7 +94,7 @@ export default function ReadingPractice() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [session?.status]);
+  }, [session?.status, isPaused]);
 
   // Auto-save answers periodically
   useEffect(() => {
@@ -216,6 +217,29 @@ export default function ReadingPractice() {
   return (
     <div className="min-h-screen bg-[#F7F5FF] dark:bg-gray-900">
       <Header />
+
+      {/* Pause Overlay */}
+      {isPaused && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 text-center max-w-md mx-4 shadow-xl">
+            <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-orange-600 dark:text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M5.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75A.75.75 0 007.25 3h-1.5zM12.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75h-1.5z" />
+              </svg>
+            </div>
+            <h2 className="text-xl font-semibold text-[#333] dark:text-white mb-2">Test Paused</h2>
+            <p className="text-[#666] dark:text-gray-400 mb-6">
+              Timer paused at {formatTime(timeLeft)}. Your progress is saved.
+            </p>
+            <button
+              onClick={() => setIsPaused(false)}
+              className="bg-[#7D3CFF] text-white px-8 py-3 rounded-lg hover:bg-[#6B2FE6] transition-colors font-medium"
+            >
+              Resume Test
+            </button>
+          </div>
+        </div>
+      )}
       
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-4">
         {/* Top Bar */}
@@ -231,8 +255,29 @@ export default function ReadingPractice() {
           
           <div className="flex items-center gap-4">
             {/* Timer */}
-            <div className={`text-2xl font-bold ${getTimeColor()}`}>
-              {formatTime(timeLeft)}
+            <div className="flex items-center gap-2">
+              <div className={`text-2xl font-bold ${getTimeColor()} ${isPaused ? 'opacity-50' : ''}`}>
+                {formatTime(timeLeft)}
+              </div>
+              <button
+                onClick={() => setIsPaused(!isPaused)}
+                className={`p-2 rounded-lg transition-colors ${
+                  isPaused 
+                    ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 hover:bg-green-200' 
+                    : 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 hover:bg-orange-200'
+                }`}
+                title={isPaused ? 'Resume' : 'Pause'}
+              >
+                {isPaused ? (
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M5.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75A.75.75 0 007.25 3h-1.5zM12.75 3a.75.75 0 00-.75.75v12.5c0 .414.336.75.75.75h1.5a.75.75 0 00.75-.75V3.75a.75.75 0 00-.75-.75h-1.5z" />
+                  </svg>
+                )}
+              </button>
             </div>
             
             {/* Progress */}
@@ -277,21 +322,23 @@ export default function ReadingPractice() {
                 {session.passage.title}
               </h3>
               <div className="h-[65vh] overflow-y-auto text-[#333] dark:text-gray-200 leading-relaxed pr-2">
-                {session.passage.paragraphs?.map((para, idx) => (
-                  <p
-                    key={idx}
-                    className={`mb-4 p-2 rounded transition-colors ${
-                      highlightedParagraph === idx
-                        ? 'bg-yellow-100 dark:bg-yellow-900/30'
-                        : ''
-                    }`}
-                    onClick={() => setHighlightedParagraph(highlightedParagraph === idx ? null : idx)}
-                  >
-                    <span className="text-xs text-[#999] dark:text-gray-500 mr-2">[{idx + 1}]</span>
-                    {para.content}
-                  </p>
-                )) || (
-                  <p className="mb-4">{session.passage.content}</p>
+{session.passage.paragraphs && session.passage.paragraphs.length > 0 ? (
+                  session.passage.paragraphs.map((para, idx) => (
+                    <p
+                      key={idx}
+                      className={`mb-4 p-2 rounded transition-colors ${
+                        highlightedParagraph === idx
+                          ? 'bg-yellow-100 dark:bg-yellow-900/30'
+                          : ''
+                      }`}
+                      onClick={() => setHighlightedParagraph(highlightedParagraph === idx ? null : idx)}
+                    >
+                      <span className="text-xs text-[#999] dark:text-gray-500 mr-2">[{idx + 1}]</span>
+                      {para.content || para.text}
+                    </p>
+                  ))
+                ) : (
+                  <p className="mb-4 whitespace-pre-wrap">{session.passage.content}</p>
                 )}
               </div>
             </div>

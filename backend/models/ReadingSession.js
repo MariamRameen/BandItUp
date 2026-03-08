@@ -65,6 +65,9 @@ const paragraphSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  content: {
+    type: String, // Alias for text to match frontend expectations
+  },
 }, { _id: false });
 
 // Schema for passage
@@ -113,16 +116,25 @@ const questionTypeAnalysisSchema = new mongoose.Schema({
 
 // Schema for feedback
 const feedbackSchema = new mongoose.Schema({
-  overallAnalysis: {
+  overallFeedback: {
+    type: String,
+  },
+  overallAnalysis: { // Keep for backwards compatibility
     type: String,
   },
   strengths: [{
     type: String,
   }],
-  weaknesses: [{
+  areasToImprove: [{
     type: String,
   }],
-  recommendedPractice: [{
+  weaknesses: [{ // Keep for backwards compatibility
+    type: String,
+  }],
+  studyTips: [{
+    type: String,
+  }],
+  recommendedPractice: [{ // Keep for backwards compatibility
     type: String,
   }],
   questionTypeAnalysis: [questionTypeAnalysisSchema],
@@ -303,10 +315,34 @@ readingSessionSchema.methods.checkAnswer = function(questionId, userAnswer) {
       question.isCorrect = false;
     }
   } else {
-    // Single answer - case-insensitive comparison for text answers
-    const normalizedUser = String(userAnswer).toLowerCase().trim();
+    // Single answer comparison
+    let normalizedUser = String(userAnswer).toLowerCase().trim();
     const normalizedCorrect = String(correct).toLowerCase().trim();
-    question.isCorrect = normalizedUser === normalizedCorrect;
+    
+    // For multiple choice questions, extract the letter prefix if present
+    // e.g., "B. Machines programmed..." -> "b"
+    // or "A) Some option" -> "a"
+    if (question.type === 'multiple_choice' || question.type === 'multiple_choice_multiple') {
+      const letterMatch = normalizedUser.match(/^([a-d])[\.\)\s]/i);
+      if (letterMatch) {
+        normalizedUser = letterMatch[1].toLowerCase();
+      }
+    }
+    
+    // For true/false/not given, normalize common variations
+    if (question.type === 'true_false_not_given') {
+      if (normalizedUser === 'not given') normalizedUser = 'not given';
+      if (normalizedCorrect === 'not given') {
+        question.isCorrect = normalizedUser === 'not given';
+      } else {
+        question.isCorrect = normalizedUser === normalizedCorrect;
+      }
+    } else if (question.type === 'yes_no_not_given') {
+      if (normalizedUser === 'not given') normalizedUser = 'not given';
+      question.isCorrect = normalizedUser === normalizedCorrect;
+    } else {
+      question.isCorrect = normalizedUser === normalizedCorrect;
+    }
   }
   
   return question.isCorrect;

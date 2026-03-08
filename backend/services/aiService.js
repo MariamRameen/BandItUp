@@ -1,8 +1,8 @@
 /**
- * AI Service Module - OpenAI Integration for Writing Module
+ * AI Service Module - OpenAI Integration for Writing and Reading Modules
  * 
  * Handles all AI-related operations: essay evaluation, task generation,
- * grammar analysis, and vocabulary suggestions.
+ * grammar analysis, vocabulary suggestions, and reading passage/question generation.
  */
 
 const OpenAI = require('openai');
@@ -16,6 +16,14 @@ const {
   GRAMMAR_ANALYSIS_PROMPT,
   VOCABULARY_ANALYSIS_PROMPT,
 } = require('./prompts/writingPrompts');
+
+const {
+  READING_PASSAGE_GENERATION_PROMPT,
+  READING_QUESTIONS_GENERATION_PROMPT,
+  READING_FEEDBACK_PROMPT,
+  getRandomTopic,
+  getQuestionTypesForDifficulty,
+} = require('./prompts/readingPrompts');
 
 // Initialize OpenAI client
 const openai = new OpenAI({
@@ -586,22 +594,294 @@ const generateWritingTask = async ({ taskType, examType, options = {} }) => {
   };
 };
 
+// ─────────────────────────────────────────────────────────────────────────────
+// READING MODULE FUNCTIONS
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Generate a reading passage
+ * @param {object} params - Generation parameters
+ * @param {string} params.examType - 'Academic' or 'General'
+ * @param {string} params.topic - Topic for the passage (optional, random if not provided)
+ * @param {string} params.difficulty - Target difficulty band
+ * @param {number} params.wordCount - Target word count (default 700)
+ * @returns {Promise<object>} - Generated passage
+ */
+const generateReadingPassage = async ({ examType, topic, difficulty, wordCount = 700 }) => {
+  const actualTopic = topic || getRandomTopic(examType);
+  
+  const prompt = fillPromptTemplate(READING_PASSAGE_GENERATION_PROMPT, {
+    examType,
+    topic: actualTopic,
+    difficulty,
+    wordCount: wordCount.toString(),
+  });
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: MODELS.GENERATION,
+      messages: [
+        {
+          role: 'system',
+          content: 'You are an expert IELTS content creator. Always respond with valid JSON only.',
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      temperature: TEMPERATURE.GENERATION,
+      max_tokens: 3000,
+    });
+
+    const content = response.choices[0].message.content;
+    const passage = parseJSONResponse(content);
+
+    // Construct full content from paragraphs
+    passage.content = passage.paragraphs.map(p => p.text).join('\n\n');
+
+    return {
+      success: true,
+      passage,
+      usage: {
+        promptTokens: response.usage.prompt_tokens,
+        completionTokens: response.usage.completion_tokens,
+        totalTokens: response.usage.total_tokens,
+        model: MODELS.GENERATION,
+      },
+    };
+  } catch (error) {
+    console.error('Error generating reading passage:', error);
+    return {
+      success: false,
+      error: error.message,
+    };
+  }
+};
+
+/**
+ * Generate questions for a reading passage
+ * @param {object} params - Generation parameters
+ * @param {object} params.passage - The reading passage object
+ * @param {string[]} params.questionTypes - Array of question types to include
+ * @param {number} params.questionCount - Number of questions to generate (default 13)
+ * @param {string} params.difficulty - Target difficulty
+ * @returns {Promise<object>} - Generated questions
+ */
+const generateReadingQuestions = async ({ passage, questionTypes, questionCount = 13, difficulty }) => {
+  // Format passage for prompt
+  const passageText = passage.paragraphs
+    .map(p => `[Paragraph ${p.id}]\n${p.text}`)
+    .join('\n\n');
+
+  const prompt = fillPromptTemplate(READING_QUESTIONS_GENERATION_PROMPT, {
+    passage: `Title: ${passage.title}\n\n${passageText}`,
+    questionTypes: questionTypes.join(', '),
+    questionCount: questionCount.toString(),
+    difficulty,
+  });
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: MODELS.GENERATION,
+      messages: [
+        {
+          role: 'system',
+          content: 'You are an expert IELTS examiner. Always respond with valid JSON only.',
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      temperature: TEMPERATURE.GENERATION,
+      max_tokens: 4000,
+    });
+
+    const content = response.choices[0].message.content;
+    const result = parseJSONResponse(content);
+
+    return {
+      success: true,
+      questions: result.questions,
+      usage: {
+        promptTokens: response.usage.prompt_tokens,
+        completionTokens: response.usage.completion_tokens,
+        totalTokens: response.usage.total_tokens,
+        model: MODELS.GENERATION,
+      },
+    };
+  } catch (error) {
+    console.error('Error generating reading questions:', error);
+    return {
+      success: false,
+      error: error.message,
+    };
+  }
+};
+
+/**
+ * Generate a complete reading test (passage + questions)
+ * @param {object} params - Generation parameters
+ * @param {string} params.examType - 'Academic' or 'General'
+ * @param {string} params.topic - Topic (optional)
+ * @param {string} params.difficulty - Target difficulty band
+ * @param {number} params.questionCount - Number of questions (default 13)
+ * @returns {Promise<object>} - Complete reading test
+ */
+const generateReadingTest = async ({ examType, topic, difficulty, questionCount = 13 }) => {
+  // Step 1: Generate passage
+  const passageResult = await generateReadingPassage({
+    examType,
+    topic,
+    difficulty,
+    wordCount: 700,
+  });
+
+  if (!passageResult.success) {
+    return passageResult;
+  }
+
+  // Step 2: Determine question types based on difficulty
+  const questionTypes = getQuestionTypesForDifficulty(difficulty);
+
+  // Step 3: Generate questions
+  const questionsResult = await generateReadingQuestions({
+    passage: passageResult.passage,
+    questionTypes,
+    questionCount,
+    difficulty,
+  });
+
+  if (!questionsResult.success) {
+    return questionsResult;
+  }
+
+  // Combine usage stats
+  const totalUsage = {
+    promptTokens: passageResult.usage.promptTokens + questionsResult.usage.promptTokens,
+    completionTokens: passageResult.usage.completionTokens + questionsResult.usage.completionTokens,
+    totalTokens: passageResult.usage.totalTokens + questionsResult.usage.totalTokens,
+    model: MODELS.GENERATION,
+  };
+
+  return {
+    success: true,
+    passage: passageResult.passage,
+    questions: questionsResult.questions,
+    usage: totalUsage,
+  };
+};
+
+/**
+ * Generate feedback for a completed reading session
+ * @param {object} params - Session data
+ * @param {number} params.totalQuestions - Total questions
+ * @param {number} params.correctAnswers - Number correct
+ * @param {number} params.score - Percentage score
+ * @param {number} params.bandScore - IELTS band score
+ * @param {number} params.timeSpent - Time spent in seconds
+ * @param {number} params.timeLimit - Time limit in seconds
+ * @param {object[]} params.questionTypeAnalysis - Performance by question type
+ * @param {object[]} params.questions - All questions with user answers
+ * @returns {Promise<object>} - AI-generated feedback
+ */
+const generateReadingFeedback = async ({
+  totalQuestions,
+  correctAnswers,
+  score,
+  bandScore,
+  timeSpent,
+  timeLimit,
+  questionTypeAnalysis,
+  questions,
+}) => {
+  // Format question type analysis
+  const typeAnalysisText = questionTypeAnalysis
+    .map(t => `- ${t.type}: ${t.correct}/${t.attempted} correct (${t.accuracy}% accuracy)`)
+    .join('\n');
+
+  // Format detailed results (just wrong answers for brevity)
+  const wrongAnswers = questions.filter(q => q.isCorrect === false);
+  const detailedResultsText = wrongAnswers.slice(0, 5).map(q => 
+    `Q${q.id}: Type=${q.type}, User="${q.userAnswer}", Correct="${q.correctAnswer}"`
+  ).join('\n');
+
+  const prompt = fillPromptTemplate(READING_FEEDBACK_PROMPT, {
+    totalQuestions: totalQuestions.toString(),
+    correctAnswers: correctAnswers.toString(),
+    score: score.toString(),
+    bandScore: bandScore.toString(),
+    timeSpent: Math.round(timeSpent / 60).toString(),
+    timeLimit: Math.round(timeLimit / 60).toString(),
+    questionTypeAnalysis: typeAnalysisText || 'No data available',
+    detailedResults: detailedResultsText || 'All answers were correct!',
+  });
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: MODELS.EVALUATION,
+      messages: [
+        {
+          role: 'system',
+          content: 'You are an encouraging IELTS tutor. Always respond with valid JSON only.',
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      temperature: TEMPERATURE.EVALUATION,
+      max_tokens: 1500,
+    });
+
+    const content = response.choices[0].message.content;
+    const feedback = parseJSONResponse(content);
+
+    return {
+      success: true,
+      feedback: {
+        ...feedback,
+        questionTypeAnalysis,
+      },
+      usage: {
+        promptTokens: response.usage.prompt_tokens,
+        completionTokens: response.usage.completion_tokens,
+        totalTokens: response.usage.total_tokens,
+        model: MODELS.EVALUATION,
+      },
+    };
+  } catch (error) {
+    console.error('Error generating reading feedback:', error);
+    return {
+      success: false,
+      error: error.message,
+    };
+  }
+};
+
 module.exports = {
-  // Main dispatchers
+  // Writing - Main dispatchers
   evaluateWriting,
   generateWritingTask,
   
-  // Specific evaluation functions
+  // Writing - Specific evaluation functions
   evaluateWritingTask2,
   evaluateWritingTask1Academic,
   evaluateWritingTask1General,
   
-  // Specific generation functions
+  // Writing - Specific generation functions
   generateWritingTask2,
   generateWritingTask1Academic,
   generateWritingTask1General,
   
-  // Analysis functions
+  // Writing - Analysis functions
   analyzeGrammar,
   analyzeVocabulary,
+  
+  // Reading functions
+  generateReadingPassage,
+  generateReadingQuestions,
+  generateReadingTest,
+  generateReadingFeedback,
 };

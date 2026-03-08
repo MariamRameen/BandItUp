@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth");
 const profileRoutes = require("./routes/profile");
 const adminRoutes = require('./routes/admin');
 const writingRoutes = require('./routes/writing');
+const readingRoutes = require('./routes/reading');
 const chatRoutes = require('./routes/chatRoutes');
 const vocabRoutes = require('./routes/vocab');
 const listeningRoutes = require("./routes/listening");
@@ -40,7 +41,8 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use('/api/admin', adminRoutes); 
-app.use('/api/writing', writingRoutes); 
+app.use('/api/writing', writingRoutes);
+app.use('/api/reading', readingRoutes);
 app.use('/api/chat', chatRoutes);
 
 

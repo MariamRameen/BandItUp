@@ -18,6 +18,7 @@ import ListeningProgress from "./pages/Module2_Listening/ListeningProgress";
 import ReadingSelection from './pages/Module3_Reading/ReadingSelection';
 import ReadingPractice from './pages/Module3_Reading/ReadingPractice';
 import ReadingFeedback from './pages/Module3_Reading/ReadingFeedback';
+import ReadingHistory from './pages/Module3_Reading/ReadingHistory';
 import WritingSelection from './pages/Module4_Writing/WritingSelection';
 import WritingPractice from './pages/Module4_Writing/WritingPractice';
 import WritingFeedback from './pages/Module4_Writing/WritingFeedback';
@@ -115,6 +116,7 @@ export default function App() {
       <Route path="/reading" element={<FullAccessRoute><ReadingSelection /></FullAccessRoute>} />
       <Route path="/reading/practice" element={<FullAccessRoute><ReadingPractice /></FullAccessRoute>} />
       <Route path="/reading/feedback" element={<FullAccessRoute><ReadingFeedback /></FullAccessRoute>} />
+      <Route path="/reading/history" element={<FullAccessRoute><ReadingHistory /></FullAccessRoute>} />
       <Route path="/writing" element={<FullAccessRoute><WritingSelection /></FullAccessRoute>} />
       <Route path="/writing/practice" element={<FullAccessRoute><WritingPractice /></FullAccessRoute>} />
       <Route path="/writing/feedback" element={<FullAccessRoute><WritingFeedback /></FullAccessRoute>} />

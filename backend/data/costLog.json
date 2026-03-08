@@ -1,5 +1,5 @@
 {
-  "totalCost": 0.00028237,
+  "totalCost": 0.00033747,
   "alertSent": false,
   "history": [
     {
@@ -64,6 +64,20 @@
       "outputTokens": 74,
       "cost": 0.000055799999999999994,
       "timestamp": "2026-03-06T06:38:46.618Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 10,
+      "outputTokens": 0,
+      "cost": 2e-7,
+      "timestamp": "2026-03-07T16:20:02.967Z"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "inputTokens": 170,
+      "outputTokens": 49,
+      "cost": 0.0000549,
+      "timestamp": "2026-03-07T16:20:05.312Z"
     }
   ]
 }

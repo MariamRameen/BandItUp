@@ -10,7 +10,7 @@ const profileRoutes = require("./routes/profile");
 const adminRoutes = require('./routes/admin');
 const chatRoutes = require('./routes/chatRoutes');
 const vocabRoutes = require('./routes/vocab');
-
+const listeningRoutes = require("./routes/listening");
 
 const app = express();
 
@@ -29,6 +29,7 @@ app.use('/api/vocab', vocabRoutes);
 app.use("/avatars", express.static(path.join(__dirname, "uploads/avatars")));
 
 
+app.use("/api/listening", listeningRoutes);
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB Connected"))

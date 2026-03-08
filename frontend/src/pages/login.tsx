@@ -95,7 +95,7 @@ export default function Login() {
       
       apiService.setToken(response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
-      localStorage.setItem('role', response.user.role);
+      localStorage.setItem('role', response.user.role || '');
 
       const userRole = response.user?.role?.toString().trim().toLowerCase();
       

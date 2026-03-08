@@ -33,7 +33,7 @@ exports.updateProfile = async (req, res) => {
       "timezone", "avatarUrl", "theme", "email", "phone"
     ];
 
-    // Check email uniqueness
+   
     if (req.body.email && req.body.email !== req.user.email) {
       const emailExists = await User.findOne({ 
         email: req.body.email, 

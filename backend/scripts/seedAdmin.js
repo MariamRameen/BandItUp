@@ -39,8 +39,6 @@ const createAdmin = async () => {
         displayName: 'BandItUp Admin',
         role: 'admin',
         subscriptionStatus: 'admin',
-        examType: 'Academic',
-        targetScore: 9.0,
         isVerified: true,
         theme: 'dark'
       });

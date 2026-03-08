@@ -1,0 +1,148 @@
+{
+  "user": {
+    "id": "507f1f77bcf86cd799439011",
+    "email": "test@example.com",
+    "fullName": "Test User",
+    "targetBand": 7,
+    "dateOfExam": "2026-06-15"
+  },
+  
+  "writingTask2": {
+    "prompt": "Some people believe that technology has greatly improved our lives, while others argue it has made our lives more complicated and stressful. To what extent do you agree or disagree with this statement?",
+    "essayType": "opinion",
+    "topic": "Technology",
+    "vocabularyHints": [
+      "innovation",
+      "digital transformation", 
+      "automation",
+      "convenience",
+      "connectivity"
+    ],
+    "timeLimit": 2400,
+    "minWords": 250
+  },
+  
+  "writingTask1Academic": {
+    "prompt": "The bar chart below shows the percentage of people using different modes of transportation to commute to work in five major cities in 2020. Summarize the information by selecting and reporting the main features, and make comparisons where relevant.",
+    "chartType": "bar",
+    "visualDescription": "A bar chart showing transportation modes (car, public transport, bicycle, walking) across 5 cities",
+    "timeLimit": 1200,
+    "minWords": 150
+  },
+  
+  "writingTask1General": {
+    "prompt": "You recently moved to a new apartment. Write a letter to your friend describing your new place and inviting them to visit.",
+    "letterType": "informal",
+    "situation": "Describing new accommodation",
+    "timeLimit": 1200,
+    "minWords": 150
+  },
+  
+  "sampleEssay": {
+    "text": "Technology has revolutionized our modern world in numerous ways. From smartphones to artificial intelligence, technological advancements have transformed how we work, communicate, and live our daily lives.\n\nFirstly, technology has significantly improved our productivity and efficiency. With the advent of computers and the internet, tasks that once took hours can now be completed in minutes. This has not only benefited businesses but also individuals in managing their personal affairs more effectively.\n\nMoreover, technology has enhanced global connectivity. Social media platforms and instant messaging applications have made it possible to stay connected with friends and family across the world. This has fostered a sense of global community and enabled cultural exchange on an unprecedented scale.\n\nHowever, it is important to acknowledge that technology also presents certain challenges. The constant connectivity can lead to digital fatigue and anxiety. Additionally, concerns about privacy and data security have become increasingly relevant in our digital age.\n\nIn conclusion, while technology has undoubtedly improved many aspects of our lives, we must use it wisely and be mindful of its potential drawbacks. The key lies in finding a balance that allows us to harness the benefits of technology while mitigating its negative effects.",
+    "wordCount": 195
+  },
+  
+  "evaluation": {
+    "overallBand": 7.0,
+    "criteria": {
+      "taskResponse": {
+        "band": 7.0,
+        "feedback": "The response addresses all parts of the task and presents a clear position throughout. The main ideas are well-supported with examples."
+      },
+      "coherenceCohesion": {
+        "band": 7.0,
+        "feedback": "The essay is well-organized with clear progression of ideas. Paragraphs are logically arranged and cohesive devices are used effectively."
+      },
+      "lexicalResource": {
+        "band": 6.5,
+        "feedback": "The vocabulary range is adequate for the task. Some less common vocabulary is used, though there is occasional repetition."
+      },
+      "grammaticalRange": {
+        "band": 7.0,
+        "feedback": "A variety of complex structures is used with good control. Grammar and punctuation are generally accurate."
+      }
+    },
+    "strengths": [
+      "Clear thesis statement in introduction",
+      "Well-structured paragraphs with topic sentences",
+      "Good use of linking words",
+      "Balanced view presented"
+    ],
+    "improvements": [
+      "Use more sophisticated vocabulary",
+      "Include more specific examples",
+      "Develop counter-arguments more fully"
+    ],
+    "grammarErrors": [
+      {
+        "original": "technology also presents",
+        "correction": "technology also presents",
+        "explanation": "Consider varying sentence structure"
+      }
+    ],
+    "vocabularySuggestions": [
+      {
+        "original": "very important",
+        "upgrade": "crucial",
+        "context": "When emphasizing significance"
+      },
+      {
+        "original": "a lot of",
+        "upgrade": "numerous",
+        "context": "For more formal academic tone"
+      }
+    ]
+  },
+  
+  "sessions": [
+    {
+      "_id": "session-001",
+      "taskType": 2,
+      "examType": "Academic",
+      "task": {
+        "prompt": "Technology has changed modern society...",
+        "essayType": "opinion",
+        "topic": "Technology"
+      },
+      "wordCount": 285,
+      "timeSpent": 1850,
+      "evaluation": {
+        "overallBand": 7.0
+      },
+      "status": "evaluated",
+      "createdAt": "2026-03-07T10:30:00.000Z",
+      "evaluatedAt": "2026-03-07T11:00:00.000Z"
+    },
+    {
+      "_id": "session-002",
+      "taskType": 1,
+      "examType": "Academic",
+      "task": {
+        "prompt": "The chart below shows...",
+        "chartType": "line"
+      },
+      "wordCount": 175,
+      "timeSpent": 950,
+      "evaluation": {
+        "overallBand": 6.5
+      },
+      "status": "evaluated",
+      "createdAt": "2026-03-06T14:00:00.000Z",
+      "evaluatedAt": "2026-03-06T14:20:00.000Z"
+    },
+    {
+      "_id": "session-003",
+      "taskType": 2,
+      "examType": "General",
+      "task": {
+        "prompt": "Some people prefer...",
+        "essayType": "discussion"
+      },
+      "wordCount": 120,
+      "timeSpent": 600,
+      "status": "draft",
+      "createdAt": "2026-03-05T16:00:00.000Z"
+    }
+  ]
+}

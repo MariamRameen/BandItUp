@@ -1,5 +1,5 @@
 {
-  "totalCost": 0.00028251,
+  "totalCost": 0.00028264999999999996,
   "alertSent": false,
   "history": [
     {
@@ -71,6 +71,13 @@
       "outputTokens": 0,
       "cost": 1.4e-7,
       "timestamp": "2026-03-08T06:54:10.637Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 7,
+      "outputTokens": 0,
+      "cost": 1.4e-7,
+      "timestamp": "2026-03-08T07:14:30.591Z"
     }
   ]
 }

@@ -3,6 +3,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import { readingService, ReadingSession, ReadingQuestion, QuestionType } from '../../services/readingService';
 
+// Helper to convert index to letter (0 -> 'A', 1 -> 'B', etc.)
+const indexToLetter = (idx: number): string => String.fromCharCode(65 + idx);
+
 export default function ReadingPractice() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -333,7 +336,7 @@ export default function ReadingPractice() {
                       }`}
                       onClick={() => setHighlightedParagraph(highlightedParagraph === idx ? null : idx)}
                     >
-                      <span className="text-xs text-[#999] dark:text-gray-500 mr-2">[{idx + 1}]</span>
+                      <span className="text-xs font-bold text-[#7D3CFF] dark:text-[#A78BFA] mr-2">[{indexToLetter(idx)}]</span>
                       {para.content || para.text}
                     </p>
                   ))
@@ -493,31 +496,50 @@ interface QuestionRendererProps {
 }
 
 function QuestionRenderer({ question, answer, onAnswerChange, onHighlightParagraph }: QuestionRendererProps) {
+  // Helper to extract letter from option like "A. Some text" or just "A"
+  const extractLetter = (option: string): string => {
+    const match = option.match(/^([A-Za-z])[\.\)\s:]/);
+    if (match) return match[1].toUpperCase();
+    // If option is already just a letter
+    if (/^[A-Za-z]$/.test(option.trim())) return option.trim().toUpperCase();
+    return option;
+  };
+
+  // Helper to check if answer matches option
+  const isOptionSelected = (option: string): boolean => {
+    const optionLetter = extractLetter(option);
+    const answerLetter = extractLetter(answer);
+    return optionLetter === answerLetter;
+  };
+
   const renderQuestionContent = () => {
     switch (question.questionType) {
       case 'multiple_choice':
         return (
           <div className="space-y-3">
             <p className="text-[#333] dark:text-white mb-4">{question.questionText}</p>
-            {question.options?.map((option, idx) => (
-              <label
-                key={idx}
-                className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all ${
-                  answer === option
-                    ? 'bg-[#7D3CFF]/10 border-2 border-[#7D3CFF]'
-                    : 'bg-[#F8F9FF] dark:bg-gray-700 border-2 border-transparent hover:bg-[#E8DCFF] dark:hover:bg-gray-600'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name={`q-${question._id}`}
-                  checked={answer === option}
-                  onChange={() => onAnswerChange(option)}
-                  className="text-[#7D3CFF] w-4 h-4"
-                />
-                <span className="text-[#333] dark:text-white">{option}</span>
-              </label>
-            ))}
+            {question.options?.map((option, idx) => {
+              const letter = extractLetter(option);
+              return (
+                <label
+                  key={idx}
+                  className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all ${
+                    isOptionSelected(option)
+                      ? 'bg-[#7D3CFF]/10 border-2 border-[#7D3CFF]'
+                      : 'bg-[#F8F9FF] dark:bg-gray-700 border-2 border-transparent hover:bg-[#E8DCFF] dark:hover:bg-gray-600'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name={`q-${question._id}`}
+                    checked={isOptionSelected(option)}
+                    onChange={() => onAnswerChange(letter)}
+                    className="text-[#7D3CFF] w-4 h-4"
+                  />
+                  <span className="text-[#333] dark:text-white">{option}</span>
+                </label>
+              );
+            })}
           </div>
         );
 
@@ -582,29 +604,45 @@ function QuestionRenderer({ question, answer, onAnswerChange, onHighlightParagra
               <p className="text-sm text-[#777] dark:text-gray-400 mb-3 italic">{question.instructions}</p>
             )}
             {question.options && question.options.length > 0 ? (
-              <select
-                value={answer}
-                onChange={(e) => onAnswerChange(e.target.value)}
-                className="w-full p-3 border border-[#E8DCFF] dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-[#333] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7D3CFF]"
-              >
-                <option value="">Select an option...</option>
-                {question.options.map((option, idx) => (
-                  <option key={idx} value={option}>{option}</option>
-                ))}
-              </select>
+              <div className="space-y-2">
+                {question.options.map((option, idx) => {
+                  const letter = extractLetter(option);
+                  return (
+                    <label
+                      key={idx}
+                      className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all ${
+                        isOptionSelected(option)
+                          ? 'bg-[#7D3CFF]/10 border-2 border-[#7D3CFF]'
+                          : 'bg-[#F8F9FF] dark:bg-gray-700 border-2 border-transparent hover:bg-[#E8DCFF] dark:hover:bg-gray-600'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name={`q-${question._id}`}
+                        checked={isOptionSelected(option)}
+                        onChange={() => onAnswerChange(letter)}
+                        className="text-[#7D3CFF] w-4 h-4"
+                      />
+                      <span className="text-[#333] dark:text-white">{option}</span>
+                    </label>
+                  );
+                })}
+              </div>
             ) : (
               <input
                 type="text"
                 value={answer}
-                onChange={(e) => onAnswerChange(e.target.value)}
-                placeholder="Type your answer here..."
-                className="w-full p-3 border border-[#E8DCFF] dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-[#333] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7D3CFF]"
+                onChange={(e) => onAnswerChange(e.target.value.toUpperCase())}
+                placeholder="Enter letter (A, B, C, etc.)..."
+                className="w-full p-3 border border-[#E8DCFF] dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-[#333] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#7D3CFF] uppercase"
+                maxLength={1}
               />
             )}
           </div>
         );
 
       case 'list_selection':
+      case 'multiple_choice_multiple':
         return (
           <div>
             <p className="text-[#333] dark:text-white mb-4">{question.questionText}</p>
@@ -612,31 +650,35 @@ function QuestionRenderer({ question, answer, onAnswerChange, onHighlightParagra
               <p className="text-sm text-[#777] dark:text-gray-400 mb-3 italic">{question.instructions}</p>
             )}
             <div className="space-y-2">
-              {question.options?.map((option, idx) => (
-                <label
-                  key={idx}
-                  className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all ${
-                    answer.split(',').includes(option)
-                      ? 'bg-[#7D3CFF]/10 border-2 border-[#7D3CFF]'
-                      : 'bg-[#F8F9FF] dark:bg-gray-700 border-2 border-transparent hover:bg-[#E8DCFF] dark:hover:bg-gray-600'
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={answer.split(',').includes(option)}
-                    onChange={(e) => {
-                      const currentSelections = answer ? answer.split(',').filter(Boolean) : [];
-                      if (e.target.checked) {
-                        onAnswerChange([...currentSelections, option].join(','));
-                      } else {
-                        onAnswerChange(currentSelections.filter((s) => s !== option).join(','));
-                      }
-                    }}
-                    className="text-[#7D3CFF] w-4 h-4 rounded"
-                  />
-                  <span className="text-[#333] dark:text-white">{option}</span>
-                </label>
-              ))}
+              {question.options?.map((option, idx) => {
+                const letter = extractLetter(option);
+                const selectedLetters = answer ? answer.split(',').filter(Boolean) : [];
+                const isSelected = selectedLetters.includes(letter);
+                return (
+                  <label
+                    key={idx}
+                    className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all ${
+                      isSelected
+                        ? 'bg-[#7D3CFF]/10 border-2 border-[#7D3CFF]'
+                        : 'bg-[#F8F9FF] dark:bg-gray-700 border-2 border-transparent hover:bg-[#E8DCFF] dark:hover:bg-gray-600'
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={isSelected}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          onAnswerChange([...selectedLetters, letter].join(','));
+                        } else {
+                          onAnswerChange(selectedLetters.filter((s) => s !== letter).join(','));
+                        }
+                      }}
+                      className="text-[#7D3CFF] w-4 h-4 rounded"
+                    />
+                    <span className="text-[#333] dark:text-white">{option}</span>
+                  </label>
+                );
+              })}
             </div>
           </div>
         );
@@ -683,7 +725,7 @@ function QuestionRenderer({ question, answer, onAnswerChange, onHighlightParagra
           onClick={() => onHighlightParagraph(question.paragraphRef!)}
           className="text-xs text-[#7D3CFF] hover:underline mb-2"
         >
-          📍 Reference: Paragraph {question.paragraphRef + 1}
+          📍 Reference: Paragraph {indexToLetter(question.paragraphRef)}
         </button>
       )}
       {renderQuestionContent()}

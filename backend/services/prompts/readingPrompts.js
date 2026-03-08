@@ -85,38 +85,50 @@ const READING_QUESTIONS_GENERATION_PROMPT = `You are an expert IELTS examiner. G
 - 4 options (A, B, C, D)
 - One clearly correct answer
 - Distractors should be plausible but wrong
+- correctAnswer should be JUST the letter: "B"
 
 ### True/False/Not Given:
 - Statement about factual information
 - TRUE = matches passage exactly
 - FALSE = contradicts passage
 - NOT GIVEN = not mentioned in passage
+- correctAnswer: "True", "False", or "Not Given"
 
 ### Yes/No/Not Given:
 - Statement about writer's opinion/claim
 - YES = writer agrees
 - NO = writer disagrees
 - NOT GIVEN = opinion not stated
+- correctAnswer: "Yes", "No", or "Not Given"
 
 ### Matching Headings:
-- Match paragraph with best heading
-- Provide more headings than paragraphs
-- Headings should summarize main idea
+- Generate ONE question per paragraph to match
+- Each question asks "Which heading best matches paragraph X?"
+- Provide the same list of headings as options for each
+- correctAnswer should be the heading letter: "C"
+
+### Matching Information:
+- Generate ONE question per piece of information
+- Each question asks "Which paragraph contains [information]?"
+- Options should be paragraph letters: ["A", "B", "C", "D"]
+- correctAnswer should be the paragraph letter: "B"
 
 ### Sentence Completion:
 - Complete sentence using words from passage
 - Specify word limit (e.g., "NO MORE THAN THREE WORDS")
 - Answer must be exact words from passage
+- correctAnswer should be the exact fill-in words
 
 ### Short Answer:
 - Answer with words from passage
 - Specify word limit
 - Clear, specific questions
+- correctAnswer: exact words, but comparison will be flexible
 
 ### Summary Completion:
-- Fill gaps in a summary
-- Can use word bank or passage words
-- Tests understanding of main ideas
+- ONE question per blank to fill
+- Each question specifies which blank in the summary
+- correctAnswer should be the word(s) for that ONE blank
 
 ## Output Format (JSON):
 {

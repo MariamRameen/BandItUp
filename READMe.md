@@ -1,6 +1,6 @@
 #  BandItUp - IELTS Preparation Web App 
 
-**Author: Mariam Rameen**  
+**Co-Author: Mariam Rameen**  
 GitHub: https://github.com/MariamRameen
 
 ---

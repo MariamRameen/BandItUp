@@ -21,6 +21,7 @@ import ReadingFeedback from './pages/Module3_Reading/ReadingFeedback';
 import WritingSelection from './pages/Module4_Writing/WritingSelection';
 import WritingPractice from './pages/Module4_Writing/WritingPractice';
 import WritingFeedback from './pages/Module4_Writing/WritingFeedback';
+import WritingHistory from './pages/Module4_Writing/WritingHistory';
 import VocabBands from './pages/Module5_Vocabulary/VocabBands';
 import VocabFlashcards from './pages/Module5_Vocabulary/VocabFlashcards';
 import VocabQuiz from './pages/Module5_Vocabulary/VocabQuiz';
@@ -117,6 +118,8 @@ export default function App() {
       <Route path="/writing" element={<FullAccessRoute><WritingSelection /></FullAccessRoute>} />
       <Route path="/writing/practice" element={<FullAccessRoute><WritingPractice /></FullAccessRoute>} />
       <Route path="/writing/feedback" element={<FullAccessRoute><WritingFeedback /></FullAccessRoute>} />
+      <Route path="/writing/feedback/:sessionId" element={<FullAccessRoute><WritingFeedback /></FullAccessRoute>} />
+      <Route path="/writing/history" element={<FullAccessRoute><WritingHistory /></FullAccessRoute>} />
       <Route path="/vocabulary" element={<FullAccessRoute><VocabBands /></FullAccessRoute>} />
       <Route path="/vocabulary/flashcards" element={<FullAccessRoute><VocabFlashcards /></FullAccessRoute>} />
       <Route path="/vocabulary/quiz" element={<FullAccessRoute><VocabQuiz /></FullAccessRoute>} />

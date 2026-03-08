@@ -25,9 +25,11 @@ import VocabBands from './pages/Module5_Vocabulary/VocabBands';
 import VocabFlashcards from './pages/Module5_Vocabulary/VocabFlashcards';
 import VocabQuiz from './pages/Module5_Vocabulary/VocabQuiz';
 import VocabProgress from './pages/Module5_Vocabulary/VocabProgress';
-import BaselineIntro from './pages/Module6_BaselineTest/BaselineIntro';
+import BaselineGate from './pages/Module6_BaselineTest/BaselineGate';
 import BaselineTest from './pages/Module6_BaselineTest/BaselineTest';
-import BaselineFeedback from './pages/Module6_BaselineTest/BaselineFeedback';
+
+import BaselineGuard from "./components/BaselineGuard";
+import BaselineResults from './pages/Module6_BaselineTest/BaselineResults';
 import MockSelection from './pages/Module7_MockTests/MockSelection';
 import MockStart from './pages/Module7_MockTests/MockStart';
 import MockResult from './pages/Module7_MockTests/MockResult';
@@ -60,6 +62,7 @@ const FullAccessRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
 export default function App() {
   return (
      <ThemeProvider>
+      <BaselineGuard>
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
@@ -121,9 +124,10 @@ export default function App() {
       <Route path="/vocabulary/flashcards" element={<FullAccessRoute><VocabFlashcards /></FullAccessRoute>} />
       <Route path="/vocabulary/quiz" element={<FullAccessRoute><VocabQuiz /></FullAccessRoute>} />
       <Route path="/vocabulary/progress" element={<FullAccessRoute><VocabProgress /></FullAccessRoute>} />
-      <Route path="/baseline-test" element={<ProtectedRoute><BaselineIntro /></ProtectedRoute>} />
-      <Route path="/baseline-test/start" element={<ProtectedRoute><BaselineTest /></ProtectedRoute>} />
-      <Route path="/baseline-test/result" element={<ProtectedRoute><BaselineFeedback /></ProtectedRoute>} />
+      
+      <Route path="/baseline"         element={<BaselineGate />}    />
+      <Route path="/baseline/test"    element={<BaselineTest />}    />
+      <Route path="/baseline/results" element={<BaselineResults />} />
       <Route path="/mock-tests" element={<FullAccessRoute><MockSelection /></FullAccessRoute>} />
       <Route path="/mock-tests/start" element={<FullAccessRoute><MockStart /></FullAccessRoute>} />
       <Route path="/mock-tests/result" element={<FullAccessRoute><MockResult /></FullAccessRoute>} />
@@ -133,6 +137,7 @@ export default function App() {
       <Route path="/chat" element={<FullAccessRoute><ChatScreen /></FullAccessRoute>} />
       <Route path="/set-password" element={<SetPassword />} />
       </Routes>
+      </BaselineGuard>
       </ThemeProvider>
         );
       }

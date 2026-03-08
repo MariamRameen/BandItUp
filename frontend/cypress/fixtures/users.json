@@ -1,0 +1,20 @@
+[
+  {
+    "email": "aisha@gmail.com",
+    "password": "aisha2003",
+    "role": "user",
+    "valid": true
+  },
+  {
+    "email": "admin@banditup.com",
+    "password": "Admin@123",
+    "role": "admin",
+    "valid": true
+  },
+  {
+    "email": "wrong@gmail.com",
+    "password": "wrong123",
+    "role": "user",
+    "valid": false
+  }
+]

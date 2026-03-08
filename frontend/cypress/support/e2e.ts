@@ -1,34 +1,27 @@
-/// <reference types="cypress" />
 // ***********************************************************
-// E2E Support File
-// This file is processed and loaded automatically before E2E tests.
+// This example support/e2e.ts is processed and
+// loaded automatically before your test files.
+//
+// This is a great place to put global configuration and
+// behavior that modifies Cypress.
+//
+// You can change the location of this file or turn off
+// automatically serving support files with the
+// 'supportFile' configuration option.
+//
+// You can read more here:
+// https://on.cypress.io/configuration
 // ***********************************************************
+
+// Import commands.js using ES2015 syntax:
 
 import './commands';
 
-// Prevent TypeScript errors when accessing Cypress namespace
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      // Import custom commands
-    }
-  }
-}
 
-// Hide fetch/XHR requests from command log
-const app = window.top;
-if (app && !app.document.head.querySelector('[data-hide-command-log-request]')) {
-  const style = app.document.createElement('style');
-  style.innerHTML = '.command-name-request, .command-name-xhr { display: none }';
-  style.setAttribute('data-hide-command-log-request', '');
-  app.document.head.appendChild(style);
-}
+import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command';
 
-// Handle uncaught exceptions
-Cypress.on('uncaught:exception', (err) => {
-  // returning false here prevents Cypress from failing the test
-  if (err.message.includes('ResizeObserver loop')) {
-    return false;
-  }
-  return true;
+addMatchImageSnapshotCommand({
+  failureThreshold: 0.9,
+  failureThresholdType: 'percent',
+  customDiffConfig: { threshold: 0.1 },
 });

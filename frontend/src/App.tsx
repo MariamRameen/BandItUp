@@ -10,9 +10,11 @@ import Dashboard from "./pages/Module9_Dashboard/Dashboard";
 import SpeakingSelection from './pages/Module1_Speaking/SpeakingSelection';
 import SpeakingPractice from './pages/Module1_Speaking/SpeakingPractice';
 import SpeakingFeedback from './pages/Module1_Speaking/SpeakingFeedback';
-import ListeningSelection from './pages/Module2_Listening/ListeningSelection';
-import ListeningPractice from './pages/Module2_Listening/ListeningPractice';
-import ListeningFeedback from './pages/Module2_Listening/ListeningFeedback';
+
+import ListeningHome     from "./pages/Module2_Listening/ListeningHome";
+import ListeningSession  from "./pages/Module2_Listening/ListeningSession";
+import ListeningResults  from "./pages/Module2_Listening/ListeningResults";
+import ListeningProgress from "./pages/Module2_Listening/ListeningProgress";
 import ReadingSelection from './pages/Module3_Reading/ReadingSelection';
 import ReadingPractice from './pages/Module3_Reading/ReadingPractice';
 import ReadingFeedback from './pages/Module3_Reading/ReadingFeedback';
@@ -104,9 +106,12 @@ export default function App() {
       <Route path="/speaking" element={<FullAccessRoute><SpeakingSelection /></FullAccessRoute>} />
       <Route path="/speaking/practice" element={<FullAccessRoute><SpeakingPractice /></FullAccessRoute>} />
       <Route path="/speaking/feedback" element={<FullAccessRoute><SpeakingFeedback /></FullAccessRoute>} />
-      <Route path="/listening" element={<FullAccessRoute><ListeningSelection /></FullAccessRoute>} />
-      <Route path="/listening/practice" element={<FullAccessRoute><ListeningPractice /></FullAccessRoute>} />
-      <Route path="/listening/feedback" element={<FullAccessRoute><ListeningFeedback /></FullAccessRoute>} />
+      
+      <Route path="/listening"                     element={<ListeningHome />} />
+      <Route path="/listening/session/:sessionId"  element={<ListeningSession />} />
+      <Route path="/listening/mock/:sessionId"     element={<ListeningSession />} />
+      <Route path="/listening/results/:sessionId"  element={<ListeningResults />} />
+      <Route path="/listening/progress"            element={<ListeningProgress />} />
       <Route path="/reading" element={<FullAccessRoute><ReadingSelection /></FullAccessRoute>} />
       <Route path="/reading/practice" element={<FullAccessRoute><ReadingPractice /></FullAccessRoute>} />
       <Route path="/reading/feedback" element={<FullAccessRoute><ReadingFeedback /></FullAccessRoute>} />

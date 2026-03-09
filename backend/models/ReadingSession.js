@@ -401,7 +401,15 @@ readingSessionSchema.methods.checkAnswer = function(questionId, userAnswer) {
       }
     }
     // For text-based questions (short answer, completion), use flexible matching
-    else if (['short_answer', 'sentence_completion', 'summary_completion', 'note_completion', 'table_completion', 'diagram_labelling'].includes(question.type)) {
+    else if ([
+      'short_answer',
+      'sentence_completion',
+      'summary_completion',
+      'note_completion',
+      'table_completion',
+      'diagram_label_completion',
+      'flow_chart_completion',
+    ].includes(question.type)) {
       question.isCorrect = flexibleMatch(normalizedUser, normalizedCorrect);
     }
     // Default exact match

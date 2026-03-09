@@ -247,12 +247,12 @@ export default function Dashboard() {
           </section>
 
           <section className="px-8 grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
-            {dashboardData ? [
-              { label: "Overall Band", score: dashboardData.currentScores.overall.toString(), prev: dashboardData.baselineScores.overall.toString(), improvement: dashboardData.improvement.overall, icon: <Award className="text-[#7D3CFF]" /> },
-              { label: "Listening", score: dashboardData.currentScores.listening.toString(), prev: dashboardData.baselineScores.listening.toString(), improvement: dashboardData.improvement.listening, icon: <TrendingUp className="text-emerald-500" /> },
-              { label: "Reading", score: dashboardData.currentScores.reading.toString(), prev: dashboardData.baselineScores.reading.toString(), improvement: dashboardData.improvement.reading, icon: <TrendingUp className="text-blue-500" /> },
-              { label: "Writing", score: dashboardData.currentScores.writing.toString(), prev: dashboardData.baselineScores.writing.toString(), improvement: dashboardData.improvement.writing, icon: <Clock className="text-amber-500" /> },
-              { label: "Speaking", score: dashboardData.currentScores.speaking.toString(), prev: dashboardData.baselineScores.speaking.toString(), improvement: dashboardData.improvement.speaking, icon: <Target className="text-purple-500" /> },
+            {dashboardData?.currentScores ? [
+              { label: "Overall Band", score: (dashboardData.currentScores.overall ?? 0).toString(), prev: (dashboardData.baselineScores?.overall ?? 0).toString(), improvement: dashboardData.improvement?.overall ?? 0, icon: <Award className="text-[#7D3CFF]" /> },
+              { label: "Listening", score: (dashboardData.currentScores.listening ?? 0).toString(), prev: (dashboardData.baselineScores?.listening ?? 0).toString(), improvement: dashboardData.improvement?.listening ?? 0, icon: <TrendingUp className="text-emerald-500" /> },
+              { label: "Reading", score: (dashboardData.currentScores.reading ?? 0).toString(), prev: (dashboardData.baselineScores?.reading ?? 0).toString(), improvement: dashboardData.improvement?.reading ?? 0, icon: <TrendingUp className="text-blue-500" /> },
+              { label: "Writing", score: (dashboardData.currentScores.writing ?? 0).toString(), prev: (dashboardData.baselineScores?.writing ?? 0).toString(), improvement: dashboardData.improvement?.writing ?? 0, icon: <Clock className="text-amber-500" /> },
+              { label: "Speaking", score: (dashboardData.currentScores.speaking ?? 0).toString(), prev: (dashboardData.baselineScores?.speaking ?? 0).toString(), improvement: dashboardData.improvement?.speaking ?? 0, icon: <Target className="text-purple-500" /> },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl shadow-lg px-6 py-5 border border-[#F0E8FF] hover:shadow-xl transition-shadow">
                 <div className="flex items-center justify-between mb-3">
@@ -296,7 +296,7 @@ export default function Dashboard() {
                   </div>
                   <div className="bg-gradient-to-br from-[#F8F9FF] to-white p-6 rounded-2xl shadow-sm border">
                     <p className="text-2xl font-semibold text-emerald-600">
-                      {dashboardData ? ((dashboardData.targetScore - dashboardData.currentScores.overall).toFixed(1)) : "-"} pts
+                      {dashboardData?.currentScores?.overall != null ? ((dashboardData.targetScore - dashboardData.currentScores.overall).toFixed(1)) : "-"} pts
                     </p>
                     <p className="text-xs text-[#777] mt-2">Gap to Target</p>
                   </div>
@@ -346,7 +346,7 @@ export default function Dashboard() {
                         <div>
                           <p className="text-sm font-medium">Overall Band Score</p>
                           <p className="text-xs text-[#777]">
-                            {dashboardData.studyStats.totalMockTests} total tests completed
+                            {dashboardData.studyStats?.totalMockTests ?? 0} total tests completed
                           </p>
                         </div>
                       </div>

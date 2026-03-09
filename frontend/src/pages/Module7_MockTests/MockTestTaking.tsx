@@ -543,10 +543,10 @@ export default function MockTestTaking() {
           {questions.map((q: any, idx: number) => (
             <div key={q.questionNumber || idx} className="bg-white p-4 rounded-xl border border-[#E2D9FF]">
               <p className="font-medium mb-3">
-                Q{q.questionNumber || idx + 1}: {q.questionText}
+                Q{q.questionNumber || idx + 1}: {q.prompt || q.questionText || 'Question'}
               </p>
               
-              {q.type === 'mcq' && q.options ? (
+              {(q.type === 'mcq' || q.type === 'multiple_choice') && q.options ? (
                 <div className="space-y-2">
                   {q.options.map((opt: string, optIdx: number) => (
                     <label
@@ -662,8 +662,9 @@ export default function MockTestTaking() {
     if (!state?.data) return null;
 
     // Support both single task (old) and multiple tasks (new)
-    const tasks = state.data.tasks || [state.data.task || state.data.session?.task];
-    const [activeTask, setActiveTaskLocal] = useState(0);
+    const tasks = state.data.tasks || [state.data.task || state.data.session?.task].filter(Boolean);
+    // Use currentQuestionIndex to track active task (shared state)
+    const activeTaskIdx = Math.min(currentQuestionIndex, tasks.length - 1);
 
     return (
       <div className="space-y-6">
@@ -675,7 +676,7 @@ export default function MockTestTaking() {
                 key={idx}
                 onClick={() => setCurrentQuestionIndex(idx)}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                  currentQuestionIndex === idx
+                  activeTaskIdx === idx
                     ? 'bg-[#7D3CFF] text-white'
                     : 'bg-[#F4F0FF] text-[#7D3CFF] hover:bg-[#E8DCFF]'
                 }`}
@@ -687,42 +688,42 @@ export default function MockTestTaking() {
         )}
 
         {/* Current Task */}
-        {tasks[currentQuestionIndex] && (
+        {tasks[activeTaskIdx] && (
           <>
             <div className="bg-[#F8F9FF] p-6 rounded-xl">
               <div className="flex items-center gap-2 mb-4">
                 <span className="px-3 py-1 bg-[#7D3CFF] text-white text-sm rounded-full">
-                  Task {tasks[currentQuestionIndex].taskType || currentQuestionIndex + 1}
+                  Task {tasks[activeTaskIdx].taskType || activeTaskIdx + 1}
                 </span>
                 <span className="text-sm text-[#777]">
-                  Minimum {tasks[currentQuestionIndex].minWords || (tasks[currentQuestionIndex].taskType === 1 ? 150 : 250)} words
+                  Minimum {tasks[activeTaskIdx].minWords || (tasks[activeTaskIdx].taskType === 1 ? 150 : 250)} words
                 </span>
               </div>
               
               {/* Task 1 specific: show data/chart description if available */}
-              {tasks[currentQuestionIndex].taskType === 1 && tasks[currentQuestionIndex].dataDescription && (
+              {tasks[activeTaskIdx].taskType === 1 && tasks[activeTaskIdx].dataDescription && (
                 <div className="mb-4 p-4 bg-white rounded-lg border border-[#E2D9FF]">
-                  <p className="text-sm text-[#666] italic">{tasks[currentQuestionIndex].dataDescription}</p>
+                  <p className="text-sm text-[#666] italic">{tasks[activeTaskIdx].dataDescription}</p>
                 </div>
               )}
               
               <p className="text-[#333] leading-relaxed">
-                {tasks[currentQuestionIndex].prompt || 'Loading task prompt...'}
+                {tasks[activeTaskIdx].prompt || 'Loading task prompt...'}
               </p>
             </div>
 
             {/* Essay Input */}
             <div className="bg-white p-6 rounded-xl border border-[#E2D9FF]">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="font-semibold">Your Response - Task {tasks[currentQuestionIndex].taskType || currentQuestionIndex + 1}</h3>
+                <h3 className="font-semibold">Your Response - Task {tasks[activeTaskIdx].taskType || activeTaskIdx + 1}</h3>
                 <span className="text-sm text-[#777]">
-                  Word count: {(state.answers[`task${currentQuestionIndex}`] || '').trim().split(/\s+/).filter(Boolean).length}
+                  Word count: {(state.answers[`task${activeTaskIdx}`] || '').trim().split(/\s+/).filter(Boolean).length}
                 </span>
               </div>
               <textarea
-                value={state.answers[`task${currentQuestionIndex}`] || ''}
-                onChange={(e) => updateAnswer(`task${currentQuestionIndex}`, e.target.value)}
-                placeholder={`Write your Task ${tasks[currentQuestionIndex].taskType || currentQuestionIndex + 1} response here...`}
+                value={state.answers[`task${activeTaskIdx}`] || ''}
+                onChange={(e) => updateAnswer(`task${activeTaskIdx}`, e.target.value)}
+                placeholder={`Write your Task ${tasks[activeTaskIdx].taskType || activeTaskIdx + 1} response here...`}
                 rows={16}
                 className="w-full p-4 border border-[#E2D9FF] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7D3CFF] resize-none"
               />

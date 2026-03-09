@@ -87,6 +87,7 @@ export default function MockResult() {
       const data = await res.json();
       if (data.success) {
         // Format progress data for charts
+        const progression = data.progression || [];
         const formatted: ProgressPoint[] = [
           {
             week: 'Baseline',
@@ -96,7 +97,7 @@ export default function MockResult() {
             speaking: data.baseline?.speaking || 0,
             overall: data.baseline?.overall || 0,
           },
-          ...data.progression.map((p: any, idx: number) => ({
+          ...progression.map((p: any, idx: number) => ({
             week: `Test ${idx + 1}`,
             listening: p.listening || 0,
             reading: p.reading || 0,
@@ -113,10 +114,10 @@ export default function MockResult() {
   };
 
   const sectionScores = result ? [
-    { skill: 'Listening', baseline: result.baselineBand || 0, current: result.listening.band },
-    { skill: 'Reading', baseline: result.baselineBand || 0, current: result.reading.band },
-    { skill: 'Writing', baseline: result.baselineBand || 0, current: result.writing.band },
-    { skill: 'Speaking', baseline: result.baselineBand || 0, current: result.speaking.band },
+    { skill: 'Listening', baseline: result.baselineBand || 0, current: result.listening?.band ?? 0 },
+    { skill: 'Reading', baseline: result.baselineBand || 0, current: result.reading?.band ?? 0 },
+    { skill: 'Writing', baseline: result.baselineBand || 0, current: result.writing?.band ?? 0 },
+    { skill: 'Speaking', baseline: result.baselineBand || 0, current: result.speaking?.band ?? 0 },
   ] : [];
 
   if (loading) {

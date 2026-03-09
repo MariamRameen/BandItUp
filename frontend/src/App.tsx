@@ -38,7 +38,6 @@ import PlannerCalendar from './pages/Module8_StudyPlanner/PlannerCalendar';
 import AdminDashboard from './pages/Module11_Admin/AdminDashboard';
 import ChatScreen from './pages/Module12_LiveChat/ChatScreen';
 import AdminRoute from './components/AdminRoute';
-import BaselineRoute from './components/BaselineRoute';
 import Help from './pages/Module9_Dashboard/HelpSupport';
 import SetPassword  from "./pages/SetPassword";
 import VerifyEmail  from "./pages/VerifyEmail";
@@ -51,12 +50,9 @@ const ProtectedRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
   return isAuthenticated() ? children : <Navigate to="/login" replace />;
 };
 
-// Route that requires both authentication and completed baseline test
 const FullAccessRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
-  if (!isAuthenticated()) {
-    return <Navigate to="/login" replace />;
-  }
-  return <BaselineRoute>{children}</BaselineRoute>;
+  if (!isAuthenticated()) return <Navigate to="/login" replace />;
+  return children;
 };
 
 export default function App() {

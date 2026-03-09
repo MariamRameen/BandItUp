@@ -1,5 +1,6 @@
 {
-  "totalCost": 0.00041750999999999995,
+  "totalCost": 0.0004918199999999998,
+
   "alertSent": false,
   "history": [
     {
@@ -81,17 +82,166 @@
     },
     {
       "model": "text-embedding-3-small",
+      "inputTokens": 7,
+      "outputTokens": 0,
+      "cost": 1.4e-7,
+      "timestamp": "2026-03-08T09:54:31.850Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 7,
+      "outputTokens": 0,
+      "cost": 1.4e-7,
+      "timestamp": "2026-03-08T09:54:38.910Z"
+    },
+    {
+      "model": "text-embedding-3-small",
       "inputTokens": 1,
       "outputTokens": 0,
       "cost": 2e-8,
-      "timestamp": "2026-03-08T10:10:15.203Z"
+      "timestamp": "2026-03-08T09:55:16.504Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T09:55:20.963Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:11:23.683Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:31:57.996Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:32:03.421Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:33:46.895Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:33:51.964Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 7,
+      "outputTokens": 0,
+      "cost": 1.4e-7,
+      "timestamp": "2026-03-08T10:42:43.679Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 8,
+      "outputTokens": 0,
+      "cost": 1.6e-7,
+      "timestamp": "2026-03-08T10:43:22.431Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:50:50.203Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:50:55.051Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 8,
+      "outputTokens": 0,
+      "cost": 1.6e-7,
+      "timestamp": "2026-03-08T10:52:13.956Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:55:56.564Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T10:56:01.133Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 7,
+      "outputTokens": 0,
+      "cost": 1.4e-7,
+      "timestamp": "2026-03-08T10:56:53.077Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 7,
+      "outputTokens": 0,
+      "cost": 1.4e-7,
+      "timestamp": "2026-03-08T11:03:05.883Z"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "inputTokens": 173,
+      "outputTokens": 62,
+      "cost": 0.00006314999999999999,
+      "timestamp": "2026-03-08T11:03:07.860Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 1,
+      "outputTokens": 0,
+      "cost": 2e-8,
+      "timestamp": "2026-03-08T13:03:16.423Z"
     },
     {
       "model": "gpt-4o-mini",
       "inputTokens": 59,
       "outputTokens": 13,
       "cost": 0.000016649999999999998,
-      "timestamp": "2026-03-08T10:10:17.186Z"
+
+      "timestamp": "2026-03-08T13:03:17.516Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 12,
+      "outputTokens": 0,
+      "cost": 2.4000000000000003e-7,
+      "timestamp": "2026-03-08T13:04:08.433Z"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "inputTokens": 91,
+      "outputTokens": 99,
+      "cost": 0.00007305,
+      "timestamp": "2026-03-08T13:04:10.766Z"
+     
     },
     {
       "model": "text-embedding-3-small",

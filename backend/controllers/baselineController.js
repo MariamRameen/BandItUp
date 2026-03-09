@@ -1,171 +1,140 @@
-/**
- * BandItUp — Baseline Controller (v3)
- *
- * Key fixes:
- * 1. Listening audio served from DB (generated at seed time) — no runtime TTS
- * 2. Speaking audio uploaded as multipart/form-data files — no base64 in JSON
- * 3. All other answers sent as regular JSON fields in the same FormData
- * 4. Single generic loading screen on frontend while everything grades
- */
 
-const OpenAI  = require("openai");
-const sdk     = require("microsoft-cognitiveservices-speech-sdk");
-const fs      = require("fs");
-const path    = require("path");
-const os      = require("os");
-const { v4: uuidv4 }   = require("uuid");
-const BaselineTest      = require("../models/BaselineTest");
-const BaselineResult    = require("../models/BaselineResult");
+const OpenAI = require("openai");
+const sdk    = require("microsoft-cognitiveservices-speech-sdk");
+const fs     = require("fs");
+const path   = require("path");
+const os     = require("os");
+const { v4: uuidv4 } = require("uuid");
+const BaselineTest   = require("../models/BaselineTest");
+const BaselineResult = require("../models/BaselineResult");
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-// ─────────────────────────────────────────────────────────
-// AZURE PRONUNCIATION ASSESSMENT
-// Accepts a Buffer of audio data
-// ─────────────────────────────────────────────────────────
-async function azurePronunciationAssessment(audioBuffer, referenceText) {
-  const tmpFile = path.join(os.tmpdir(), `speaking_${uuidv4()}.wav`);
-  fs.writeFileSync(tmpFile, audioBuffer);
 
-  const speechConfig = sdk.SpeechConfig.fromSubscription(
-    process.env.AZURE_SPEECH_KEY,
-    process.env.AZURE_SPEECH_REGION
-  );
-  speechConfig.speechRecognitionLanguage = "en-US";
 
-  const audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(tmpFile));
+function roundHalf(n) { return Math.round(n * 2) / 2; }
 
-  const pronunciationConfig = new sdk.PronunciationAssessmentConfig(
-    referenceText,
-    sdk.PronunciationAssessmentGradingSystem.HundredMark,
-    sdk.PronunciationAssessmentGranularity.Phoneme,
-    true
-  );
-  pronunciationConfig.enableProsodyAssessment = true;
+function bandToLabel(b) {
+  if (b >= 8.5) return "Expert";
+  if (b >= 7.5) return "Very Good";
+  if (b >= 6.5) return "Competent";
+  if (b >= 5.5) return "Modest";
+  if (b >= 4.5) return "Limited";
+  return "Beginner";
+}
 
-  const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-  pronunciationConfig.applyTo(recognizer);
+function gradeSection(questions, answers) {
+  const norm = (s) => (s || "").replace(/^[a-d]\.\s*/i, "").trim().toLowerCase();
+  let correct = 0;
+  const details = questions.map((q) => {
+    const ua = norm(answers[q.questionNumber]);
+    const ok = [q.correctAnswer, ...(q.acceptedAnswers || [])].map(norm).some((a) => ua === a);
+    if (ok) correct++;
+    return { questionNumber: q.questionNumber, userAnswer: answers[q.questionNumber] || "", isCorrect: ok };
+  });
 
+  const table = [3.0, 3.5, 4.0, 5.0, 6.5, 8.0];
+  return { band: table[correct] ?? 3.0, rawScore: correct, maxScore: questions.length, details };
+}
+
+
+async function azureAssess(audioBuffer, referenceText) {
   return new Promise((resolve) => {
-    recognizer.recognizeOnceAsync((result) => {
-      recognizer.close();
-      try { fs.unlinkSync(tmpFile); } catch (_) {}
+    try {
+      const speechCfg = sdk.SpeechConfig.fromSubscription(
+        process.env.AZURE_SPEECH_KEY, process.env.AZURE_SPEECH_REGION
+      );
+      speechCfg.speechRecognitionLanguage = "en-US";
 
-      if (result.reason === sdk.ResultReason.RecognizedSpeech) {
-        const a = sdk.PronunciationAssessmentResult.fromResult(result);
-        resolve({
-          transcript:        result.text,
-          accuracyScore:     Math.round(a.accuracyScore     ?? 0),
-          fluencyScore:      Math.round(a.fluencyScore      ?? 0),
-          completenessScore: Math.round(a.completenessScore ?? 0),
-          prosodyScore:      Math.round(a.prosodyScore      ?? 0),
-        });
-      } else {
+     
+      const pushStream = sdk.AudioInputStream.createPushStream();
+      console.log("Speaking audio received:", audioBuffer.length, "bytes");
+      console.log("First bytes:", audioBuffer.slice(0, 4).toString("hex"));
+      pushStream.write(audioBuffer);
+      pushStream.close();
+
+      const audioCfg = sdk.AudioConfig.fromStreamInput(pushStream);
+      const pronCfg  = new sdk.PronunciationAssessmentConfig(
+        referenceText,
+        sdk.PronunciationAssessmentGradingSystem.HundredMark,
+        sdk.PronunciationAssessmentGranularity.Phoneme,
+        true
+      );
+      pronCfg.enableProsodyAssessment = true;
+
+      const recognizer = new sdk.SpeechRecognizer(speechCfg, audioCfg);
+      pronCfg.applyTo(recognizer);
+
+      recognizer.recognizeOnceAsync((result) => {
+        recognizer.close();
+        if (result.reason === sdk.ResultReason.RecognizedSpeech) {
+          const a = sdk.PronunciationAssessmentResult.fromResult(result);
+          resolve({
+            transcript:        result.text || "",
+            accuracyScore:     Math.round(a.accuracyScore     ?? 0),
+            fluencyScore:      Math.round(a.fluencyScore      ?? 0),
+            completenessScore: Math.round(a.completenessScore ?? 0),
+            prosodyScore:      Math.round(a.prosodyScore      ?? 0),
+          });
+        } else {
+          console.log("Azure speech reason:", result.reason, result.errorDetails);
+          resolve({ transcript: "", accuracyScore: 0, fluencyScore: 0, completenessScore: 0, prosodyScore: 0 });
+        }
+      }, (err) => {
+        console.error("Azure error:", err);
         resolve({ transcript: "", accuracyScore: 0, fluencyScore: 0, completenessScore: 0, prosodyScore: 0 });
-      }
-    }, () => {
-      try { fs.unlinkSync(tmpFile); } catch (_) {}
+      });
+    } catch (err) {
+      console.error("azureAssess setup error:", err);
       resolve({ transcript: "", accuracyScore: 0, fluencyScore: 0, completenessScore: 0, prosodyScore: 0 });
-    });
+    }
   });
 }
 
-// ─────────────────────────────────────────────────────────
-// GPT — speaking
-// ─────────────────────────────────────────────────────────
-async function evaluateSpeaking({ promptType, question, transcript, azureScores }) {
-  if (!transcript) {
-    return { fluencyCoherence: 3, lexicalResource: 3, grammaticalRange: 3, pronunciation: 3, band: 3.0, feedback: "No speech detected.", strengths: [], improvements: ["Ensure microphone is working and try again."] };
-  }
-
-  const res = await openai.chat.completions.create({
-    model: "gpt-4o-mini", max_tokens: 500,
-    messages: [{
-      role: "user",
-      content: `You are an IELTS examiner. Evaluate this speaking response.
-PROMPT TYPE: ${promptType === "part1" ? "Part 1 (short answer)" : "Part 2 (long turn)"}
+// ─── GPT evaluations ──────────────────────────────────────
+async function gptSpeaking({ question, transcript, azure }) {
+  if (!transcript) return { band: 0, feedback: "No speech detected. Score not counted.", strengths: [], improvements: ["Ensure microphone is working and try again."] };
+  const r = await openai.chat.completions.create({
+    model: "gpt-4o-mini", max_tokens: 400,
+    messages: [{ role: "user", content:
+      `You are an IELTS speaking examiner. Evaluate this response.
 QUESTION: ${question}
 TRANSCRIPT: "${transcript}"
-AZURE SCORES (0-100): Accuracy ${azureScores.accuracyScore}, Fluency ${azureScores.fluencyScore}, Completeness ${azureScores.completenessScore}, Prosody ${azureScores.prosodyScore}
-Score on 4 IELTS Speaking criteria (1-9). Return ONLY valid JSON:
-{"fluencyCoherence":<1-9>,"lexicalResource":<1-9>,"grammaticalRange":<1-9>,"pronunciation":<1-9>,"band":<1-9 nearest 0.5>,"feedback":"<2 sentences>","strengths":["<s1>"],"improvements":["<i1>"]}`,
+AZURE (0-100): Accuracy=${azure.accuracyScore}, Fluency=${azure.fluencyScore}, Completeness=${azure.completenessScore}, Prosody=${azure.prosodyScore}
+Return ONLY valid JSON (no markdown):
+{"fluencyCoherence":<1-9>,"lexicalResource":<1-9>,"grammaticalRange":<1-9>,"pronunciation":<1-9>,"band":<nearest 0.5>,"feedback":"<2 sentences>","strengths":["s1"],"improvements":["i1"]}`
     }],
   });
-  return JSON.parse(res.choices[0].message.content.replace(/```json|```/g, "").trim());
+  return JSON.parse(r.choices[0].message.content.replace(/```json|```/g, "").trim());
 }
 
-// ─────────────────────────────────────────────────────────
-// GPT — writing
-// ─────────────────────────────────────────────────────────
-async function evaluateWriting({ writingPrompt, response }) {
-  const wordCount = response.trim().split(/\s+/).length;
-  const res = await openai.chat.completions.create({
+async function gptWriting({ prompt, response }) {
+  const wc = response.trim().split(/\s+/).length;
+  const r  = await openai.chat.completions.create({
+    model: "gpt-4o-mini", max_tokens: 500,
+    messages: [{ role: "user", content:
+      `You are an IELTS writing examiner. Evaluate this Task 1 response.
+TASK: ${prompt}
+RESPONSE (${wc} words): "${response}"
+Return ONLY valid JSON (no markdown):
+{"taskAchievement":<1-9>,"coherenceCohesion":<1-9>,"lexicalResource":<1-9>,"grammaticalRange":<1-9>,"band":<average nearest 0.5>,"feedback":"<3 sentences>","strengths":["s1"],"improvements":["i1"]}`
+    }],
+  });
+  return JSON.parse(r.choices[0].message.content.replace(/```json|```/g, "").trim());
+}
+
+async function gptDiagnostic({ lBand, rBand, wBand, sBand, overall, wFeedback, sFeedback }) {
+  const r = await openai.chat.completions.create({
     model: "gpt-4o-mini", max_tokens: 600,
-    messages: [{
-      role: "user",
-      content: `You are an IELTS examiner. Evaluate this Task 1 Writing response.
-TASK: ${writingPrompt}
-RESPONSE (${wordCount} words): "${response}"
-TARGET: 80-120 words.
-Score on 4 IELTS Writing Task 1 criteria (1-9). Return ONLY valid JSON:
-{"taskAchievement":<1-9>,"coherenceCohesion":<1-9>,"lexicalResource":<1-9>,"grammaticalRange":<1-9>,"band":<average nearest 0.5>,"feedback":"<3 sentences>","strengths":["<s1>","<s2>"],"improvements":["<i1>","<i2>"]}`,
+    messages: [{ role: "user", content:
+      `You are an IELTS expert. Generate a personalised diagnostic.
+Bands — Listening:${lBand}, Reading:${rBand}, Writing:${wBand}, Speaking:${sBand}, Overall:${overall}
+Writing: ${wFeedback} | Speaking: ${sFeedback}
+Return ONLY valid JSON (no markdown):
+{"strengths":["s1","s2"],"weaknesses":["w1","w2"],"advice":["a1","a2","a3"],"studyPlanSummary":"2-3 sentences"}`
     }],
   });
-  return JSON.parse(res.choices[0].message.content.replace(/```json|```/g, "").trim());
-}
-
-// ─────────────────────────────────────────────────────────
-// GPT — diagnostic report
-// ─────────────────────────────────────────────────────────
-async function generateDiagnosticReport({ listeningBand, readingBand, writingBand, speakingBand, overallBand, writingFeedback, speakingFeedback }) {
-  const res = await openai.chat.completions.create({
-    model: "gpt-4o-mini", max_tokens: 700,
-    messages: [{
-      role: "user",
-      content: `You are an IELTS expert. Generate a personalised diagnostic report.
-Scores — Listening: ${listeningBand}, Reading: ${readingBand}, Writing: ${writingBand}, Speaking: ${speakingBand}, Overall: ${overallBand}
-Writing notes: ${writingFeedback}
-Speaking notes: ${speakingFeedback}
-Return ONLY valid JSON:
-{"strengths":["<s1>","<s2>"],"weaknesses":["<w1>","<w2>"],"advice":["<a1>","<a2>","<a3>"],"studyPlanSummary":"<2-3 sentences>"}`,
-    }],
-  });
-  return JSON.parse(res.choices[0].message.content.replace(/```json|```/g, "").trim());
-}
-
-// ─────────────────────────────────────────────────────────
-// Static grading
-// ─────────────────────────────────────────────────────────
-function gradeObjectiveSection(questions, userAnswers) {
-  let correct = 0;
-  const normalize = (s) => (s || "").replace(/^[a-d]\.\s*/i, "").trim().toLowerCase();
-
-  const details = questions.map((q) => {
-    const userAns  = normalize(userAnswers[q.questionNumber]);
-    const accepted = [q.correctAnswer, ...(q.acceptedAnswers || [])].map(normalize);
-    const isCorrect = accepted.some((a) => userAns === a);
-    if (isCorrect) correct++;
-    return { questionNumber: q.questionNumber, userAnswer: userAnswers[q.questionNumber] || "", isCorrect };
-  });
-
-  const bandTable = [3.0, 4.0, 5.0, 6.0, 7.5, 9.0];
-  return {
-    band:     bandTable[correct] ?? 3.0,
-    rawScore: correct,
-    maxScore: questions.length,
-    details,
-    feedback: `${correct} / ${questions.length} correct.`,
-  };
-}
-
-function roundHalf(n)      { return Math.round(n * 2) / 2; }
-function bandToLabel(band) {
-  if (band >= 8.5) return "Expert";
-  if (band >= 7.5) return "Very Good";
-  if (band >= 6.5) return "Competent";
-  if (band >= 5.5) return "Modest";
-  if (band >= 4.5) return "Limited";
-  return "Beginner";
+  return JSON.parse(r.choices[0].message.content.replace(/```json|```/g, "").trim());
 }
 
 // ─────────────────────────────────────────────────────────
@@ -173,100 +142,80 @@ function bandToLabel(band) {
 // ─────────────────────────────────────────────────────────
 
 /**
- * GET /api/baseline/test
- * Returns test structure WITHOUT audio (small, fast, cacheable in sessionStorage).
- * Audio is fetched separately by the browser via /api/baseline/audio
- */
-exports.getTest = async (req, res) => {
-  try {
-    const test = await BaselineTest.findOne({ isActive: true })
-      .select("-listening.audioBase64 -listening.passageText")
-      .lean();
-    if (!test) {
-      return res.status(404).json({ success: false, message: "No active baseline test. Run: node seeds/seedBaseline.js" });
-    }
-
-    res.json({
-      success: true,
-      test: {
-        _id:       test._id,
-        listening: {
-          title:     test.listening.title,
-          timeLimit: test.listening.timeLimit,
-          questions: test.listening.questions,
-        },
-        reading:  test.reading,
-        writing:  test.writing,
-        speaking: test.speaking,
-      },
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false, message: err.message });
-  }
-};
-
-/**
- * GET /api/baseline/audio
- * Serves listening audio as audio/wav binary stream.
- * Browser <audio> tag handles it natively — no base64, no size limits.
+ * GET /api/baseline/audio  (PUBLIC — no auth, browser <audio> tag)
+ * Streams MP3 from DB with proper range request support.
  */
 exports.getAudio = async (req, res) => {
   try {
-    const test = await BaselineTest.findOne({ isActive: true })
-      .select("listening.audioBase64")
-      .lean();
-
-    if (!test || !test.listening || !test.listening.audioBase64) {
-      return res.status(404).json({ success: false, message: "Audio not found. Re-run seed script." });
+    const test = await BaselineTest.findOne({ isActive: true }).select("listening.audioBase64").lean();
+    if (!test?.listening?.audioBase64) {
+      return res.status(404).json({ message: "Audio not found. Run: node seeds/seedBaseline.js" });
     }
+    const base64  = test.listening.audioBase64.replace(/^data:audio\/[^;]+;base64,/, "");
+    const buffer  = Buffer.from(base64, "base64");
+    const isMP3   = test.listening.audioBase64.startsWith("data:audio/mpeg") ||
+                    test.listening.audioBase64.startsWith("data:audio/mp3");
+    const ctype   = isMP3 ? "audio/mpeg" : "audio/wav";
+    const total   = buffer.length;
 
-    const base64Data  = test.listening.audioBase64.replace(/^data:audio\/[^;]+;base64,/, "");
-    const audioBuffer = Buffer.from(base64Data, "base64");
-
-    // Detect format from stored data URI prefix
-    const isMp3 = test.listening.audioBase64.startsWith("data:audio/mp3");
-    res.set({
-      "Content-Type":        isMp3 ? "audio/mpeg" : "audio/wav",
-      "Content-Length":      audioBuffer.length,
-      "Accept-Ranges":       "bytes",
-      "Cache-Control":       "public, max-age=86400",
-      "Access-Control-Allow-Origin": "*",
-    });
-
-    // Handle range requests so browser can seek + get duration
     const range = req.headers.range;
     if (range) {
-      const parts  = range.replace(/bytes=/, "").split("-");
-      const start  = parseInt(parts[0], 10);
-      const end    = parts[1] ? parseInt(parts[1], 10) : audioBuffer.length - 1;
-      const chunk  = audioBuffer.slice(start, end + 1);
-      res.status(206).set({
-        "Content-Range":  `bytes ${start}-${end}/${audioBuffer.length}`,
+      const [startStr, endStr] = range.replace(/bytes=/, "").split("-");
+      const start = parseInt(startStr, 10);
+      const end   = endStr ? parseInt(endStr, 10) : total - 1;
+      const chunk = buffer.slice(start, end + 1);
+      res.writeHead(206, {
+        "Content-Range":  `bytes ${start}-${end}/${total}`,
+        "Accept-Ranges":  "bytes",
         "Content-Length": chunk.length,
+        "Content-Type":   ctype,
+        "Cache-Control":  "public, max-age=86400",
       });
-      res.send(chunk);
-    } else {
-      res.status(200).send(audioBuffer);
+      return res.end(chunk);
     }
+
+    res.writeHead(200, {
+      "Content-Length": total,
+      "Content-Type":   ctype,
+      "Accept-Ranges":  "bytes",
+      "Cache-Control":  "public, max-age=86400",
+    });
+    res.end(buffer);
   } catch (err) {
-    console.error(err);
+    console.error("Audio error:", err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
+exports.getTest = async (req, res) => {
+  try {
+    const test = await BaselineTest.findOne({ isActive: true })
+      .select("-listening.audioBase64")
+      .lean();
+    if (!test) return res.status(404).json({ success: false, message: "No baseline test found. Run seed script." });
+    res.json({ success: true, test });
+  } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
 };
 
-/**
- * GET /api/baseline/status
- */
 exports.getStatus = async (req, res) => {
   try {
+    // Admin always skips baseline
+    if (req.user.role === "admin") {
+      return res.json({ success: true, completed: true, isAdmin: true, result: null });
+    }
+
     const result = await BaselineResult.findOne({ userId: req.user._id }).lean();
     res.json({
       success:   true,
       completed: !!result,
-      result: result
-        ? { overallBand: result.overallBand, skillLabel: result.skillLabel, completedAt: result.completedAt }
-        : null,
+      result: result ? {
+        overallBand:  result.overallBand,
+        skillLabel:   result.skillLabel,
+        completedAt:  result.createdAt,
+      } : null,
     });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
@@ -274,122 +223,81 @@ exports.getStatus = async (req, res) => {
 };
 
 /**
- * POST /api/baseline/submit
- *
- * Accepts multipart/form-data:
- *   Fields (JSON strings):
- *     testId, timeUsed, listeningAnswers, readingAnswers, writingResponse,
- *     speakingMeta  (JSON array: [{promptNumber, promptType, question}])
- *   Files (one per speaking prompt):
- *     speaking_1  (audio file for prompt 1)
- *     speaking_2  (audio file for prompt 2)
- *
- * multer must be configured in routes/baseline.js
+ * POST /api/baseline/submit  (auth required, multipart)
+ * Fields: testId, timeUsed, listeningAnswers (JSON), readingAnswers (JSON), writingResponse
+ * File:   speaking_audio (webm/wav)
  */
 exports.submitTest = async (req, res) => {
   try {
     const userId = req.user._id;
 
-    // One-time check
+    // One-time only
     const existing = await BaselineResult.findOne({ userId });
     if (existing) {
-      return res.json({ success: true, alreadyCompleted: true, resultId: existing._id, overallBand: existing.overallBand });
+      return res.json({ success: true, alreadyCompleted: true, overallBand: existing.overallBand });
     }
 
-    // Parse fields from FormData (all come as strings)
     const testId           = req.body.testId;
     const timeUsed         = parseInt(req.body.timeUsed || "0", 10);
     const listeningAnswers = JSON.parse(req.body.listeningAnswers || "{}");
     const readingAnswers   = JSON.parse(req.body.readingAnswers   || "{}");
-    const writingResponse  = req.body.writingResponse || "";
-    const speakingMeta     = JSON.parse(req.body.speakingMeta     || "[]");
+    const writingResponse  = (req.body.writingResponse || "").trim();
 
     const test = await BaselineTest.findById(testId).lean();
     if (!test) return res.status(404).json({ success: false, message: "Test not found." });
 
-    // ── 1. Grade listening + reading (instant) ──
-    const listeningResult = gradeObjectiveSection(test.listening.questions, listeningAnswers);
-    const readingResult   = gradeObjectiveSection(test.reading.questions,   readingAnswers);
+    // 1. Listening + Reading
+    const lisRes = gradeSection(test.listening.questions, listeningAnswers);
+    const readRes = gradeSection(test.reading.questions, readingAnswers);
 
-    // ── 2. Grade writing (GPT) ──
-    let writingResult = { band: 4.0, rawScore: 4.0, maxScore: 9, feedback: "No response provided.", details: {} };
-    if (writingResponse.trim().split(/\s+/).length >= 10) {
-      const gpt = await evaluateWriting({ writingPrompt: test.writing.prompt, response: writingResponse });
-      writingResult = { band: gpt.band, rawScore: gpt.band, maxScore: 9, feedback: gpt.feedback, details: gpt };
+    // 2. Writing (GPT)
+    let writeRes = { band: 4.0, feedback: "No response provided.", details: {} };
+    if (writingResponse.split(/\s+/).length >= 20) {
+      const g = await gptWriting({ prompt: test.writing.prompt, response: writingResponse });
+      writeRes = { band: g.band, feedback: g.feedback, details: g };
     }
 
-    // ── 3. Grade speaking — uploaded files via multer ──
-    let speakingBand            = 4.0;
-    let speakingFeedbackSummary = "No speaking responses submitted.";
-    let speakingResultsStored   = [];
-
-    const uploadedFiles = req.files || {};
-
-    if (speakingMeta.length > 0) {
-      const evaluated = await Promise.all(
-        speakingMeta.map(async (meta) => {
-          const fileKey  = `speaking_${meta.promptNumber}`;
-          const fileObj  = uploadedFiles[fileKey]?.[0];
-
-          let azureScores = { transcript: "", accuracyScore: 0, fluencyScore: 0, completenessScore: 0, prosodyScore: 0 };
-          if (fileObj) {
-            azureScores = await azurePronunciationAssessment(fileObj.buffer, meta.question);
-          }
-
-          const gptResult = await evaluateSpeaking({
-            promptType:  meta.promptType,
-            question:    meta.question,
-            transcript:  azureScores.transcript,
-            azureScores,
-          });
-
-          return {
-            promptNumber: meta.promptNumber,
-            azureScores,
-            transcript:   azureScores.transcript,
-            gptFeedback:  gptResult.feedback,
-            band:         gptResult.band,
-          };
-        })
-      );
-
-      const bands             = evaluated.map((e) => Number(e.band) || 4.0);
-      speakingBand            = roundHalf(bands.reduce((a, b) => a + b, 0) / bands.length);
-      speakingFeedbackSummary = evaluated.map((e) => e.gptFeedback).filter(Boolean).join(" ");
-      speakingResultsStored   = evaluated;
+    // 3. Speaking (Azure + GPT)
+    let speakBand   = 0;
+    let speakResult = { transcript: "", azureScores: {}, gptFeedback: "No audio submitted.", details: {} };
+    const audioFile = req.files?.speaking_audio?.[0];
+    if (audioFile) {
+      const azure = await azureAssess(audioFile.buffer, test.speaking.question);
+      const gpt   = await gptSpeaking({ question: test.speaking.question, transcript: azure.transcript, azure });
+      speakBand   = gpt.band;
+      speakResult = { transcript: azure.transcript, azureScores: azure, gptFeedback: gpt.feedback, details: gpt };
     }
 
-    // ── 4. Overall band ──
-    const overallBand = roundHalf(
-      (listeningResult.band + readingResult.band + writingResult.band + speakingBand) / 4
-    );
+    // 4. Overall
+    // If no speaking audio submitted, average only 3 sections
+    const sectionCount = speakBand > 0 ? 4 : 3;
+    const overallBand  = roundHalf((lisRes.band + readRes.band + writeRes.band + speakBand) / sectionCount);
 
-    // ── 5. Diagnostic report ──
-    const diagnostic = await generateDiagnosticReport({
-      listeningBand:   listeningResult.band,
-      readingBand:     readingResult.band,
-      writingBand:     writingResult.band,
-      speakingBand,
-      overallBand,
-      writingFeedback:  writingResult.feedback,
-      speakingFeedback: speakingFeedbackSummary,
+    // 5. Diagnostic
+    const diagnostic = await gptDiagnostic({
+      lBand: lisRes.band, rBand: readRes.band, wBand: writeRes.band, sBand: speakBand, overall: overallBand,
+      wFeedback: writeRes.feedback, sFeedback: speakResult.gptFeedback,
     });
 
-    // ── 6. Store result ──
+    // 6. Save
     const result = await BaselineResult.create({
       userId, testId, timeUsed,
-      listening: { band: listeningResult.band, rawScore: listeningResult.rawScore, maxScore: listeningResult.maxScore, feedback: listeningResult.feedback },
-      reading:   { band: readingResult.band,   rawScore: readingResult.rawScore,   maxScore: readingResult.maxScore,   feedback: readingResult.feedback },
-      writing:   { band: writingResult.band,   rawScore: writingResult.rawScore,   maxScore: writingResult.maxScore,   feedback: writingResult.feedback, details: writingResult.details },
-      speaking:  { band: speakingBand, rawScore: speakingBand, maxScore: 9, feedback: speakingFeedbackSummary },
+      listening: { band: lisRes.band,  rawScore: lisRes.rawScore,  maxScore: lisRes.maxScore,  feedback: `${lisRes.rawScore}/${lisRes.maxScore} correct` },
+      reading:   { band: readRes.band, rawScore: readRes.rawScore, maxScore: readRes.maxScore, feedback: `${readRes.rawScore}/${readRes.maxScore} correct` },
+      writing:   { band: writeRes.band, rawScore: writeRes.band, maxScore: 9, feedback: writeRes.feedback, details: writeRes.details },
+      speaking:  { band: speakBand, rawScore: speakBand, maxScore: 9, feedback: speakResult.gptFeedback },
       overallBand,
-      skillLabel: bandToLabel(overallBand),
+      skillLabel:       bandToLabel(overallBand),
       diagnosticReport: diagnostic,
-      listeningAnswers: listeningResult.details,
-      readingAnswers:   readingResult.details,
+      listeningAnswers: lisRes.details,
+      readingAnswers:   readRes.details,
       writingResponse,
-      speakingResults:  speakingResultsStored,
+      speakingResult: speakResult,
     });
+
+    // Update user's baselineDone flag
+    const User = require("../models/User");
+    await User.findByIdAndUpdate(userId, { baselineDone: true });
 
     res.json({ success: true, resultId: result._id, overallBand, skillLabel: result.skillLabel });
 
@@ -400,12 +308,12 @@ exports.submitTest = async (req, res) => {
 };
 
 /**
- * GET /api/baseline/result
+ * GET /api/baseline/result  (auth required)
  */
 exports.getResult = async (req, res) => {
   try {
     const result = await BaselineResult.findOne({ userId: req.user._id }).lean();
-    if (!result) return res.status(404).json({ success: false, message: "No baseline result found." });
+    if (!result) return res.status(404).json({ success: false, message: "No result found." });
     res.json({ success: true, result });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });

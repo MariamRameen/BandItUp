@@ -9,28 +9,15 @@ const QuestionSchema = new mongoose.Schema({
   acceptedAnswers: [String],
 });
 
-const SpeakingPromptSchema = new mongoose.Schema({
-  promptNumber: Number,
-  type:         { type: String, enum: ["part1", "part2"] },
-  title:        String,
-  question:     String,
-  prepTime:     Number,
-  responseTime: Number,
-  guidance:     String,
-});
-
 const BaselineTestSchema = new mongoose.Schema({
   version:  { type: Number, default: 1 },
   isActive: { type: Boolean, default: true },
 
   listening: {
-    title:        String,
-    topic:        String,
-    passageText:  String,
-    audioBase64:  String,   // generated once at seed time, stored permanently
-    audioDuration: Number,
-    timeLimit:    Number,
-    questions:    [QuestionSchema],
+    title:       String,
+    audioBase64: String,   // MP3 stored at seed time, served via /api/baseline/audio
+    timeLimit:   Number,
+    questions:   [QuestionSchema],
   },
 
   reading: {
@@ -41,19 +28,20 @@ const BaselineTestSchema = new mongoose.Schema({
   },
 
   writing: {
-    title:           String,
-    timeLimit:       Number,
-    prompt:          String,
-    minWords:        Number,
-    maxWords:        Number,
-    gradingCriteria: mongoose.Schema.Types.Mixed,
+    title:     String,
+    prompt:    String,
+    minWords:  Number,
+    maxWords:  Number,
+    timeLimit: Number,
   },
 
   speaking: {
-    title:     String,
-    timeLimit: Number,
-    prompts:   [SpeakingPromptSchema],
+    title:        String,
+    question:     String,
+    responseTime: Number,
+    timeLimit:    Number,
   },
+
 }, { timestamps: true });
 
 module.exports = mongoose.model("BaselineTest", BaselineTestSchema);

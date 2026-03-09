@@ -45,6 +45,7 @@ export default function Dashboard() {
     { path: "/speaking", label: "Speaking", icon: <Mic size={20} /> },
     { path: "/vocabulary", label: "Vocabulary", icon: <Book size={20} /> },
     { path: "/study-planner", label: "Study Planner", icon: <Calendar size={20} /> },
+    { path: "/baseline/results", label: "Baseline Result", icon: <Award size={20} /> },
   ];
 
   const user = JSON.parse(localStorage.getItem('user') || '{"displayName":"User"}');

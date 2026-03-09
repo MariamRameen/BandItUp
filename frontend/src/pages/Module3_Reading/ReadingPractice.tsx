@@ -725,7 +725,7 @@ function QuestionRenderer({ question, answer, onAnswerChange, onHighlightParagra
           onClick={() => onHighlightParagraph(question.paragraphRef!)}
           className="text-xs text-[#7D3CFF] hover:underline mb-2"
         >
-          📍 Reference: Paragraph {indexToLetter(question.paragraphRef)}
+          📍 Reference: Paragraph {question.paragraphRef}
         </button>
       )}
       {renderQuestionContent()}

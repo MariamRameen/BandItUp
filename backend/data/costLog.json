@@ -1,6 +1,5 @@
 {
-  "totalCost": 0.0004918199999999998,
-
+  "totalCost": 0.0005540999999999999,
   "alertSent": false,
   "history": [
     {
@@ -225,7 +224,6 @@
       "inputTokens": 59,
       "outputTokens": 13,
       "cost": 0.000016649999999999998,
-
       "timestamp": "2026-03-08T13:03:17.516Z"
     },
     {
@@ -241,7 +239,6 @@
       "outputTokens": 99,
       "cost": 0.00007305,
       "timestamp": "2026-03-08T13:04:10.766Z"
-     
     },
     {
       "model": "text-embedding-3-small",
@@ -270,6 +267,20 @@
       "outputTokens": 35,
       "cost": 0.0000465,
       "timestamp": "2026-03-08T17:00:58.017Z"
+    },
+    {
+      "model": "text-embedding-3-small",
+      "inputTokens": 9,
+      "outputTokens": 0,
+      "cost": 1.8e-7,
+      "timestamp": "2026-03-09T06:56:42.695Z"
+    },
+    {
+      "model": "gpt-4o-mini",
+      "inputTokens": 154,
+      "outputTokens": 65,
+      "cost": 0.00006209999999999999,
+      "timestamp": "2026-03-09T06:56:45.926Z"
     }
   ]
 }

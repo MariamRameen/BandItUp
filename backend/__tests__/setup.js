@@ -1,22 +1,11 @@
-/**
- * Jest Test Setup
- * This file runs before all tests
- */
 
-// Set test environment variables
 process.env.NODE_ENV = 'test';
 process.env.JWT_SECRET = 'test-jwt-secret-for-testing-only';
 process.env.OPENAI_API_KEY = 'test-api-key';
 
-// Mock console.error to reduce noise in tests
-// Uncomment if needed:
-// console.error = jest.fn();
-
-// Global test helpers
 global.testHelpers = {
-  /**
-   * Generate a mock JWT token for testing
-   */
+ 
+   
   generateTestToken: (userId = '507f1f77bcf86cd799439011') => {
     const jwt = require('jsonwebtoken');
     return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: '1h' });

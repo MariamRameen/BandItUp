@@ -3,6 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/login";
 import Signup from "./pages/signUp"
 import Profile from './pages/Profile';
+import ListeningHistory from "./pages/Module2_Listening/ListeningHistory";
+
+
 import ChangePassword from './pages/ChangePassword';
 import EditProfile from './pages/EditProfile';
 import { ThemeProvider } from "./contexts/ThemeContext"; 
@@ -126,6 +129,8 @@ export default function App() {
       <Route path="/vocabulary/quiz" element={<FullAccessRoute><VocabQuiz /></FullAccessRoute>} />
       <Route path="/vocabulary/progress" element={<FullAccessRoute><VocabProgress /></FullAccessRoute>} />
       
+      
+      <Route path="/listening/history" element={<ListeningHistory />} />
       <Route path="/baseline"         element={<BaselineGate />}    />
       <Route path="/baseline/test"    element={<BaselineTest />}    />
       <Route path="/baseline/results" element={<BaselineResults />} />

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NotificationCenter from './NotificationCenter';
 
 export default function Header() {
   return (
@@ -22,6 +23,7 @@ export default function Header() {
       </div>
 
       <div className="flex items-center gap-4">
+        <NotificationCenter />
         <button className="bg-[#7D3CFF] text-white px-4 py-2 rounded-lg shadow-md text-sm hover:bg-[#6B2FE6]">
           Take Mock Test
         </button>

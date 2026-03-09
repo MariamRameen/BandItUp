@@ -5,10 +5,44 @@ const fs     = require("fs");
 const path   = require("path");
 const os     = require("os");
 const { v4: uuidv4 } = require("uuid");
+const { exec } = require("child_process");
+const util   = require("util");
+const execPromise = util.promisify(exec);
 const BaselineTest   = require("../models/BaselineTest");
 const BaselineResult = require("../models/BaselineResult");
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+// ─── Convert WebM to WAV for Azure Speech SDK ──────────────────────────────
+async function convertWebmToWav(webmBuffer) {
+  const tempDir = os.tmpdir();
+  const inputPath = path.join(tempDir, `input-${uuidv4()}.webm`);
+  const outputPath = path.join(tempDir, `output-${uuidv4()}.wav`);
+  
+  try {
+    // Write WebM buffer to temp file
+    fs.writeFileSync(inputPath, webmBuffer);
+    
+    // Convert using ffmpeg (must be installed on system)
+    // PCM 16-bit mono 16kHz - optimal for Azure Speech
+    await execPromise(`ffmpeg -i "${inputPath}" -acodec pcm_s16le -ac 1 -ar 16000 "${outputPath}" -y`);
+    
+    // Read converted WAV
+    const wavBuffer = fs.readFileSync(outputPath);
+    
+    // Cleanup temp files
+    try { fs.unlinkSync(inputPath); } catch (e) {}
+    try { fs.unlinkSync(outputPath); } catch (e) {}
+    
+    return wavBuffer;
+  } catch (err) {
+    console.error("FFmpeg conversion error:", err.message);
+    // Cleanup on error
+    try { fs.unlinkSync(inputPath); } catch (e) {}
+    try { fs.unlinkSync(outputPath); } catch (e) {}
+    throw err;
+  }
+}
 
 
 
@@ -39,21 +73,51 @@ function gradeSection(questions, answers) {
 
 
 async function azureAssess(audioBuffer, referenceText) {
-  return new Promise((resolve) => {
+  return new Promise(async (resolve) => {
     try {
+      // Check if audio is WebM format (starts with 0x1A45DFA3)
+      const firstBytes = audioBuffer.slice(0, 4).toString("hex");
+      console.log("Speaking audio received:", audioBuffer.length, "bytes");
+      console.log("First bytes:", firstBytes);
+      
+      let processedBuffer = audioBuffer;
+      
+      // Convert WebM to WAV if needed (WebM magic bytes: 1a45dfa3)
+      if (firstBytes === "1a45dfa3") {
+        console.log("Detected WebM format, converting to WAV...");
+        try {
+          processedBuffer = await convertWebmToWav(audioBuffer);
+          console.log("Converted to WAV:", processedBuffer.length, "bytes");
+        } catch (convErr) {
+          console.error("Audio conversion failed, attempting with original:", convErr.message);
+          // Continue with original buffer - Azure might handle it
+        }
+      }
+      
       const speechCfg = sdk.SpeechConfig.fromSubscription(
         process.env.AZURE_SPEECH_KEY, process.env.AZURE_SPEECH_REGION
       );
       speechCfg.speechRecognitionLanguage = "en-US";
 
-     
-      const pushStream = sdk.AudioInputStream.createPushStream();
-      console.log("Speaking audio received:", audioBuffer.length, "bytes");
-      console.log("First bytes:", audioBuffer.slice(0, 4).toString("hex"));
-      pushStream.write(audioBuffer);
-      pushStream.close();
-
-      const audioCfg = sdk.AudioConfig.fromStreamInput(pushStream);
+      // For WAV files, we can use fromWavFileInput for better compatibility
+      let audioCfg;
+      const isWav = processedBuffer.slice(0, 4).toString("ascii").startsWith("RIFF");
+      
+      if (isWav) {
+        // Save to temp file and use fromWavFileInput
+        const tempWavPath = path.join(os.tmpdir(), `azure-${uuidv4()}.wav`);
+        fs.writeFileSync(tempWavPath, processedBuffer);
+        audioCfg = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(tempWavPath));
+        // Cleanup after a delay
+        setTimeout(() => { try { fs.unlinkSync(tempWavPath); } catch (e) {} }, 5000);
+      } else {
+        // Fallback to push stream
+        const pushStream = sdk.AudioInputStream.createPushStream();
+        pushStream.write(processedBuffer);
+        pushStream.close();
+        audioCfg = sdk.AudioConfig.fromStreamInput(pushStream);
+      }
+      
       const pronCfg  = new sdk.PronunciationAssessmentConfig(
         referenceText,
         sdk.PronunciationAssessmentGradingSystem.HundredMark,

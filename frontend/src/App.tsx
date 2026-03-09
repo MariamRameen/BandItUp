@@ -3,6 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/login";
 import Signup from "./pages/signUp"
 import Profile from './pages/Profile';
+import ListeningHistory from "./pages/Module2_Listening/ListeningHistory";
+
+
 import ChangePassword from './pages/ChangePassword';
 import EditProfile from './pages/EditProfile';
 import { ThemeProvider } from "./contexts/ThemeContext"; 
@@ -27,9 +30,11 @@ import VocabBands from './pages/Module5_Vocabulary/VocabBands';
 import VocabFlashcards from './pages/Module5_Vocabulary/VocabFlashcards';
 import VocabQuiz from './pages/Module5_Vocabulary/VocabQuiz';
 import VocabProgress from './pages/Module5_Vocabulary/VocabProgress';
-import BaselineIntro from './pages/Module6_BaselineTest/BaselineIntro';
+import BaselineGate from './pages/Module6_BaselineTest/BaselineGate';
 import BaselineTest from './pages/Module6_BaselineTest/BaselineTest';
-import BaselineFeedback from './pages/Module6_BaselineTest/BaselineFeedback';
+
+import BaselineGuard from "./components/BaselineGuard";
+import BaselineResults from './pages/Module6_BaselineTest/BaselineResults';
 import MockSelection from './pages/Module7_MockTests/MockSelection';
 import MockStart from './pages/Module7_MockTests/MockStart';
 import MockResult from './pages/Module7_MockTests/MockResult';
@@ -38,7 +43,6 @@ import PlannerCalendar from './pages/Module8_StudyPlanner/PlannerCalendar';
 import AdminDashboard from './pages/Module11_Admin/AdminDashboard';
 import ChatScreen from './pages/Module12_LiveChat/ChatScreen';
 import AdminRoute from './components/AdminRoute';
-import BaselineRoute from './components/BaselineRoute';
 import Help from './pages/Module9_Dashboard/HelpSupport';
 import SetPassword  from "./pages/SetPassword";
 import VerifyEmail  from "./pages/VerifyEmail";
@@ -51,17 +55,15 @@ const ProtectedRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
   return isAuthenticated() ? children : <Navigate to="/login" replace />;
 };
 
-// Route that requires both authentication and completed baseline test
 const FullAccessRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
-  if (!isAuthenticated()) {
-    return <Navigate to="/login" replace />;
-  }
-  return <BaselineRoute>{children}</BaselineRoute>;
+  if (!isAuthenticated()) return <Navigate to="/login" replace />;
+  return children;
 };
 
 export default function App() {
   return (
      <ThemeProvider>
+      <BaselineGuard>
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
@@ -126,9 +128,12 @@ export default function App() {
       <Route path="/vocabulary/flashcards" element={<FullAccessRoute><VocabFlashcards /></FullAccessRoute>} />
       <Route path="/vocabulary/quiz" element={<FullAccessRoute><VocabQuiz /></FullAccessRoute>} />
       <Route path="/vocabulary/progress" element={<FullAccessRoute><VocabProgress /></FullAccessRoute>} />
-      <Route path="/baseline-test" element={<ProtectedRoute><BaselineIntro /></ProtectedRoute>} />
-      <Route path="/baseline-test/start" element={<ProtectedRoute><BaselineTest /></ProtectedRoute>} />
-      <Route path="/baseline-test/result" element={<ProtectedRoute><BaselineFeedback /></ProtectedRoute>} />
+      
+      
+      <Route path="/listening/history" element={<ListeningHistory />} />
+      <Route path="/baseline"         element={<BaselineGate />}    />
+      <Route path="/baseline/test"    element={<BaselineTest />}    />
+      <Route path="/baseline/results" element={<BaselineResults />} />
       <Route path="/mock-tests" element={<FullAccessRoute><MockSelection /></FullAccessRoute>} />
       <Route path="/mock-tests/start" element={<FullAccessRoute><MockStart /></FullAccessRoute>} />
       <Route path="/mock-tests/result" element={<FullAccessRoute><MockResult /></FullAccessRoute>} />
@@ -138,6 +143,7 @@ export default function App() {
       <Route path="/chat" element={<FullAccessRoute><ChatScreen /></FullAccessRoute>} />
       <Route path="/set-password" element={<SetPassword />} />
       </Routes>
+      </BaselineGuard>
       </ThemeProvider>
         );
       }

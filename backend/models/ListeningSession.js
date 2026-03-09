@@ -21,7 +21,7 @@ const ListeningSessionSchema = new mongoose.Schema(
     userId:       { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     sessionType:  { type: String, enum: ["practice", "mock"], default: "practice" },
     part:         { type: Number, enum: [1, 2, 3, 4], required: true },
-    accent:       { type: String, enum: ["american", "australian"], required: true },
+    accent:       { type: String, enum: ["american", "australian", "british"], required: true },
     difficulty:   { type: String, enum: ["easy", "medium", "hard", "advanced"], required: true },
 
     // GPT-generated content

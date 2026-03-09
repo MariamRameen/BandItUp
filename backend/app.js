@@ -13,6 +13,12 @@ const readingRoutes = require('./routes/reading');
 const chatRoutes = require('./routes/chatRoutes');
 const vocabRoutes = require('./routes/vocab');
 const listeningRoutes = require("./routes/listening");
+const studyPlannerRoutes = require("./routes/studyPlanner");
+const mockTestRoutes = require("./routes/mockTest");
+const dashboardRoutes = require("./routes/dashboard");
+const roadmapRoutes = require("./routes/roadmap");
+const achievementRoutes = require("./routes/achievements");
+const notificationRoutes = require("./routes/notifications");
 
 const app = express();
 
@@ -32,6 +38,12 @@ app.use("/avatars", express.static(path.join(__dirname, "uploads/avatars")));
 
 app.use("/api/baseline", require("./routes/baseline"));
 app.use("/api/listening", listeningRoutes);
+app.use("/api/study-planner", studyPlannerRoutes);
+app.use("/api/mock-tests", mockTestRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/roadmap", roadmapRoutes);
+app.use("/api/achievements", achievementRoutes);
+app.use("/api/notifications", notificationRoutes);
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB Connected"))

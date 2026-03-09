@@ -4,6 +4,7 @@
 
 const WritingSession = require('../models/WritingSession');
 const aiService = require('../services/aiService');
+const { autoCompleteTaskBySkill } = require('./studyPlannerController');
 
 /**
  * Generate a new writing task
@@ -290,6 +291,9 @@ const submitForEvaluation = async (req, res) => {
     session.evaluatedAt = new Date();
 
     await session.save();
+
+    // Auto-complete study plan task for writing
+    await autoCompleteTaskBySkill(userId, "writing", session._id);
 
     res.json({
       success: true,

@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const StudyPlan = require("../models/StudyPlan");
 const bcrypt = require("bcrypt");
 
 exports.getProfile = async (req, res) => {
@@ -63,6 +64,15 @@ exports.updateProfile = async (req, res) => {
     });
 
     await req.user.save();
+
+    // Sync target band to StudyPlan if targetScore was updated
+    if (req.body.targetScore !== undefined) {
+      await StudyPlan.findOneAndUpdate(
+        { userId: req.user._id },
+        { targetBand: req.body.targetScore },
+        { new: true }
+      );
+    }
 
     res.json({ 
       msg: "Profile updated successfully", 

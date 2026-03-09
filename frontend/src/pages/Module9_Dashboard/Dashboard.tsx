@@ -5,36 +5,62 @@ import { MessageCircle, TrendingUp, Target, Award, Clock, ChevronRight, Home, Fi
 import ThemeToggle from '../../components/ThemeToggle';
 import { getUnreadNotifications } from '../../services/reportService';
 
+const API_URL = "http://localhost:4000/api/dashboard";
+const auth = () => ({ headers: { Authorization: `Bearer ${localStorage.getItem("token") ?? ""}` } });
+
+interface DashboardData {
+  currentScores: { overall: number; listening: number; reading: number; writing: number; speaking: number };
+  baselineScores: { overall: number; listening: number; reading: number; writing: number; speaking: number };
+  improvement: { overall: number; listening: number; reading: number; writing: number; speaking: number };
+  targetScore: number;
+  progressPercentage: number;
+  trajectoryData: { week: string; score: number }[];
+  performanceData: { skill: string; baseline: number; current: number }[];
+  strengths: string[];
+  weaknesses: string[];
+  weeklyFocus: string[];
+  studyStats: { streak: number; tasksCompletedThisWeek: number; totalMockTests: number };
+  lastMockTest?: { _id: string; testNumber: number; completedAt: string; overallBand: number };
+}
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [unreadReports, setUnreadReports] = useState(0);
+  const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const handleNavigate = (path: string) => {
     navigate(path);
   };
 
   useEffect(() => {
+    loadDashboard();
     getUnreadNotifications().then(data => {
       if (data.success) setUnreadReports(data.unread);
     });
   }, []);
 
-  const trajectoryData = [
-    { week: 'Week 1', score: 6.5 },
-    { week: 'Week 2', score: 6.7 },
-    { week: 'Week 3', score: 6.8 },
-    { week: 'Week 4', score: 7.0 },
-    { week: 'Week 5', score: 7.1 },
-    { week: 'Week 6', score: 7.2 }
-  ];
+  const loadDashboard = async () => {
+    try {
+      const res = await fetch(API_URL, auth());
+      const data = await res.json();
+      if (data.success) {
+        setDashboardData(data.dashboard);
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      setError("Failed to load dashboard");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const performanceData = [
-    { skill: 'Listening', baseline: 6.5, current: 7.5 },
-    { skill: 'Reading', baseline: 6.0, current: 7.0 },
-    { skill: 'Writing', baseline: 6.5, current: 7.0 },
-    { skill: 'Speaking', baseline: 7.0, current: 7.5 }
-  ];
+  // Fallback data for display
+  const trajectoryData = dashboardData?.trajectoryData || [];
+  const performanceData = dashboardData?.performanceData || [];
 
   const navItems = [
     { path: "/dashboard", label: "Dashboard", icon: <Home size={20} /> },
@@ -206,21 +232,28 @@ export default function Dashboard() {
                   </h2>
                   <p className="text-[#777] text-sm mt-2">Here's your personalized IELTS preparation dashboard</p>
                 </div>
-                <div className="mt-4 md:mt-0 flex items-center gap-2 text-sm text-emerald-600 bg-emerald-50 px-4 py-2 rounded-full">
-                  <TrendingUp size={16} />
-                  <span>On track to reach your target!</span>
-                </div>
+                {dashboardData && dashboardData.improvement.overall > 0 && (
+                  <div className="mt-4 md:mt-0 flex items-center gap-2 text-sm text-emerald-600 bg-emerald-50 px-4 py-2 rounded-full">
+                    <TrendingUp size={16} />
+                    <span>+{dashboardData.improvement.overall} band improvement!</span>
+                  </div>
+                )}
+                {error && (
+                  <div className="mt-4 md:mt-0 flex items-center gap-2 text-sm text-amber-600 bg-amber-50 px-4 py-2 rounded-full">
+                    <span>{error.includes("baseline") ? "Complete baseline test to get started" : error}</span>
+                  </div>
+                )}
               </div>
             </div>
           </section>
 
           <section className="px-8 grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
-            {[
-              { label: "Overall Band", score: "7.2", prev: "6.5", icon: <Award className="text-[#7D3CFF]" /> },
-              { label: "Listening", score: "7.5", prev: "6.5", icon: <TrendingUp className="text-emerald-500" /> },
-              { label: "Reading", score: "7.0", prev: "6.0", icon: <TrendingUp className="text-blue-500" /> },
-              { label: "Writing", score: "7.0", prev: "6.5", icon: <Clock className="text-amber-500" /> },
-              { label: "Speaking", score: "7.5", prev: "7.0", icon: <Target className="text-purple-500" /> },
+            {dashboardData?.currentScores ? [
+              { label: "Overall Band", score: (dashboardData.currentScores.overall ?? 0).toString(), prev: (dashboardData.baselineScores?.overall ?? 0).toString(), improvement: dashboardData.improvement?.overall ?? 0, icon: <Award className="text-[#7D3CFF]" /> },
+              { label: "Listening", score: (dashboardData.currentScores.listening ?? 0).toString(), prev: (dashboardData.baselineScores?.listening ?? 0).toString(), improvement: dashboardData.improvement?.listening ?? 0, icon: <TrendingUp className="text-emerald-500" /> },
+              { label: "Reading", score: (dashboardData.currentScores.reading ?? 0).toString(), prev: (dashboardData.baselineScores?.reading ?? 0).toString(), improvement: dashboardData.improvement?.reading ?? 0, icon: <TrendingUp className="text-blue-500" /> },
+              { label: "Writing", score: (dashboardData.currentScores.writing ?? 0).toString(), prev: (dashboardData.baselineScores?.writing ?? 0).toString(), improvement: dashboardData.improvement?.writing ?? 0, icon: <Clock className="text-amber-500" /> },
+              { label: "Speaking", score: (dashboardData.currentScores.speaking ?? 0).toString(), prev: (dashboardData.baselineScores?.speaking ?? 0).toString(), improvement: dashboardData.improvement?.speaking ?? 0, icon: <Target className="text-purple-500" /> },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl shadow-lg px-6 py-5 border border-[#F0E8FF] hover:shadow-xl transition-shadow">
                 <div className="flex items-center justify-between mb-3">
@@ -230,43 +263,64 @@ export default function Dashboard() {
                 <p className="text-4xl font-bold bg-gradient-to-r from-[#7D3CFF] to-[#5A20E0] bg-clip-text text-transparent">
                   {item.score}
                 </p>
-                <p className="text-xs text-[#999] mt-1">From {item.prev} <span className="text-emerald-600">↑</span></p>
+                <p className="text-xs text-[#999] mt-1">
+                  From {item.prev} 
+                  {item.improvement !== undefined && item.improvement > 0 && (
+                    <span className="text-emerald-600 ml-1">+{item.improvement} ↑</span>
+                  )}
+                  {item.improvement !== undefined && item.improvement < 0 && (
+                    <span className="text-red-500 ml-1">{item.improvement} ↓</span>
+                  )}
+                </p>
               </div>
-            ))}
+            )) : (
+              // Skeleton loading
+              Array(5).fill(0).map((_, i) => (
+                <div key={i} className="bg-white rounded-2xl shadow-lg px-6 py-5 border border-[#F0E8FF] animate-pulse">
+                  <div className="h-4 bg-gray-200 rounded w-20 mb-3"></div>
+                  <div className="h-10 bg-gray-200 rounded w-16 mb-2"></div>
+                  <div className="h-3 bg-gray-200 rounded w-24"></div>
+                </div>
+              ))
+            )}
           </section>
 
           <section className="px-8 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
               <div className="bg-white rounded-3xl shadow-xl p-8 border border-[#F0E8FF]">
                 <h3 className="font-bold text-xl mb-2">Goal Progress Tracker</h3>
-                <p className="text-sm text-[#777] mb-6">Track your journey to your target score of 8.0</p>
+                <p className="text-sm text-[#777] mb-6">Track your journey to your target score of {dashboardData?.targetScore || 7.0}</p>
                 <div className="grid grid-cols-3 gap-6 text-center mb-8">
                   <div className="bg-gradient-to-br from-[#F8F9FF] to-white p-6 rounded-2xl shadow-sm border">
-                    <p className="text-3xl font-bold text-[#7D3CFF]">7.2</p>
+                    <p className="text-3xl font-bold text-[#7D3CFF]">{dashboardData?.currentScores.overall || "-"}</p>
                     <p className="text-xs text-[#777] mt-2">Current Score</p>
                   </div>
                   <div className="bg-gradient-to-br from-[#F8F9FF] to-white p-6 rounded-2xl shadow-sm border">
-                    <p className="text-2xl font-semibold text-emerald-600">0.8 pts</p>
+                    <p className="text-2xl font-semibold text-emerald-600">
+                      {dashboardData?.currentScores?.overall != null ? ((dashboardData.targetScore - dashboardData.currentScores.overall).toFixed(1)) : "-"} pts
+                    </p>
                     <p className="text-xs text-[#777] mt-2">Gap to Target</p>
                   </div>
                   <div className="bg-gradient-to-br from-[#F8F9FF] to-white p-6 rounded-2xl shadow-sm border">
-                    <p className="text-3xl font-bold text-[#5A20E0]">8.0</p>
+                    <p className="text-3xl font-bold text-[#5A20E0]">{dashboardData?.targetScore || "-"}</p>
                     <p className="text-xs text-[#777] mt-2">Target Score</p>
                   </div>
                 </div>
                 <div className="mb-8">
                   <div className="w-full bg-gradient-to-r from-[#EDE3FF] to-[#E2D9FF] h-4 rounded-full mb-3">
-                    <div className="bg-gradient-to-r from-[#7D3CFF] to-[#5A20E0] h-full rounded-full transition-all duration-500" style={{ width: "75%" }}></div>
+                    <div className="bg-gradient-to-r from-[#7D3CFF] to-[#5A20E0] h-full rounded-full transition-all duration-500" style={{ width: `${dashboardData?.progressPercentage || 0}%` }}></div>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-[#777]">0%</span>
-                    <span className="font-semibold text-[#7D3CFF]">75% Progress</span>
+                    <span className="font-semibold text-[#7D3CFF]">{dashboardData?.progressPercentage || 0}% Progress</span>
                     <span className="text-[#777]">100%</span>
                   </div>
                 </div>
                 <div className="bg-gradient-to-r from-[#F0F9FF] to-[#E1F5FE] p-6 rounded-2xl border border-[#E1F5FE]">
-                  <h4 className="font-semibold text-[#7D3CFF] mb-2">🎯 Goal Actions</h4>
-                  <p className="text-sm text-[#666]">Complete 3 mock tests and focus on reading inference skills this week</p>
+                  <h4 className="font-semibold text-[#7D3CFF] mb-2">Goal Actions</h4>
+                  <p className="text-sm text-[#666]">
+                    {dashboardData?.weeklyFocus?.[0] || "Complete practice sessions and focus on your weak areas this week"}
+                  </p>
                 </div>
               </div>
 
@@ -276,6 +330,44 @@ export default function Dashboard() {
                     <h3 className="font-bold text-xl">Weekly Mock Test</h3>
                     <ChevronRight className="text-[#7D3CFF]" />
                   </div>
+                  
+                  {/* Last Mock Test Summary */}
+                  {dashboardData?.lastMockTest && (
+                    <div className="mb-4 p-4 bg-gradient-to-r from-[#F4F0FF] to-[#F8F9FF] rounded-xl border border-[#E2D9FF]">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-[#666]">Last Test: #{dashboardData.lastMockTest.testNumber}</span>
+                        <span className="text-xs text-[#999]">
+                          {new Date(dashboardData.lastMockTest.completedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#7D3CFF] to-[#5A20E0] text-white flex items-center justify-center font-bold text-lg">
+                          {dashboardData.lastMockTest.overallBand}
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium">Overall Band Score</p>
+                          <p className="text-xs text-[#777]">
+                            {dashboardData.studyStats?.totalMockTests ?? 0} total tests completed
+                          </p>
+                        </div>
+                      </div>
+                      <button 
+                        onClick={() => handleNavigate(`/mock-tests/result?id=${dashboardData.lastMockTest?._id || ''}`)}
+                        className="w-full mt-3 text-sm text-[#7D3CFF] font-medium hover:underline"
+                      >
+                        View Full Results →
+                      </button>
+                    </div>
+                  )}
+                  
+                  {!dashboardData?.lastMockTest && (
+                    <div className="mb-4 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-100">
+                      <p className="text-sm text-amber-700 text-center">
+                        No mock tests completed yet. Take your first mock test to track your progress!
+                      </p>
+                    </div>
+                  )}
+                  
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <button onClick={() => handleNavigate('/listening/practice')} className="py-4 rounded-xl bg-gradient-to-b from-[#F4F0FF] to-white border border-[#E2D9FF] hover:from-[#E8DCFF] hover:to-[#F4F0FF] text-sm font-medium transition-all">👂 Listening</button>
                     <button onClick={() => handleNavigate('/reading/practice')} className="py-4 rounded-xl bg-gradient-to-b from-[#F4F0FF] to-white border border-[#E2D9FF] hover:from-[#E8DCFF] hover:to-[#F4F0FF] text-sm font-medium transition-all">📚 Reading</button>
@@ -312,21 +404,24 @@ export default function Dashboard() {
                   <button onClick={() => handleNavigate('/writing')} className="py-3 rounded-xl bg-gradient-to-b from-[#F4F0FF] to-white border border-[#E2D9FF] hover:from-[#E8DCFF] hover:to-[#F4F0FF] transition-all">✍️ Writing</button>
                   <button onClick={() => handleNavigate('/speaking')} className="py-3 rounded-xl bg-gradient-to-b from-[#F4F0FF] to-white border border-[#E2D9FF] hover:from-[#E8DCFF] hover:to-[#F4F0FF] transition-all">🗣️ Speaking</button>
                 </div>
+                <button 
+                  onClick={() => handleNavigate('/baseline/feedback')} 
+                  className="w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold hover:from-emerald-600 hover:to-teal-700 shadow-md transition-all text-sm"
+                >
+                  📊 View Baseline Results
+                </button>
               </div>
 
               <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-8 rounded-3xl border border-emerald-100 shadow-lg">
-                <h3 className="font-bold text-xl mb-6 text-emerald-800">✅ Top Strengths</h3>
+                <h3 className="font-bold text-xl mb-6 text-emerald-800">Top Strengths</h3>
                 <div className="space-y-4 text-sm">
-                  {[
-                    { title: "Listening – Main Idea", desc: "Excellent comprehension" },
-                    { title: "Speaking – Fluency", desc: "Natural conversation flow" },
-                    { title: "Writing – Vocabulary Range", desc: "Rich word choice" },
-                  ].map((s, i) => (
+                  {(dashboardData?.strengths?.length ? dashboardData.strengths.slice(0, 3) : [
+                    "Complete baseline test to see strengths"
+                  ]).map((s, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center"><span className="text-emerald-600">✓</span></div>
                       <div>
-                        <p className="font-medium text-emerald-800">{s.title}</p>
-                        <p className="text-emerald-600 text-xs">{s.desc}</p>
+                        <p className="font-medium text-emerald-800">{s}</p>
                       </div>
                     </div>
                   ))}
@@ -334,18 +429,15 @@ export default function Dashboard() {
               </div>
 
               <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-3xl border border-amber-100 shadow-lg">
-                <h3 className="font-bold text-xl mb-6 text-amber-800">🎯 Areas to Improve</h3>
+                <h3 className="font-bold text-xl mb-6 text-amber-800">Areas to Improve</h3>
                 <div className="space-y-4 text-sm">
-                  {[
-                    { title: "Reading – Inference", desc: "Implied meanings" },
-                    { title: "Writing – Coherence", desc: "Logical flow" },
-                    { title: "Grammar – Complex Sentences", desc: "Sentence structure" },
-                  ].map((s, i) => (
+                  {(dashboardData?.weaknesses?.length ? dashboardData.weaknesses.slice(0, 3) : [
+                    "Complete baseline test to see areas to improve"
+                  ]).map((s, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center"><span className="text-amber-600">→</span></div>
                       <div>
-                        <p className="font-medium text-amber-800">{s.title}</p>
-                        <p className="text-amber-600 text-xs">{s.desc}</p>
+                        <p className="font-medium text-amber-800">{s}</p>
                       </div>
                     </div>
                   ))}

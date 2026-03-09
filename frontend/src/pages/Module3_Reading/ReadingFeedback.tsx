@@ -3,6 +3,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import { readingService, ReadingSession, QuestionType } from '../../services/readingService';
 
+// Helper to convert index to letter (0 -> 'A', 1 -> 'B', etc.)
+const indexToLetter = (idx: number): string => String.fromCharCode(65 + idx);
+
 export default function ReadingFeedback() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -331,10 +334,10 @@ export default function ReadingFeedback() {
               {session.passage.title}
             </h3>
             <div className="prose dark:prose-invert max-w-none">
-{session.passage.paragraphs && session.passage.paragraphs.length > 0 ? (
+              {session.passage.paragraphs && session.passage.paragraphs.length > 0 ? (
                 session.passage.paragraphs.map((para, idx) => (
                   <p key={idx} className="mb-4 text-[#333] dark:text-gray-200 leading-relaxed">
-                    <span className="text-xs text-[#999] dark:text-gray-500 mr-2">[{idx + 1}]</span>
+                    <span className="text-xs font-bold text-[#7D3CFF] dark:text-[#A78BFA] mr-2">[{indexToLetter(idx)}]</span>
                     {para.content || para.text}
                   </p>
                 ))

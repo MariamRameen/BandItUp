@@ -5,6 +5,7 @@
 
 const ReadingSession = require('../models/ReadingSession');
 const aiService = require('../services/aiService');
+const { autoCompleteTaskBySkill } = require('./studyPlannerController');
 const { getQuestionTypesForDifficulty } = require('../services/prompts/readingPrompts');
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -368,6 +369,9 @@ const completeSession = async (req, res) => {
     session.completedAt = new Date();
 
     await session.save();
+
+    // Auto-complete study plan task for reading
+    await autoCompleteTaskBySkill(userId, "reading", session._id);
 
     res.json({
       success: true,

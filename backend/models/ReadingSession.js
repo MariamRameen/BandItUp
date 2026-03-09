@@ -306,13 +306,57 @@ readingSessionSchema.methods.checkAnswer = function(questionId, userAnswer) {
   // Handle different answer formats
   const correct = question.correctAnswer;
   
+  // Helper function for flexible text comparison
+  const flexibleMatch = (user, correct) => {
+    // Normalize both strings
+    const normalizeText = (text) => {
+      return String(text)
+        .toLowerCase()
+        .trim()
+        .replace(/[.,;:!?'"()]/g, '') // Remove punctuation
+        .replace(/\s+/g, ' ')         // Normalize whitespace
+        .replace(/\band\b/g, '')      // Remove 'and'
+        .replace(/\bthe\b/g, '')      // Remove 'the'
+        .replace(/\ba\b/g, '')        // Remove 'a'
+        .replace(/\ban\b/g, '')       // Remove 'an'
+        .replace(/\s+/g, ' ')         // Normalize whitespace again
+        .trim();
+    };
+    
+    const normUser = normalizeText(user);
+    const normCorrect = normalizeText(correct);
+    
+    // Exact match after normalization
+    if (normUser === normCorrect) return true;
+    
+    // Check if user answer contains all key words from correct answer
+    const correctWords = normCorrect.split(' ').filter(w => w.length > 2);
+    const userWords = normUser.split(' ').filter(w => w.length > 2);
+    
+    // All correct words should be in user answer
+    const allCorrectWordsMatch = correctWords.every(cw => 
+      userWords.some(uw => uw === cw || uw.includes(cw) || cw.includes(uw))
+    );
+    
+    // At least 80% of correct words match
+    const matchCount = correctWords.filter(cw => 
+      userWords.some(uw => uw === cw || uw.includes(cw) || cw.includes(uw))
+    ).length;
+    const matchRatio = correctWords.length > 0 ? matchCount / correctWords.length : 0;
+    
+    return allCorrectWordsMatch || matchRatio >= 0.8;
+  };
+  
   if (Array.isArray(correct)) {
     // Multiple correct answers (e.g., matching, multiple selection)
     if (Array.isArray(userAnswer)) {
       question.isCorrect = correct.length === userAnswer.length &&
-        correct.every(ans => userAnswer.includes(ans));
+        correct.every(ans => userAnswer.some(ua => flexibleMatch(ua, ans)));
     } else {
-      question.isCorrect = false;
+      // User might have submitted comma-separated values
+      const userAnswers = String(userAnswer).split(/[,;]/);
+      question.isCorrect = correct.length === userAnswers.length &&
+        correct.every(ans => userAnswers.some(ua => flexibleMatch(ua.trim(), ans)));
     }
   } else {
     // Single answer comparison
@@ -320,27 +364,56 @@ readingSessionSchema.methods.checkAnswer = function(questionId, userAnswer) {
     const normalizedCorrect = String(correct).toLowerCase().trim();
     
     // For multiple choice questions, extract the letter prefix if present
-    // e.g., "B. Machines programmed..." -> "b"
-    // or "A) Some option" -> "a"
     if (question.type === 'multiple_choice' || question.type === 'multiple_choice_multiple') {
-      const letterMatch = normalizedUser.match(/^([a-d])[\.\)\s]/i);
+      // Extract letter from "B. Machines programmed..." -> "b"
+      const letterMatch = normalizedUser.match(/^([a-z])[\.\)\s:]/i);
       if (letterMatch) {
         normalizedUser = letterMatch[1].toLowerCase();
       }
+      // Also handle if correct answer is full option text
+      const correctLetterMatch = normalizedCorrect.match(/^([a-z])[\.\)\s:]/i);
+      const correctLetter = correctLetterMatch ? correctLetterMatch[1].toLowerCase() : normalizedCorrect;
+      
+      question.isCorrect = normalizedUser === correctLetter;
     }
-    
-    // For true/false/not given, normalize common variations
-    if (question.type === 'true_false_not_given') {
-      if (normalizedUser === 'not given') normalizedUser = 'not given';
-      if (normalizedCorrect === 'not given') {
-        question.isCorrect = normalizedUser === 'not given';
+    // For true/false/not given
+    else if (question.type === 'true_false_not_given') {
+      const userTF = normalizedUser.replace(/\s+/g, ' ').trim();
+      const correctTF = normalizedCorrect.replace(/\s+/g, ' ').trim();
+      question.isCorrect = userTF === correctTF;
+    }
+    // For yes/no/not given
+    else if (question.type === 'yes_no_not_given') {
+      const userYN = normalizedUser.replace(/\s+/g, ' ').trim();
+      const correctYN = normalizedCorrect.replace(/\s+/g, ' ').trim();
+      question.isCorrect = userYN === correctYN;
+    }
+    // For matching types - just need letter match
+    else if (['matching_headings', 'matching_information', 'matching_features', 'matching_sentence_endings'].includes(question.type)) {
+      // Extract just the letter
+      const userLetter = normalizedUser.match(/^([a-z])/i);
+      const correctLetter = normalizedCorrect.match(/^([a-z])/i);
+      
+      if (userLetter && correctLetter) {
+        question.isCorrect = userLetter[1].toLowerCase() === correctLetter[1].toLowerCase();
       } else {
         question.isCorrect = normalizedUser === normalizedCorrect;
       }
-    } else if (question.type === 'yes_no_not_given') {
-      if (normalizedUser === 'not given') normalizedUser = 'not given';
-      question.isCorrect = normalizedUser === normalizedCorrect;
-    } else {
+    }
+    // For text-based questions (short answer, completion), use flexible matching
+    else if ([
+      'short_answer',
+      'sentence_completion',
+      'summary_completion',
+      'note_completion',
+      'table_completion',
+      'diagram_label_completion',
+      'flow_chart_completion',
+    ].includes(question.type)) {
+      question.isCorrect = flexibleMatch(normalizedUser, normalizedCorrect);
+    }
+    // Default exact match
+    else {
       question.isCorrect = normalizedUser === normalizedCorrect;
     }
   }

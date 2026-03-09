@@ -1,5 +1,6 @@
 const ListeningSession = require("../models/ListeningSession");
 const ListeningProgress = require("../models/ListeningProgress");
+const { autoCompleteTaskBySkill } = require("./studyPlannerController");
 const OpenAI = require("openai");
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const { v4: uuidv4 } = require("uuid");
@@ -257,10 +258,17 @@ Return ONLY valid JSON:
 // No storage bucket needed — audio served directly from DB
 // ─────────────────────────────────────────────
 async function synthesizeAudio(text, accent) {
+  // Check for Azure credentials
+  if (!AZURE_KEY || !AZURE_REGION) {
+    throw new Error("Azure Speech credentials not configured");
+  }
+  
   // Azure voice names for each accent
   const voiceMap = {
     american:   "en-US-BrianNeural",    // Natural American male
     australian: "en-AU-WilliamNeural",  // Natural Australian male
+    british:    "en-GB-RyanNeural",     // Natural British male
+    British:    "en-GB-RyanNeural",     // Handle capitalized version
   };
   const voiceName = voiceMap[accent] || voiceMap.american;
 
@@ -598,6 +606,9 @@ exports.submitSession = async (req, res) => {
     progress.recentSessions = [session._id, ...progress.recentSessions].slice(0, 10);
 
     await progress.save();
+
+    // Auto-complete study plan task for listening
+    await autoCompleteTaskBySkill(userId, "listening", session._id);
 
     res.json({
       success: true,

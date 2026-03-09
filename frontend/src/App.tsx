@@ -36,10 +36,15 @@ import BaselineTest from './pages/Module6_BaselineTest/BaselineTest';
 import BaselineGuard from "./components/BaselineGuard";
 import BaselineResults from './pages/Module6_BaselineTest/BaselineResults';
 import MockSelection from './pages/Module7_MockTests/MockSelection';
-import MockStart from './pages/Module7_MockTests/MockStart';
+import MockTestTaking from './pages/Module7_MockTests/MockTestTaking';
 import MockResult from './pages/Module7_MockTests/MockResult';
 import PlannerHome from './pages/Module8_StudyPlanner/PlannerHome';
 import PlannerCalendar from './pages/Module8_StudyPlanner/PlannerCalendar';
+import PlannerRoadmap from './pages/Module8_StudyPlanner/PlannerRoadmap';
+import PlannerAchievements from './pages/Module8_StudyPlanner/PlannerAchievements';
+import NotificationSettings from './pages/Module8_StudyPlanner/NotificationSettings';
+import ProgressHistory from './pages/Module8_StudyPlanner/ProgressHistory';
+import WelcomeBack from './components/WelcomeBack';
 import AdminDashboard from './pages/Module11_Admin/AdminDashboard';
 import ChatScreen from './pages/Module12_LiveChat/ChatScreen';
 import AdminRoute from './components/AdminRoute';
@@ -64,6 +69,7 @@ export default function App() {
   return (
      <ThemeProvider>
       <BaselineGuard>
+        <WelcomeBack />
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
@@ -135,10 +141,14 @@ export default function App() {
       <Route path="/baseline/test"    element={<BaselineTest />}    />
       <Route path="/baseline/results" element={<BaselineResults />} />
       <Route path="/mock-tests" element={<FullAccessRoute><MockSelection /></FullAccessRoute>} />
-      <Route path="/mock-tests/start" element={<FullAccessRoute><MockStart /></FullAccessRoute>} />
+      <Route path="/mock-tests/start" element={<FullAccessRoute><MockTestTaking /></FullAccessRoute>} />
       <Route path="/mock-tests/result" element={<FullAccessRoute><MockResult /></FullAccessRoute>} />
       <Route path="/study-planner" element={<FullAccessRoute><PlannerHome /></FullAccessRoute>} />
       <Route path="/study-planner/calendar" element={<FullAccessRoute><PlannerCalendar /></FullAccessRoute>} />
+      <Route path="/study-planner/roadmap" element={<FullAccessRoute><PlannerRoadmap /></FullAccessRoute>} />
+      <Route path="/study-planner/achievements" element={<FullAccessRoute><PlannerAchievements /></FullAccessRoute>} />
+      <Route path="/study-planner/progress" element={<FullAccessRoute><ProgressHistory /></FullAccessRoute>} />
+      <Route path="/settings/notifications" element={<FullAccessRoute><NotificationSettings /></FullAccessRoute>} />
       <Route path="/admin" element={<FullAccessRoute><AdminDashboard /></FullAccessRoute>} />
       <Route path="/chat" element={<FullAccessRoute><ChatScreen /></FullAccessRoute>} />
       <Route path="/set-password" element={<SetPassword />} />

@@ -1,5 +1,6 @@
 const ListeningSession = require("../models/ListeningSession");
 const ListeningProgress = require("../models/ListeningProgress");
+const { autoCompleteTaskBySkill } = require("./studyPlannerController");
 const OpenAI = require("openai");
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const { v4: uuidv4 } = require("uuid");
@@ -598,6 +599,9 @@ exports.submitSession = async (req, res) => {
     progress.recentSessions = [session._id, ...progress.recentSessions].slice(0, 10);
 
     await progress.save();
+
+    // Auto-complete study plan task for listening
+    await autoCompleteTaskBySkill(userId, "listening", session._id);
 
     res.json({
       success: true,

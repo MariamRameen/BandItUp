@@ -1,6 +1,7 @@
 const Word = require("../models/Word");
 const UserWordProgress = require("../models/UserWordProgress");
 const VocabQuizSession = require("../models/VocabQuizSession");
+const { autoCompleteTaskBySkill } = require("./studyPlannerController");
 const { v4: uuidv4 } = require("uuid");
 const OpenAI = require("openai");
 
@@ -554,6 +555,9 @@ Return ONLY valid JSON (no markdown, no extra text):
       writtenBand,
       quizBandScore,
     });
+
+    // Auto-complete study plan task for vocabulary
+    await autoCompleteTaskBySkill(userId, "vocabulary", sessionId);
 
     res.json({
       success: true,

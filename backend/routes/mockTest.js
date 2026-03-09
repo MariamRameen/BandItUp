@@ -10,6 +10,8 @@ const {
   getProgress,
   quickMockTest,
   updateSection,
+  generateSpeaking,
+  evaluateSpeaking,
 } = require("../controllers/mockTestController");
 
 // All routes require authentication
@@ -26,6 +28,12 @@ router.post("/schedule", scheduleMockTest);
 
 // Quick start a mock test
 router.post("/quick", quickMockTest);
+
+// Generate speaking questions
+router.post("/generate-speaking", generateSpeaking);
+
+// Evaluate speaking recordings
+router.post("/evaluate-speaking", evaluateSpeaking);
 
 // Get specific mock test
 router.get("/:id", getMockTest);

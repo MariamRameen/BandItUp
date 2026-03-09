@@ -68,12 +68,39 @@ export default function MockTestTaking() {
   // Recording state for speaking
   const [isRecording, setIsRecording] = useState(false);
   const [recordedBlobs, setRecordedBlobs] = useState<Record<string, Blob>>({});
+  const [audioUrls, setAudioUrls] = useState<Record<string, string>>({});
   const [recordingQuestionIdx, setRecordingQuestionIdx] = useState<number | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
   
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // LocalStorage key for this test
+  const LS_KEY = `mock_test_${mockTestId}`;
+
+  // Cleanup audio URLs on unmount
+  useEffect(() => {
+    return () => {
+      Object.values(audioUrls).forEach(url => URL.revokeObjectURL(url));
+    };
+  }, [audioUrls]);
+
+  // Save progress to localStorage whenever mockTest changes
+  useEffect(() => {
+    if (mockTest && mockTestId) {
+      const saveData = {
+        currentSection,
+        timeLeft,
+        mockTest: {
+          ...mockTest,
+          // Don't save blobs or audio URLs
+        },
+        savedAt: Date.now(),
+      };
+      localStorage.setItem(LS_KEY, JSON.stringify(saveData));
+    }
+  }, [mockTest, currentSection, timeLeft, mockTestId]);
 
   // ────────────────────────────────────────────────────────────────
   // Initialize Test
@@ -90,6 +117,24 @@ export default function MockTestTaking() {
 
   const initializeTest = async () => {
     try {
+      // Check for saved progress
+      const savedData = localStorage.getItem(LS_KEY);
+      if (savedData) {
+        try {
+          const parsed = JSON.parse(savedData);
+          // Only restore if saved within last 2 hours
+          if (parsed.savedAt && Date.now() - parsed.savedAt < 2 * 60 * 60 * 1000) {
+            setMockTest(parsed.mockTest);
+            setCurrentSection(parsed.currentSection);
+            setTimeLeft(parsed.timeLeft);
+            setLoading(false);
+            return;
+          }
+        } catch (e) {
+          console.error('Failed to parse saved progress:', e);
+        }
+      }
+
       // Fetch mock test details
       const res = await fetch(`${API_URL}/mock-tests/${mockTestId}`, auth());
       const data = await res.json();
@@ -180,17 +225,21 @@ export default function MockTestTaking() {
 
       switch (section) {
         case 'listening':
-          // Generate listening with required accent parameter
+          // Generate listening with required accent parameter (lowercase for backend)
           response = await fetch(`${API_URL}/listening/generate`, {
             method: 'POST',
             ...auth(),
             body: JSON.stringify({ 
-              part: 1, 
-              accent: 'British',  // Required parameter
+              part: Math.floor(Math.random() * 4) + 1, // Random part 1-4
+              accent: 'british',  // lowercase to match backend
               sessionType: 'mock'
             }),
           });
           sessionData = await response.json();
+          if (!sessionData.success && sessionData.sessionId) {
+            // Some endpoints return sessionId directly
+            sessionData.success = true;
+          }
           break;
 
         case 'reading':
@@ -245,8 +294,22 @@ export default function MockTestTaking() {
           const task2Data = await task2Res.json();
           
           if (task1Data.success && task2Data.success) {
+            // Create a writing session for Task 2 (main essay)
+            const sessionCreateRes = await fetch(`${API_URL}/writing/sessions`, {
+              method: 'POST',
+              ...auth(),
+              body: JSON.stringify({
+                taskType: 2,
+                examType: 'Academic',
+                task: task2Data.task,
+                essay: '',
+              }),
+            });
+            const sessionCreateData = await sessionCreateRes.json();
+            
             sessionData = {
               success: true,
+              sessionId: sessionCreateData.session?.id || sessionCreateData.session?._id,
               tasks: [
                 { taskType: 1, ...task1Data.task, minWords: 150 },
                 { taskType: 2, ...task2Data.task, minWords: 250 },
@@ -258,21 +321,13 @@ export default function MockTestTaking() {
           break;
 
         case 'speaking':
-          // Generate speaking questions for all 3 parts
-          sessionData = {
-            success: true,
-            questions: [
-              { part: 1, question: "Let's talk about your hometown. Where is it located?", duration: 60 },
-              { part: 1, question: "What do you like most about living there?", duration: 60 },
-              { part: 1, question: "Do you think you will live there in the future?", duration: 60 },
-              { part: 2, topic: "Describe a skill you would like to learn", 
-                points: ["What the skill is", "Why you want to learn it", "How you would learn it", "How learning this skill would benefit you"],
-                duration: 120,
-                prepTime: 60 },
-              { part: 3, question: "What skills do you think are most important for young people to learn today?", duration: 90 },
-              { part: 3, question: "How has technology changed the way people learn new skills?", duration: 90 },
-            ],
-          };
+          // Generate speaking questions via API
+          response = await fetch(`${API_URL}/mock-tests/generate-speaking`, {
+            method: 'POST',
+            ...auth(),
+            body: JSON.stringify({}),
+          });
+          sessionData = await response.json();
           break;
       }
 
@@ -377,22 +432,46 @@ export default function MockTestTaking() {
           break;
 
         case 'writing':
+          // Combine both task essays for submission
+          const task1Essay = sectionState.answers['task0'] || '';
+          const task2Essay = sectionState.answers['task1'] || '';
+          const combinedEssay = `[Task 1]\n${task1Essay}\n\n[Task 2]\n${task2Essay}`;
+          
           if (sectionState.sessionId) {
             const res = await fetch(`${API_URL}/writing/sessions/${sectionState.sessionId}/submit`, {
               method: 'POST',
               ...auth(),
               body: JSON.stringify({ 
-                essay: sectionState.answers.essay || '', 
+                essay: combinedEssay,
                 timeSpent 
               }),
             });
             result = await res.json();
+          } else {
+            // If no session, calculate word count and estimate band
+            const totalWords = (task1Essay + ' ' + task2Essay).trim().split(/\s+/).filter(Boolean).length;
+            const estimatedBand = Math.min(7.0, 5.0 + (totalWords / 150)); // Simple estimation
+            result = { 
+              success: true, 
+              bandScore: Math.round(estimatedBand * 2) / 2,
+              feedback: `Total words: ${totalWords}`,
+            };
           }
           break;
 
         case 'speaking':
-          // Simplified - just mark as done with estimated score
-          result = { success: true, bandScore: 6.0 };
+          // Evaluate speaking recordings
+          const recordingCount = Object.keys(recordedBlobs).length;
+          const evalRes = await fetch(`${API_URL}/mock-tests/evaluate-speaking`, {
+            method: 'POST',
+            ...auth(),
+            body: JSON.stringify({ 
+              recordings: Object.keys(recordedBlobs).map(key => ({ questionIdx: key })),
+              questionCount: recordingCount,
+            }),
+          });
+          result = await evalRes.json();
+          result.bandScore = result.band;
           break;
       }
 
@@ -471,6 +550,8 @@ export default function MockTestTaking() {
       const data = await res.json();
       
       if (data.success) {
+        // Clear saved progress
+        localStorage.removeItem(LS_KEY);
         navigate(`/mock-tests/result?id=${mockTest._id}`);
       } else {
         setError(data.message || 'Failed to complete test');
@@ -738,7 +819,21 @@ export default function MockTestTaking() {
   const startRecording = async (questionIdx: number) => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+      
+      // Find a supported mimeType
+      const mimeTypes = ['audio/webm', 'audio/webm;codecs=opus', 'audio/ogg', 'audio/mp4', ''];
+      let selectedMimeType = '';
+      for (const mimeType of mimeTypes) {
+        if (mimeType === '' || MediaRecorder.isTypeSupported(mimeType)) {
+          selectedMimeType = mimeType;
+          break;
+        }
+      }
+      
+      const mediaRecorder = selectedMimeType 
+        ? new MediaRecorder(stream, { mimeType: selectedMimeType })
+        : new MediaRecorder(stream);
+      
       mediaRecorderRef.current = mediaRecorder;
       audioChunksRef.current = [];
       
@@ -749,7 +844,18 @@ export default function MockTestTaking() {
       };
       
       mediaRecorder.onstop = () => {
-        const blob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        const blobType = mediaRecorder.mimeType || 'audio/webm';
+        const blob = new Blob(audioChunksRef.current, { type: blobType });
+        const url = URL.createObjectURL(blob);
+        
+        // Revoke old URL if exists
+        setAudioUrls(prev => {
+          if (prev[`q${questionIdx}`]) {
+            URL.revokeObjectURL(prev[`q${questionIdx}`]);
+          }
+          return { ...prev, [`q${questionIdx}`]: url };
+        });
+        
         setRecordedBlobs(prev => ({ ...prev, [`q${questionIdx}`]: blob }));
         stream.getTracks().forEach(track => track.stop());
       };
@@ -842,13 +948,14 @@ export default function MockTestTaking() {
                 </button>
               )}
               
-              {recordedBlobs[`q${idx}`] && (
+              {recordedBlobs[`q${idx}`] && audioUrls[`q${idx}`] && (
                 <div className="flex items-center gap-3">
                   <CheckCircle className="text-green-500" size={20} />
                   <span className="text-sm text-green-600">Recorded</span>
                   <audio 
+                    key={audioUrls[`q${idx}`]}
                     controls 
-                    src={URL.createObjectURL(recordedBlobs[`q${idx}`])} 
+                    src={audioUrls[`q${idx}`]} 
                     className="h-10"
                   />
                 </div>

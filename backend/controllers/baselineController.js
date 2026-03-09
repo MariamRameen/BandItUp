@@ -75,6 +75,13 @@ function gradeSection(questions, answers) {
 async function azureAssess(audioBuffer, referenceText) {
   return new Promise(async (resolve) => {
     try {
+      // Check for Azure credentials
+      if (!process.env.AZURE_SPEECH_KEY || !process.env.AZURE_SPEECH_REGION) {
+        console.error("Azure Speech credentials not configured. Set AZURE_SPEECH_KEY and AZURE_SPEECH_REGION in .env");
+        resolve({ transcript: "", accuracyScore: 0, fluencyScore: 0, completenessScore: 0, prosodyScore: 0, error: "Azure not configured" });
+        return;
+      }
+
       // Check if audio is WebM format (starts with 0x1A45DFA3)
       const firstBytes = audioBuffer.slice(0, 4).toString("hex");
       console.log("Speaking audio received:", audioBuffer.length, "bytes");
@@ -157,6 +164,9 @@ async function azureAssess(audioBuffer, referenceText) {
 
 // ─── GPT evaluations ──────────────────────────────────────
 async function gptSpeaking({ question, transcript, azure }) {
+  if (azure?.error === "Azure not configured") {
+    return { band: 0, feedback: "Speaking evaluation requires Azure Speech credentials. Contact admin.", strengths: [], improvements: ["Set up AZURE_SPEECH_KEY and AZURE_SPEECH_REGION."] };
+  }
   if (!transcript) return { band: 0, feedback: "No speech detected. Score not counted.", strengths: [], improvements: ["Ensure microphone is working and try again."] };
   const r = await openai.chat.completions.create({
     model: "gpt-4o-mini", max_tokens: 400,

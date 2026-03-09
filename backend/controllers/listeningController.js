@@ -258,10 +258,17 @@ Return ONLY valid JSON:
 // No storage bucket needed — audio served directly from DB
 // ─────────────────────────────────────────────
 async function synthesizeAudio(text, accent) {
+  // Check for Azure credentials
+  if (!AZURE_KEY || !AZURE_REGION) {
+    throw new Error("Azure Speech credentials not configured");
+  }
+  
   // Azure voice names for each accent
   const voiceMap = {
     american:   "en-US-BrianNeural",    // Natural American male
     australian: "en-AU-WilliamNeural",  // Natural Australian male
+    british:    "en-GB-RyanNeural",     // Natural British male
+    British:    "en-GB-RyanNeural",     // Handle capitalized version
   };
   const voiceName = voiceMap[accent] || voiceMap.american;
 

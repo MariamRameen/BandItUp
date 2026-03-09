@@ -18,40 +18,72 @@ exports.getDashboard = async (req, res) => {
 
     // Get all mock test results
     const mockTests = await MockTestResult.find({
-      user: userId,
+      userId,
       status: "completed",
     }).sort({ completedAt: 1 });
 
     // Get study plan
     const studyPlan = await StudyPlan.findOne({ userId });
 
-    // Calculate current scores (latest mock test or baseline)
-    const latestTest = mockTests.length > 0 ? mockTests[mockTests.length - 1] : null;
+    // Calculate current scores as AVERAGE of all mock tests (not just latest)
+    // If no mock tests, use baseline scores
+    const calculateAverageScores = () => {
+      if (mockTests.length === 0) {
+        return {
+          overall: baseline.overallBand,
+          listening: baseline.listening?.band || 0,
+          reading: baseline.reading?.band || 0,
+          writing: baseline.writing?.band || 0,
+          speaking: baseline.speaking?.band || 0,
+        };
+      }
 
-    const currentScores = {
-      overall: latestTest
-        ? latestTest.overallBand
-        : baseline.overallBand,
-      listening: latestTest
-        ? latestTest.listening?.score
-        : baseline.skillScores?.listening,
-      reading: latestTest
-        ? latestTest.reading?.score
-        : baseline.skillScores?.reading,
-      writing: latestTest
-        ? latestTest.writing?.score
-        : baseline.skillScores?.writing,
-      speaking: latestTest
-        ? latestTest.speaking?.score
-        : baseline.skillScores?.speaking,
+      // Calculate average of all completed mock tests
+      const sum = {
+        overall: 0,
+        listening: 0,
+        reading: 0,
+        writing: 0,
+        speaking: 0,
+      };
+      
+      let counts = {
+        overall: 0,
+        listening: 0,
+        reading: 0,
+        writing: 0,
+        speaking: 0,
+      };
+
+      mockTests.forEach(test => {
+        if (test.overallBand) { sum.overall += test.overallBand; counts.overall++; }
+        if (test.listening?.band) { sum.listening += test.listening.band; counts.listening++; }
+        if (test.reading?.band) { sum.reading += test.reading.band; counts.reading++; }
+        if (test.writing?.band) { sum.writing += test.writing.band; counts.writing++; }
+        if (test.speaking?.band) { sum.speaking += test.speaking.band; counts.speaking++; }
+      });
+
+      // Round to nearest 0.5
+      const roundHalf = n => Math.round(n * 2) / 2;
+
+      return {
+        overall: counts.overall > 0 ? roundHalf(sum.overall / counts.overall) : baseline.overallBand,
+        listening: counts.listening > 0 ? roundHalf(sum.listening / counts.listening) : baseline.listening?.band || 0,
+        reading: counts.reading > 0 ? roundHalf(sum.reading / counts.reading) : baseline.reading?.band || 0,
+        writing: counts.writing > 0 ? roundHalf(sum.writing / counts.writing) : baseline.writing?.band || 0,
+        speaking: counts.speaking > 0 ? roundHalf(sum.speaking / counts.speaking) : baseline.speaking?.band || 0,
+      };
     };
+
+    const currentScores = calculateAverageScores();
+    const latestTest = mockTests.length > 0 ? mockTests[mockTests.length - 1] : null;
 
     const baselineScores = {
       overall: baseline.overallBand,
-      listening: baseline.skillScores?.listening,
-      reading: baseline.skillScores?.reading,
-      writing: baseline.skillScores?.writing,
-      speaking: baseline.skillScores?.speaking,
+      listening: baseline.listening?.band,
+      reading: baseline.reading?.band,
+      writing: baseline.writing?.band,
+      speaking: baseline.speaking?.band,
     };
 
     // Calculate improvement

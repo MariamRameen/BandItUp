@@ -213,7 +213,7 @@ export default function PlannerRoadmap() {
 
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-2 bg-emerald-100 rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-emerald-600">{roadmap.progressPercentage}%</span>
+                <span className="text-2xl font-bold text-emerald-600">{Math.max(0, Math.min(100, roadmap.progressPercentage))}%</span>
               </div>
               <p className="text-sm text-[#777]">Progress</p>
             </div>
@@ -225,10 +225,10 @@ export default function PlannerRoadmap() {
               <span className="text-[#777]">Journey Progress</span>
               <span className="font-semibold">{roadmap.currentWeek} of {roadmap.estimatedWeeks} weeks</span>
             </div>
-            <div className="w-full bg-[#EDE3FF] h-4 rounded-full">
+            <div className="w-full bg-[#EDE3FF] h-4 rounded-full overflow-hidden">
               <div
                 className="bg-gradient-to-r from-[#7D3CFF] to-[#9B59B6] h-full rounded-full transition-all duration-500"
-                style={{ width: `${roadmap.progressPercentage}%` }}
+                style={{ width: `${Math.max(0, Math.min(100, roadmap.progressPercentage))}%` }}
               />
             </div>
             <div className="flex justify-between text-xs text-[#777] mt-1">

@@ -55,6 +55,7 @@ export default function MockResult() {
   
   const [result, setResult] = useState<MockTestResult | null>(null);
   const [progressData, setProgressData] = useState<ProgressPoint[]>([]);
+  const [baselineScores, setBaselineScores] = useState<{listening: number; reading: number; writing: number; speaking: number}>({ listening: 0, reading: 0, writing: 0, speaking: 0 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -86,27 +87,28 @@ export default function MockResult() {
       const res = await fetch(`${API_URL}/progress`, auth());
       const data = await res.json();
       if (data.success) {
-        // Format progress data for charts
+        // progression array: first item is baseline, rest are mock tests
         const progression = data.progression || [];
-        const formatted: ProgressPoint[] = [
-          {
-            week: 'Baseline',
-            listening: data.baseline?.listening || 0,
-            reading: data.baseline?.reading || 0,
-            writing: data.baseline?.writing || 0,
-            speaking: data.baseline?.speaking || 0,
-            overall: data.baseline?.overall || 0,
-          },
-          ...progression.map((p: any, idx: number) => ({
-            week: `Test ${idx + 1}`,
-            listening: p.listening || 0,
-            reading: p.reading || 0,
-            writing: p.writing || 0,
-            speaking: p.speaking || 0,
-            overall: p.overall || 0,
-          }))
-        ];
+        const formatted: ProgressPoint[] = progression.map((p: any, idx: number) => ({
+          week: idx === 0 ? 'Baseline' : `Test ${idx}`,
+          listening: p.listening || 0,
+          reading: p.reading || 0,
+          writing: p.writing || 0,
+          speaking: p.speaking || 0,
+          overall: p.overall || 0,
+        }));
         setProgressData(formatted);
+        
+        // Store baseline scores for the comparison chart
+        if (progression.length > 0) {
+          const baseline = progression[0];
+          setBaselineScores({
+            listening: baseline.listening || 0,
+            reading: baseline.reading || 0,
+            writing: baseline.writing || 0,
+            speaking: baseline.speaking || 0,
+          });
+        }
       }
     } catch (err) {
       console.error("Failed to load progress data");
@@ -114,10 +116,10 @@ export default function MockResult() {
   };
 
   const sectionScores = result ? [
-    { skill: 'Listening', baseline: result.baselineBand || 0, current: result.listening?.band ?? 0 },
-    { skill: 'Reading', baseline: result.baselineBand || 0, current: result.reading?.band ?? 0 },
-    { skill: 'Writing', baseline: result.baselineBand || 0, current: result.writing?.band ?? 0 },
-    { skill: 'Speaking', baseline: result.baselineBand || 0, current: result.speaking?.band ?? 0 },
+    { skill: 'Listening', baseline: baselineScores.listening, current: result.listening?.band ?? 0 },
+    { skill: 'Reading', baseline: baselineScores.reading, current: result.reading?.band ?? 0 },
+    { skill: 'Writing', baseline: baselineScores.writing, current: result.writing?.band ?? 0 },
+    { skill: 'Speaking', baseline: baselineScores.speaking, current: result.speaking?.band ?? 0 },
   ] : [];
 
   if (loading) {

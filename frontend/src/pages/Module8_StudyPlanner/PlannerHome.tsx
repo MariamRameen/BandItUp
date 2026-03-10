@@ -354,10 +354,10 @@ export default function PlannerHome() {
                       <span>{SKILL_ICONS[goal.skill]} {goal.skill.charAt(0).toUpperCase() + goal.skill.slice(1)}</span>
                       <span className="font-semibold">{goal.completedSessions}/{goal.targetSessions}</span>
                     </div>
-                    <div className="w-full bg-[#EDE3FF] h-2 rounded-full">
+                    <div className="w-full bg-[#EDE3FF] h-2 rounded-full overflow-hidden">
                       <div 
                         className="bg-[#7D3CFF] h-full rounded-full"
-                        style={{ width: `${(goal.completedSessions / goal.targetSessions) * 100}%` }}
+                        style={{ width: `${Math.min(100, (goal.completedSessions / goal.targetSessions) * 100)}%` }}
                       />
                     </div>
                   </div>

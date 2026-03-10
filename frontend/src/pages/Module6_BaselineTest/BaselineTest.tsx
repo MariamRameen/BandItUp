@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import { Headphones, BookOpen, Edit, Mic, Clock, AlertTriangle, BarChart3, Target, CheckCircle } from "lucide-react";
 
 const BASE_URL = "http://localhost:4000";
 const API      = `${BASE_URL}/api/baseline`;
@@ -46,10 +47,10 @@ function useTimer(onDone: () => void) {
 
 
 const STEPS = [
-  { key: "listening", label: "Listening", icon: "🎧" },
-  { key: "reading",   label: "Reading",   icon: "📖" },
-  { key: "writing",   label: "Writing",   icon: "✍️" },
-  { key: "speaking",  label: "Speaking",  icon: "🎤" },
+  { key: "listening", label: "Listening", icon: <Headphones className="w-4 h-4" /> },
+  { key: "reading",   label: "Reading",   icon: <BookOpen className="w-4 h-4" /> },
+  { key: "writing",   label: "Writing",   icon: <Edit className="w-4 h-4" /> },
+  { key: "speaking",  label: "Speaking",  icon: <Mic className="w-4 h-4" /> },
 ] as const;
 
 function ProgressBar({ phase }: { phase: Phase }) {
@@ -84,9 +85,9 @@ function TimerPill({ secs, total }: { secs: number; total: number }) {
   const warn = secs < 60;
   return (
     <div className="flex flex-col items-end gap-1">
-      <div className={`px-3 py-1.5 rounded-xl font-mono font-bold text-sm
-        ${warn ? "bg-red-100 text-red-600" : "bg-[#F0E8FF] text-[#7D3CFF]"}`}>
-        ⏱ {fmt(secs)}
+<div className={`px-3 py-1.5 rounded-xl font-mono font-bold text-sm flex items-center gap-1
+        ${warn ? "bg-red-100 text-red-600" : "bg-[#F0E8FF] text-[#7D3CFF]"}">`}>
+        <Clock className="w-4 h-4" /> {fmt(secs)}
       </div>
       <div className="w-24 h-1 bg-gray-200 rounded-full">
         <div className={`h-1 rounded-full transition-all ${warn ? "bg-red-400" : "bg-[#7D3CFF]"}`}
@@ -269,9 +270,9 @@ export default function BaselineTest(): React.ReactElement {
   );
 
   if (phase === "error") return (
-    <div className="min-h-screen bg-[#F7F5FF] flex items-center justify-center px-4">
-      <div className="bg-white rounded-2xl p-8 max-w-md text-center border border-red-100">
-        <p className="text-4xl mb-4">⚠️</p>
+    <div className="min-h-screen bg-[#F7F5FF] dark:bg-gray-900 flex items-center justify-center px-4">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md text-center border border-red-100 dark:border-red-900">
+        <div className="flex justify-center mb-4"><AlertTriangle className="w-10 h-10 text-amber-500" /></div>
         <p className="font-bold text-[#1a1a2e] mb-2">Something went wrong</p>
         <p className="text-sm text-gray-500 mb-5">{errMsg}</p>
         <button onClick={() => navigate("/baseline")} className="bg-[#7D3CFF] text-white px-6 py-2 rounded-xl font-semibold">
@@ -287,8 +288,8 @@ export default function BaselineTest(): React.ReactElement {
         <div className="relative w-24 h-24 mx-auto mb-8">
           <div className="absolute inset-0 rounded-full border-4 border-[#F0E8FF]" />
           <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-[#7D3CFF] border-r-[#F107A3] animate-spin" />
-          <div className="absolute inset-3 rounded-full bg-gradient-to-br from-[#7D3CFF]/10 to-[#F107A3]/10 flex items-center justify-center text-2xl">
-            📊
+          <div className="absolute inset-3 rounded-full bg-gradient-to-br from-[#7D3CFF]/10 to-[#F107A3]/10 flex items-center justify-center">
+            <BarChart3 className="w-6 h-6 text-[#7D3CFF]" />
           </div>
         </div>
         <p className="text-xl font-bold text-[#1a1a2e] mb-2">Evaluating your results</p>
@@ -301,7 +302,7 @@ export default function BaselineTest(): React.ReactElement {
     <div className="min-h-screen bg-[#F7F5FF]">
       <Header />
       <div className="max-w-xl mx-auto px-4 py-12 text-center">
-        <p className="text-5xl mb-4">🎯</p>
+        <div className="flex justify-center mb-4"><Target className="w-12 h-12 text-[#7D3CFF]" /></div>
         <h1 className="text-2xl font-bold text-[#1a1a2e] mb-3">Ready to begin</h1>
         <p className="text-gray-500 text-sm mb-8 leading-relaxed">
           4 sections in order — Listening, Reading, Writing, Speaking.<br />
@@ -321,7 +322,7 @@ export default function BaselineTest(): React.ReactElement {
       <ProgressBar phase={phase} />
       <div className="max-w-3xl mx-auto px-4 py-6">
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-xl font-bold text-[#1a1a2e]">🎧 Listening</h2>
+          <h2 className="text-xl font-bold text-[#1a1a2e] flex items-center gap-2"><Headphones className="w-5 h-5 text-[#7D3CFF]" /> Listening</h2>
           <TimerPill secs={lisTimer.secs} total={lisTotal.current} />
         </div>
         <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5 mb-5">
@@ -349,7 +350,7 @@ export default function BaselineTest(): React.ReactElement {
       <ProgressBar phase={phase} />
       <div className="max-w-3xl mx-auto px-4 py-6">
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-xl font-bold text-[#1a1a2e]">📖 Reading</h2>
+          <h2 className="text-xl font-bold text-[#1a1a2e] flex items-center gap-2"><BookOpen className="w-5 h-5 text-[#7D3CFF]" /> Reading</h2>
           <TimerPill secs={readTimer.secs} total={readTotal.current} />
         </div>
         <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5 mb-5">
@@ -372,7 +373,7 @@ export default function BaselineTest(): React.ReactElement {
       <ProgressBar phase={phase} />
       <div className="max-w-3xl mx-auto px-4 py-6">
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-xl font-bold text-[#1a1a2e]">✍️ Writing</h2>
+          <h2 className="text-xl font-bold text-[#1a1a2e] flex items-center gap-2"><Edit className="w-5 h-5 text-[#7D3CFF]" /> Writing</h2>
           <TimerPill secs={writeTimer.secs} total={writeTotal.current} />
         </div>
         <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5 mb-4">
@@ -413,7 +414,7 @@ export default function BaselineTest(): React.ReactElement {
     <div className="min-h-screen bg-[#F7F5FF]">
       <ProgressBar phase={phase} />
       <div className="max-w-2xl mx-auto px-4 py-6">
-        <h2 className="text-xl font-bold text-[#1a1a2e] mb-5">🎤 Speaking</h2>
+        <h2 className="text-xl font-bold text-[#1a1a2e] mb-5 flex items-center gap-2"><Mic className="w-5 h-5 text-[#7D3CFF]" /> Speaking</h2>
 
         <div className="bg-white rounded-2xl border border-[#F0E8FF] p-6 mb-5">
           <p className="text-xs font-semibold text-[#7D3CFF] uppercase tracking-wider mb-2">Your prompt</p>
@@ -448,7 +449,7 @@ export default function BaselineTest(): React.ReactElement {
 
         {recPhase === "done" && (
           <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-            <p className="text-4xl mb-3">✅</p>
+            <div className="flex justify-center mb-3"><CheckCircle className="w-10 h-10 text-green-500" /></div>
             <p className="text-green-700 font-bold text-lg mb-1">Speaking recorded</p>
             <p className="text-sm text-gray-500 mb-6">Your response has been captured.</p>
             <button onClick={handleSubmit}

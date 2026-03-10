@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Header from '../../components/Header';
 import ReportModal from '../../components/ReportModal';
 import ReactMarkdown from 'react-markdown';
+import { ThumbsUp, ThumbsDown, Bug } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -237,11 +238,11 @@ export default function ChatScreen() {
           <div className="border-t border-[#F0E8FF] p-4 bg-[#F8F9FF]">
             <p className="text-sm text-[#777] mb-2">Was this response helpful?</p>
             <div className="flex gap-2">
-              <button className="flex-1 bg-green-500 text-white py-2 rounded text-sm hover:bg-green-600">👍 Yes</button>
-              <button className="flex-1 bg-red-500 text-white py-2 rounded text-sm hover:bg-red-600">👎 No</button>
+              <button className="flex-1 bg-green-500 text-white py-2 rounded text-sm hover:bg-green-600 flex items-center justify-center gap-1"><ThumbsUp className="w-4 h-4" /> Yes</button>
+              <button className="flex-1 bg-red-500 text-white py-2 rounded text-sm hover:bg-red-600 flex items-center justify-center gap-1"><ThumbsDown className="w-4 h-4" /> No</button>
               <button onClick={() => setShowReportModal(true)}
-                className="flex-1 bg-[#7D3CFF] text-white py-2 rounded text-sm hover:bg-[#6B2FE6] transition-colors">
-                🐛 Report Issue
+                className="flex-1 bg-[#7D3CFF] text-white py-2 rounded text-sm hover:bg-[#6B2FE6] transition-colors flex items-center justify-center gap-1">
+                <Bug className="w-4 h-4" /> Report Issue
               </button>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
+import { AlertTriangle, CheckSquare, Link, FileText, BookOpen, ClipboardList, Headphones } from "lucide-react";
 
 const API = "http://localhost:4000/api/listening";
 const LS_KEY = (id: string) => `listening_session_${id}`;
@@ -282,8 +283,8 @@ export default function ListeningSession(): React.ReactElement {
           <div className="bg-gradient-to-r from-[#7D3CFF] to-[#9B59B6] rounded-2xl p-5 text-white mb-5 shadow-lg">
             <div className="flex items-center justify-between mb-3">
               <div>
-                <p className="text-xs font-semibold opacity-70 uppercase tracking-widest mb-1">
-                  📖 Read the questions · Audio starts in
+                <p className="text-xs font-semibold opacity-70 uppercase tracking-widest mb-1 flex items-center gap-1">
+                  <BookOpen className="w-4 h-4" /> Read the questions · Audio starts in
                 </p>
                 <p className="text-5xl font-bold tabular-nums">{readingLeft}s</p>
               </div>
@@ -374,8 +375,8 @@ export default function ListeningSession(): React.ReactElement {
         <div className="flex items-center justify-between mb-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-semibold text-[#7D3CFF] uppercase tracking-wider">
-                {isMock ? "📋 Mock" : "🎧 Practice"} · Part {session.part}
+              <span className="text-xs font-semibold text-[#7D3CFF] uppercase tracking-wider flex items-center gap-1">
+                {isMock ? <><ClipboardList className="w-3 h-3" /> Mock</> : <><Headphones className="w-3 h-3" /> Practice</>} · Part {session.part}
               </span>
               <span className={`text-xs px-2 py-0.5 rounded-full font-medium capitalize ${DIFFICULTY_COLORS[session.difficulty]}`}>
                 {session.difficulty}
@@ -419,7 +420,7 @@ export default function ListeningSession(): React.ReactElement {
           <div className="bg-orange-500 text-white rounded-xl px-4 py-3 mb-4">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <span className="text-lg">⚠️</span>
+                <AlertTriangle className="w-5 h-5" />
                 <div>
                   <p className="text-sm font-bold">Audio ended — Final review</p>
                   <p className="text-xs opacity-80">
@@ -443,8 +444,8 @@ export default function ListeningSession(): React.ReactElement {
         )}
 
         {!session.audioUrl && (
-          <div className="bg-orange-50 border border-orange-200 rounded-xl px-4 py-3 text-sm text-orange-700 mb-4">
-            ⚠️ Audio unavailable. Read the transcript below to practice answering.
+          <div className="bg-orange-50 border border-orange-200 rounded-xl px-4 py-3 text-sm text-orange-700 mb-4 flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 flex-shrink-0" /> Audio unavailable. Read the transcript below to practice answering.
             <button onClick={() => setShowTranscript(true)} className="ml-2 underline">Show transcript</button>
           </div>
         )}
@@ -464,14 +465,14 @@ export default function ListeningSession(): React.ReactElement {
                   : q.type === "form_completion" ? "bg-blue-100 text-blue-700"
                   : "bg-green-100 text-green-700"
                 }`}>
-                  {q.type === "multiple_choice" ? "📋 Multiple Choice"
-                   : q.type === "form_completion" ? "📝 Form Completion"
-                   : "🔗 Matching"}
+                  {q.type === "multiple_choice" ? <><ClipboardList className="w-3 h-3 inline mr-1" /> Multiple Choice</>
+                   : q.type === "form_completion" ? <><FileText className="w-3 h-3 inline mr-1" /> Form Completion</>
+                   : <><Link className="w-3 h-3 inline mr-1" /> Matching</>}
                 </span>
                 <span className="text-xs text-gray-400">Q{currentQ + 1} of {session.totalQuestions}</span>
                 {isReviewing && !isAnswered(answers[q.questionNumber]) && (
-                  <span className="text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-medium">
-                    ⚠️ Unanswered
+                  <span className="text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+                    <AlertTriangle className="w-3 h-3" /> Unanswered
                   </span>
                 )}
               </div>
@@ -584,8 +585,8 @@ export default function ListeningSession(): React.ReactElement {
                 })}
               </div>
               {isReviewing && unanswered.length > 0 && (
-                <p className="text-xs text-orange-500 mt-2 text-center font-medium">
-                  ⚠️ {unanswered.length} unanswered — orange = missing
+                <p className="text-xs text-orange-500 mt-2 text-center font-medium flex items-center justify-center gap-1">
+                  <AlertTriangle className="w-3 h-3" /> {unanswered.length} unanswered — orange = missing
                 </p>
               )}
             </div>

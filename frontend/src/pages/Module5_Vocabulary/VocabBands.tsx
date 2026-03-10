@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import { BookOpen, PenTool, BarChart3, Layers, Book } from "lucide-react";
 
 const API = "http://localhost:4000/api/vocab";
 const ALPHABET = ["All", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
@@ -128,7 +129,7 @@ export default function VocabBands(): React.ReactElement {
           <div className="mb-6 bg-gradient-to-r from-[#7D3CFF] to-[#9B59B6] rounded-2xl p-4 text-white select-none">
             <div className="flex items-center justify-between cursor-pointer" onClick={(e) => { e.stopPropagation(); handleWodExpand(); }}>
               <div className="flex items-center gap-3">
-                <span className="text-2xl">📖</span>
+                <BookOpen className="w-6 h-6" />
                 <div>
                   <p className="text-xs font-semibold opacity-70 uppercase tracking-widest mb-0.5">Word of the Day</p>
                   <p className="text-xl font-bold">{wordOfDay.word}</p>
@@ -192,16 +193,16 @@ export default function VocabBands(): React.ReactElement {
           <button onClick={() => selectedBand && navigate("/vocabulary/flashcards", { state: { band: selectedBand } })}
             disabled={!selectedBand}
             className="flex-1 bg-[#7D3CFF] text-white py-2.5 rounded-xl font-semibold text-sm hover:bg-[#6B2FE6] disabled:opacity-40 disabled:cursor-not-allowed transition-all">
-            🃏 Flashcards
+            <Layers className="w-4 h-4 inline mr-1" /> Flashcards
           </button>
           <button onClick={() => selectedBand && navigate("/vocabulary/quiz", { state: { band: selectedBand } })}
             disabled={!selectedBand}
             className="flex-1 border-2 border-[#7D3CFF] text-[#7D3CFF] py-2.5 rounded-xl font-semibold text-sm hover:bg-[#F0E8FF] disabled:opacity-40 disabled:cursor-not-allowed transition-all">
-            📝 Take Quiz
+            <PenTool className="w-4 h-4 inline mr-1" /> Take Quiz
           </button>
           <button onClick={() => navigate("/vocabulary/progress")}
             className="flex-1 border-2 border-gray-200 text-gray-600 py-2.5 rounded-xl font-semibold text-sm hover:bg-white transition-all">
-            📊 Progress
+            <BarChart3 className="w-4 h-4 inline mr-1" /> Progress
           </button>
         </div>
 
@@ -218,7 +219,7 @@ export default function VocabBands(): React.ReactElement {
             <div className="relative" onClick={(e) => e.stopPropagation()}>
               <button onClick={() => { setTopicOpen((p) => !p); setLetterOpen(false); }}
                 className={`flex items-center gap-2 bg-white border rounded-xl px-4 py-2 text-sm font-medium transition-colors min-w-[150px] justify-between ${topicOpen ? "border-[#7D3CFF] text-[#7D3CFF]" : "border-[#F0E8FF] text-[#1a1a2e] hover:border-[#7D3CFF]"}`}>
-                <span>📚 {selectedTopic === "All" ? "All Topics" : selectedTopic}</span>
+                <span className="flex items-center gap-1"><Book className="w-4 h-4" /> {selectedTopic === "All" ? "All Topics" : selectedTopic}</span>
                 <span className="text-gray-400 text-xs ml-2">{topicOpen ? "▲" : "▼"}</span>
               </button>
               {topicOpen && availableTopics.length > 0 && (

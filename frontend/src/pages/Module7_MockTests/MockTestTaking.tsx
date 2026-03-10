@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Header from '../../components/Header';
-import { Clock, ChevronRight, ChevronLeft, Play, Pause, CheckCircle, AlertCircle, Loader2, Volume2, Mic, Square, MicOff } from 'lucide-react';
+import { Clock, ChevronRight, ChevronLeft, Play, Pause, CheckCircle, AlertCircle, Loader2, Volume2, Mic, Square, MicOff, Headphones, BookOpen, Edit } from 'lucide-react';
 
 const API_URL = "http://localhost:4000/api";
 const auth = () => ({ 
@@ -568,10 +568,10 @@ export default function MockTestTaking() {
 
   const getSectionIcon = (section: Section) => {
     switch (section) {
-      case 'listening': return '👂';
-      case 'reading': return '📖';
-      case 'writing': return '✍️';
-      case 'speaking': return '🎤';
+      case 'listening': return <Headphones className="w-5 h-5" />;
+      case 'reading': return <BookOpen className="w-5 h-5" />;
+      case 'writing': return <Edit className="w-5 h-5" />;
+      case 'speaking': return <Mic className="w-5 h-5" />;
     }
   };
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Headphones, BookOpen, Edit, Mic } from 'lucide-react';
 import Header from '../../components/Header';
 
 export default function MockStart() {
@@ -7,10 +8,10 @@ export default function MockStart() {
   const [timeLeft, setTimeLeft] = useState(9900); // 2 hours 45 minutes in seconds
 
   const sections = [
-    { id: 'listening', name: 'Listening', icon: '👂', completed: false },
-    { id: 'reading', name: 'Reading', icon: '📖', completed: false },
-    { id: 'writing', name: 'Writing', icon: '✍️', completed: false },
-    { id: 'speaking', name: 'Speaking', icon: '🎤', completed: false },
+    { id: 'listening', name: 'Listening', icon: <Headphones className="w-5 h-5" />, completed: false },
+    { id: 'reading', name: 'Reading', icon: <BookOpen className="w-5 h-5" />, completed: false },
+    { id: 'writing', name: 'Writing', icon: <Edit className="w-5 h-5" />, completed: false },
+    { id: 'speaking', name: 'Speaking', icon: <Mic className="w-5 h-5" />, completed: false },
   ];
 
   useEffect(() => {

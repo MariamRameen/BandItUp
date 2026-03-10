@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
+import { RefreshCw, Layers, PartyPopper } from "lucide-react";
 
 const API = "http://localhost:4000/api/vocab";
 
@@ -246,14 +247,14 @@ export default function VocabFlashcards(): React.ReactElement {
         {/* Navigation */}
         <div className="flex items-center justify-between mt-6">
           <button disabled={currentIdx === 0} onClick={goPrev} className="flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium disabled:opacity-40 hover:bg-gray-50 transition-colors">← Previous</button>
-          <button onClick={handleFlip} className="px-6 py-3 bg-[#F0E8FF] text-[#7D3CFF] rounded-xl text-sm font-medium hover:bg-[#E8DCFF] transition-colors">{flipped ? "🔄 Flip Back" : "🃏 Flip Card"}</button>
+          <button onClick={handleFlip} className="px-6 py-3 bg-[#F0E8FF] text-[#7D3CFF] rounded-xl text-sm font-medium hover:bg-[#E8DCFF] transition-colors flex items-center gap-2">{flipped ? <><RefreshCw className="w-4 h-4" /> Flip Back</> : <><Layers className="w-4 h-4" /> Flip Card</>}</button>
           <button disabled={currentIdx === words.length - 1} onClick={goNext} className="flex items-center gap-2 px-5 py-3 bg-white border border-gray-200 rounded-xl text-sm font-medium disabled:opacity-40 hover:bg-gray-50 transition-colors">Next →</button>
         </div>
 
         {/* Done banner */}
         {currentIdx === words.length - 1 && (
           <div className="mt-6 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-5 text-white text-center">
-            <p className="text-xl font-bold mb-1">🎉 All cards reviewed!</p>
+            <p className="text-xl font-bold mb-1 flex items-center justify-center gap-2"><PartyPopper className="w-6 h-6" /> All cards reviewed!</p>
             <p className="text-sm opacity-90 mb-4">You've seen {seenThisSession.size} new words this session.</p>
             <button onClick={() => navigate("/vocabulary/quiz", { state: { band, topics } })} className="bg-white text-green-700 px-6 py-2 rounded-xl font-semibold text-sm">Take Quiz Now →</button>
           </div>

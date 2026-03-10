@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import { BarChart3, Clock, TrendingUp, AlertTriangle, ClipboardList } from "lucide-react";
 
 const API = "http://localhost:4000/api/listening";
 function authHeaders(): Record<string, string> {
@@ -110,7 +111,7 @@ export default function ListeningProgress(): React.ReactElement {
 
           {/* Weekly trend */}
           <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5">
-            <p className="text-sm font-semibold text-[#1a1a2e] mb-4">📈 Weekly Band Trend</p>
+            <p className="text-sm font-semibold text-[#1a1a2e] mb-4 flex items-center gap-2"><TrendingUp className="w-4 h-4 text-[#7D3CFF]" /> Weekly Band Trend</p>
             {weeklyData.every(w => w.avgBand === null) ? (
               <p className="text-sm text-gray-400 text-center py-8">Complete more sessions to see your trend</p>
             ) : (
@@ -134,7 +135,7 @@ export default function ListeningProgress(): React.ReactElement {
 
           {/* Weaknesses */}
           <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5">
-            <p className="text-sm font-semibold text-[#1a1a2e] mb-4">⚠️ Weakness Profile</p>
+            <p className="text-sm font-semibold text-[#1a1a2e] mb-4 flex items-center gap-2"><AlertTriangle className="w-4 h-4 text-amber-500" /> Weakness Profile</p>
             {weaknesses.length === 0 ? (
               <p className="text-sm text-gray-400 text-center py-8">No weaknesses tracked yet</p>
             ) : (
@@ -160,7 +161,7 @@ export default function ListeningProgress(): React.ReactElement {
 
         {/* Per-part breakdown */}
         <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5 mb-6">
-          <p className="text-sm font-semibold text-[#1a1a2e] mb-4">📊 Per-Part Performance</p>
+          <p className="text-sm font-semibold text-[#1a1a2e] mb-4 flex items-center gap-2"><BarChart3 className="w-4 h-4 text-[#7D3CFF]" /> Per-Part Performance</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {partStates.map(ps => (
               <div key={ps.part} className="bg-[#F8F9FF] rounded-xl p-4 border border-[#F0E8FF]">
@@ -199,7 +200,7 @@ export default function ListeningProgress(): React.ReactElement {
                       <p className="text-sm font-medium text-[#1a1a2e] line-clamp-1">{s.passageTitle || s.topic}</p>
                       <p className="text-xs text-gray-400">
                         {s.sessionType === "mock" ? "Mock · " : ""}{s.difficulty} · {new Date(s.createdAt).toLocaleDateString()}
-                        {s.autoSubmitted ? " · ⏱ auto-submitted" : ""}
+                        {s.autoSubmitted ? <> · <Clock className="w-3 h-3 inline" /> auto-submitted</> : ""}
                       </p>
                     </div>
                   </div>
@@ -215,7 +216,7 @@ export default function ListeningProgress(): React.ReactElement {
 
         {mockAvailable && (
           <div className="mt-5 bg-gradient-to-r from-[#7D3CFF] to-[#F107A3] rounded-2xl p-5 text-white text-center">
-            <p className="font-bold text-lg mb-1">📋 Weekly Mock Test Available!</p>
+            <p className="font-bold text-lg mb-1 flex items-center justify-center gap-2"><ClipboardList className="w-5 h-5" /> Weekly Mock Test Available!</p>
             <p className="text-sm opacity-80 mb-3">8 questions · all 4 parts · tailored to your weaknesses</p>
             <button onClick={() => navigate("/listening")}
               className="bg-white text-[#7D3CFF] font-semibold px-6 py-2.5 rounded-xl text-sm hover:bg-gray-100 transition-colors">

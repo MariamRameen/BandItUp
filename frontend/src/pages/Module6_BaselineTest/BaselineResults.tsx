@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import { Headphones, BookOpen, Edit, Mic, ClipboardList } from "lucide-react";
 
 const API   = "http://localhost:4000/api/baseline";
 const auth  = () => ({ Authorization: `Bearer ${localStorage.getItem("token") ?? ""}` });
@@ -22,7 +23,12 @@ interface Result {
   speakingResult:   { transcript: string; gptFeedback: string; };
 }
 
-const SECTION_ICONS: Record<string, string> = { listening: "🎧", reading: "📖", writing: "✍️", speaking: "🎤" };
+const SECTION_ICONS: Record<string, React.ReactNode> = { 
+  listening: <Headphones className="w-4 h-4 inline" />, 
+  reading: <BookOpen className="w-4 h-4 inline" />, 
+  writing: <Edit className="w-4 h-4 inline" />, 
+  speaking: <Mic className="w-4 h-4 inline" /> 
+};
 
 function BandBar({ band, label }: { band: number; label: string }) {
   const pct = Math.round((band / 9) * 100);
@@ -134,7 +140,7 @@ export default function BaselineResults(): React.ReactElement {
               </ul>
             </div>
             <div className="bg-white border border-[#F0E8FF] rounded-2xl p-5">
-              <h3 className="font-bold text-[#1a1a2e] mb-3">📋 Study Advice</h3>
+              <h3 className="font-bold text-[#1a1a2e] mb-3 flex items-center gap-2"><ClipboardList className="w-5 h-5 text-[#7D3CFF]" /> Study Advice</h3>
               <ul className="space-y-2">
                 {result.diagnosticReport.advice.map((a, i) => (
                   <li key={i} className="text-sm text-gray-700 flex gap-2"><span className="text-[#7D3CFF]">·</span>{a}</li>
@@ -193,7 +199,7 @@ export default function BaselineResults(): React.ReactElement {
           <div className="space-y-4">
             {/* Listening answers */}
             <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5">
-              <h3 className="font-bold text-[#1a1a2e] mb-4">🎧 Listening Answers</h3>
+              <h3 className="font-bold text-[#1a1a2e] mb-4 flex items-center gap-2"><Headphones className="w-5 h-5 text-[#7D3CFF]" /> Listening Answers</h3>
               <div className="space-y-3">
                 {(result.listeningAnswers || []).map((a) => (
                   <div key={a.questionNumber} className={`flex items-center gap-3 p-3 rounded-xl ${a.isCorrect ? "bg-green-50" : "bg-red-50"}`}>
@@ -208,7 +214,7 @@ export default function BaselineResults(): React.ReactElement {
 
             {/* Reading answers */}
             <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5">
-              <h3 className="font-bold text-[#1a1a2e] mb-4">📖 Reading Answers</h3>
+              <h3 className="font-bold text-[#1a1a2e] mb-4 flex items-center gap-2"><BookOpen className="w-5 h-5 text-[#7D3CFF]" /> Reading Answers</h3>
               <div className="space-y-3">
                 {(result.readingAnswers || []).map((a) => (
                   <div key={a.questionNumber} className={`flex items-center gap-3 p-3 rounded-xl ${a.isCorrect ? "bg-green-50" : "bg-red-50"}`}>
@@ -224,7 +230,7 @@ export default function BaselineResults(): React.ReactElement {
             {/* Writing */}
             {result.writingResponse && (
               <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5">
-                <h3 className="font-bold text-[#1a1a2e] mb-3">✍️ Your Writing Response</h3>
+                <h3 className="font-bold text-[#1a1a2e] mb-3 flex items-center gap-2"><Edit className="w-5 h-5 text-[#7D3CFF]" /> Your Writing Response</h3>
                 <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">{result.writingResponse}</p>
               </div>
             )}
@@ -232,7 +238,7 @@ export default function BaselineResults(): React.ReactElement {
             {/* Speaking */}
             {result.speakingResult?.transcript && (
               <div className="bg-white rounded-2xl border border-[#F0E8FF] p-5">
-                <h3 className="font-bold text-[#1a1a2e] mb-3">🎤 Speaking Transcript</h3>
+                <h3 className="font-bold text-[#1a1a2e] mb-3 flex items-center gap-2"><Mic className="w-5 h-5 text-[#7D3CFF]" /> Speaking Transcript</h3>
                 <p className="text-sm text-gray-700 italic leading-relaxed">"{result.speakingResult.transcript}"</p>
                 {result.speakingResult.gptFeedback && (
                   <p className="text-sm text-gray-500 mt-3 pt-3 border-t border-gray-100">{result.speakingResult.gptFeedback}</p>

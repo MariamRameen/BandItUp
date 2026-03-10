@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import { Headphones, BookOpen, Edit, Mic, BarChart3, CheckCircle } from "lucide-react";
 
 const API  = "http://localhost:4000/api/baseline";
 const auth = () => ({ Authorization: `Bearer ${localStorage.getItem("token") ?? ""}` });
@@ -48,7 +49,7 @@ export default function BaselineGate(): React.ReactElement {
       <div className="max-w-xl mx-auto px-4 py-12">
         <div className="bg-white rounded-3xl border border-[#F0E8FF] p-8 text-center shadow-sm">
           <div className="w-20 h-20 bg-gradient-to-br from-[#7D3CFF] to-[#F107A3] rounded-full flex items-center justify-center mx-auto mb-5">
-            <span className="text-3xl">✅</span>
+            <CheckCircle className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-[#1a1a2e] mb-2">Baseline Complete</h1>
           <p className="text-gray-400 text-sm mb-6">
@@ -76,10 +77,10 @@ export default function BaselineGate(): React.ReactElement {
 
   // Pending — show intro
   const sections = [
-    { icon: "🎧", label: "Listening", detail: "5 questions · 4 min",  bg: "bg-blue-50 border-blue-200 text-blue-700" },
-    { icon: "📖", label: "Reading",   detail: "5 questions · 6 min",  bg: "bg-emerald-50 border-emerald-200 text-emerald-700" },
-    { icon: "✍️", label: "Writing",   detail: "1 task · 20 min",      bg: "bg-amber-50 border-amber-200 text-amber-700" },
-    { icon: "🎤", label: "Speaking",  detail: "1 prompt · 3 min",     bg: "bg-rose-50 border-rose-200 text-rose-700" },
+    { icon: <Headphones className="w-6 h-6" />, label: "Listening", detail: "5 questions · 4 min",  bg: "bg-blue-50 border-blue-200 text-blue-700" },
+    { icon: <BookOpen className="w-6 h-6" />, label: "Reading",   detail: "5 questions · 6 min",  bg: "bg-emerald-50 border-emerald-200 text-emerald-700" },
+    { icon: <Edit className="w-6 h-6" />, label: "Writing",   detail: "1 task · 20 min",      bg: "bg-amber-50 border-amber-200 text-amber-700" },
+    { icon: <Mic className="w-6 h-6" />, label: "Speaking",  detail: "1 prompt · 3 min",     bg: "bg-rose-50 border-rose-200 text-rose-700" },
   ];
 
   return (
@@ -88,7 +89,7 @@ export default function BaselineGate(): React.ReactElement {
       <div className="max-w-2xl mx-auto px-4 py-10">
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-[#F0E8FF] text-[#7D3CFF] text-sm font-semibold px-4 py-2 rounded-full mb-4">
-            📊 One-time assessment
+            <BarChart3 className="w-4 h-4" /> One-time assessment
           </div>
           <h1 className="text-3xl font-bold text-[#1a1a2e] mb-3">Let's find your starting point</h1>
           <p className="text-gray-500 leading-relaxed">
@@ -100,7 +101,7 @@ export default function BaselineGate(): React.ReactElement {
         <div className="grid grid-cols-2 gap-3 mb-6">
           {sections.map((s) => (
             <div key={s.label} className={`rounded-2xl border p-4 ${s.bg}`}>
-              <p className="text-2xl mb-2">{s.icon}</p>
+              <div className="mb-2">{s.icon}</div>
               <p className="font-bold">{s.label}</p>
               <p className="text-xs opacity-70 mt-0.5">{s.detail}</p>
             </div>

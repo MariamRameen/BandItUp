@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import { readingService, SessionSummary, ReadingStats, ExamType } from '../../services/readingService';
+import { Clock } from 'lucide-react';
 
 export default function ReadingHistory() {
   const navigate = useNavigate();
@@ -272,7 +273,7 @@ export default function ReadingHistory() {
                       )}
                       {session.status === 'in-progress' && (
                         <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-lg flex-shrink-0">
-                          ⏱
+                          <Clock className="w-6 h-6" />
                         </div>
                       )}
                       {session.status === 'abandoned' && (

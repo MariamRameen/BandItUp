@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { submitReport, getUserReports, replyToReport } from "../services/reportService";
+import { ClipboardList, Bug, Mail, CheckCircle } from "lucide-react";
 
 interface Reply {
   _id: string;
@@ -106,8 +107,8 @@ export default function ReportModal({ onClose }: Props) {
             {view !== "list" && (
               <button onClick={goBack} className="hover:opacity-80 mr-1 text-lg">←</button>
             )}
-            <span className="font-semibold text-lg">
-              {view === "list" ? "📋 My Reports" : view === "new" ? "🐛 Report an Issue" : "📨 Report Details"}
+            <span className="font-semibold text-lg flex items-center gap-2">
+              {view === "list" ? <><ClipboardList className="w-5 h-5" /> My Reports</> : view === "new" ? <><Bug className="w-5 h-5" /> Report an Issue</> : <><Mail className="w-5 h-5" /> Report Details</>}
             </span>
           </div>
           <button onClick={onClose} className="hover:opacity-80 text-xl">✕</button>
@@ -244,7 +245,7 @@ export default function ReportModal({ onClose }: Props) {
                   </button>
                 </div>
               ) : (
-                <p className="text-center text-green-600 text-sm py-2 font-medium">✅ This report has been resolved.</p>
+                <p className="text-center text-green-600 text-sm py-2 font-medium flex items-center justify-center gap-2"><CheckCircle className="w-4 h-4" /> This report has been resolved.</p>
               )}
             </div>
           )}

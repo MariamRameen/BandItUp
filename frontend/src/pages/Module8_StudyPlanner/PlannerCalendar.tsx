@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from '../../components/Header';
-import { CheckCircle, Circle, ChevronLeft, ChevronRight, Calendar, Target, Flame } from 'lucide-react';
+import { CheckCircle, Circle, ChevronLeft, ChevronRight, Calendar, Target, Flame, Headphones, BookOpen, Edit, Mic, Book } from 'lucide-react';
 
 const API_URL = "http://localhost:4000/api/study-planner";
 const auth = () => ({ headers: { Authorization: `Bearer ${localStorage.getItem("token") ?? ""}` } });
@@ -39,12 +39,12 @@ interface StudyPlanData {
   totalMinutesPracticed: number;
 }
 
-const SKILL_ICONS: Record<string, string> = {
-  listening: "🎧",
-  reading: "📖",
-  writing: "✍️",
-  speaking: "🎤",
-  vocabulary: "📚",
+const SKILL_ICONS: Record<string, React.ReactNode> = {
+  listening: <Headphones className="w-4 h-4" />,
+  reading: <BookOpen className="w-4 h-4" />,
+  writing: <Edit className="w-4 h-4" />,
+  speaking: <Mic className="w-4 h-4" />,
+  vocabulary: <Book className="w-4 h-4" />,
 };
 
 const SKILL_COLORS: Record<string, string> = {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
-import { Trophy, Star, Lock, ChevronRight, Medal, Zap, TrendingUp, Users } from 'lucide-react';
+import { Trophy, Star, Lock, ChevronRight, Medal, Zap, TrendingUp, Users, CheckCircle, Flame, Swords, Clock, FileText, Book, Headphones, BookOpen, Edit, Mic } from 'lucide-react';
 
 const API_URL = "http://localhost:4000/api/achievements";
 const auth = () => ({ headers: { Authorization: `Bearer ${localStorage.getItem("token") ?? ""}` } });
@@ -278,22 +278,22 @@ export default function PlannerAchievements() {
                 <div className="bg-white rounded-2xl p-6 border border-[#F0E8FF] shadow-sm">
                   <h3 className="font-semibold mb-4">Your Progress</h3>
                   <div className="space-y-4">
-                    <ProgressItem label="Tasks Completed" value={progress.tasksCompleted} icon="✅" />
-                    <ProgressItem label="Current Streak" value={`${progress.currentStreak} days`} icon="🔥" />
-                    <ProgressItem label="Best Streak" value={`${progress.bestStreak} days`} icon="⚔️" />
-                    <ProgressItem label="Study Time" value={`${Math.floor(progress.totalMinutes / 60)}h ${progress.totalMinutes % 60}m`} icon="⏱️" />
-                    <ProgressItem label="Mock Tests" value={progress.mockTestsCompleted} icon="📝" />
-                    <ProgressItem label="Vocab Learned" value={progress.vocabLearned} icon="📚" />
+                    <ProgressItem label="Tasks Completed" value={progress.tasksCompleted} icon={<CheckCircle className="w-4 h-4 text-green-500" />} />
+                    <ProgressItem label="Current Streak" value={`${progress.currentStreak} days`} icon={<Flame className="w-4 h-4 text-orange-500" />} />
+                    <ProgressItem label="Best Streak" value={`${progress.bestStreak} days`} icon={<Swords className="w-4 h-4 text-red-500" />} />
+                    <ProgressItem label="Study Time" value={`${Math.floor(progress.totalMinutes / 60)}h ${progress.totalMinutes % 60}m`} icon={<Clock className="w-4 h-4 text-blue-500" />} />
+                    <ProgressItem label="Mock Tests" value={progress.mockTestsCompleted} icon={<FileText className="w-4 h-4 text-purple-500" />} />
+                    <ProgressItem label="Vocab Learned" value={progress.vocabLearned} icon={<Book className="w-4 h-4 text-indigo-500" />} />
                   </div>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 border border-[#F0E8FF] shadow-sm">
                   <h3 className="font-semibold mb-4">Skills Completed</h3>
                   <div className="space-y-3">
-                    <SkillProgress label="Listening" value={progress.listeningCompleted} max={20} icon="🎧" />
-                    <SkillProgress label="Reading" value={progress.readingCompleted} max={20} icon="📖" />
-                    <SkillProgress label="Writing" value={progress.writingCompleted} max={20} icon="✍️" />
-                    <SkillProgress label="Speaking" value={progress.speakingCompleted} max={20} icon="🎤" />
+                    <SkillProgress label="Listening" value={progress.listeningCompleted} max={20} icon={<Headphones className="w-4 h-4 text-blue-500" />} />
+                    <SkillProgress label="Reading" value={progress.readingCompleted} max={20} icon={<BookOpen className="w-4 h-4 text-emerald-500" />} />
+                    <SkillProgress label="Writing" value={progress.writingCompleted} max={20} icon={<Edit className="w-4 h-4 text-amber-500" />} />
+                    <SkillProgress label="Speaking" value={progress.speakingCompleted} max={20} icon={<Mic className="w-4 h-4 text-pink-500" />} />
                   </div>
                 </div>
               </div>
@@ -349,11 +349,11 @@ export default function PlannerAchievements() {
   );
 }
 
-function ProgressItem({ label, value, icon }: { label: string; value: string | number; icon: string }) {
+function ProgressItem({ label, value, icon }: { label: string; value: string | number; icon: React.ReactNode }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-sm text-[#666]">
-        <span className="mr-2">{icon}</span>
+      <span className="text-sm text-[#666] flex items-center gap-2">
+        {icon}
         {label}
       </span>
       <span className="font-semibold">{value}</span>
@@ -361,13 +361,13 @@ function ProgressItem({ label, value, icon }: { label: string; value: string | n
   );
 }
 
-function SkillProgress({ label, value, max, icon }: { label: string; value: number; max: number; icon: string }) {
+function SkillProgress({ label, value, max, icon }: { label: string; value: number; max: number; icon: React.ReactNode }) {
   const percentage = Math.min((value / max) * 100, 100);
   return (
     <div>
       <div className="flex justify-between text-sm mb-1">
-        <span>
-          <span className="mr-1">{icon}</span>
+        <span className="flex items-center gap-1">
+          {icon}
           {label}
         </span>
         <span className="font-semibold">{value}/{max}</span>

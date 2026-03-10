@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AdminHeader from '../../components/AdminHeader';
 import { User, AdminStats } from '../../types/index';
 import AdminReportsTab from './AdminReportsTab';
+import { BarChart3, Users, Crown, Star, UserPlus, Zap, CheckCircle, GraduationCap, Globe, ClipboardList, TrendingUp, Download } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'users' | 'analytics' | 'reports'>('overview');
@@ -173,7 +174,7 @@ const AdminDashboard: React.FC = () => {
           </div>
           <div className="flex gap-3">
             <button onClick={exportCSV} className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center gap-2">
-              📥 Export CSV
+              <Download className="w-4 h-4" /> Export CSV
             </button>
             <button onClick={handleLogout} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
               Logout
@@ -191,10 +192,10 @@ const AdminDashboard: React.FC = () => {
                 activeTab === tab ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              {tab === 'overview' ? '📊 Overview' :
-               tab === 'users' ? '👥 User Management' :
-               tab === 'analytics' ? '📈 Analytics' :
-               '📋 Reports'}
+              {tab === 'overview' ? <><BarChart3 className="w-4 h-4 inline mr-1" /> Overview</> :
+               tab === 'users' ? <><Users className="w-4 h-4 inline mr-1" /> User Management</> :
+               tab === 'analytics' ? <><TrendingUp className="w-4 h-4 inline mr-1" /> Analytics</> :
+               <><ClipboardList className="w-4 h-4 inline mr-1" /> Reports</>}
             </button>
           ))}
         </div>
@@ -204,18 +205,18 @@ const AdminDashboard: React.FC = () => {
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { label: 'Total Users', value: stats.totalUsers, color: 'purple', icon: '👥' },
-                { label: 'Admins', value: stats.adminUsers, color: 'blue', icon: '👑' },
-                { label: 'Premium Users', value: stats.premiumUsers, color: 'green', icon: '⭐' },
-                { label: 'New Users (30d)', value: stats.newUsers, color: 'orange', icon: '🆕' },
-                { label: 'Active Today', value: stats.activeToday, color: 'teal', icon: '⚡' },
-                { label: 'Verified Users', value: stats.verifiedUsers, color: 'indigo', icon: '✓' },
-                { label: 'Academic', value: stats.academicUsers, color: 'red', icon: '📚' },
-                { label: 'General', value: stats.generalUsers, color: 'yellow', icon: '🌐' },
+                { label: 'Total Users', value: stats.totalUsers, color: 'purple', icon: <Users className="w-6 h-6" /> },
+                { label: 'Admins', value: stats.adminUsers, color: 'blue', icon: <Crown className="w-6 h-6" /> },
+                { label: 'Premium Users', value: stats.premiumUsers, color: 'green', icon: <Star className="w-6 h-6" /> },
+                { label: 'New Users (30d)', value: stats.newUsers, color: 'orange', icon: <UserPlus className="w-6 h-6" /> },
+                { label: 'Active Today', value: stats.activeToday, color: 'teal', icon: <Zap className="w-6 h-6" /> },
+                { label: 'Verified Users', value: stats.verifiedUsers, color: 'indigo', icon: <CheckCircle className="w-6 h-6" /> },
+                { label: 'Academic', value: stats.academicUsers, color: 'red', icon: <GraduationCap className="w-6 h-6" /> },
+                { label: 'General', value: stats.generalUsers, color: 'yellow', icon: <Globe className="w-6 h-6" /> },
               ].map((stat, idx) => (
                 <div key={idx} className="bg-white rounded-xl p-6 shadow-sm border">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl">{stat.icon}</span>
+                    <span className="text-[#7D3CFF]">{stat.icon}</span>
                     <span className={`text-xs px-2 py-1 rounded-full ${
                       stat.color === 'purple' ? 'bg-purple-100 text-purple-800' :
                       stat.color === 'blue' ? 'bg-blue-100 text-blue-800' :

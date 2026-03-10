@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import { Book, BarChart3, Trophy, Target, Headphones } from "lucide-react";
 
 const API  = "http://localhost:4000/api/listening";
 const auth = () => ({ Authorization: `Bearer ${localStorage.getItem("token") ?? ""}` });
@@ -133,13 +134,13 @@ export default function ListeningHistory(): React.ReactElement {
         {sessions.length > 0 && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
             {[
-              { label: "Sessions",     value: totalSessions, icon: "📚", sub: "completed" },
-              { label: "Avg Band",     value: avgBand,       icon: "📊", sub: "estimate" },
-              { label: "Best Band",    value: bestBand || "–", icon: "🏆", sub: "achieved" },
-              { label: "Avg Accuracy", value: `${avgAccuracy}%`, icon: "🎯", sub: "correct" },
+              { label: "Sessions",     value: totalSessions, icon: <Book className="w-6 h-6" />, sub: "completed" },
+              { label: "Avg Band",     value: avgBand,       icon: <BarChart3 className="w-6 h-6" />, sub: "estimate" },
+              { label: "Best Band",    value: bestBand || "–", icon: <Trophy className="w-6 h-6" />, sub: "achieved" },
+              { label: "Avg Accuracy", value: `${avgAccuracy}%`, icon: <Target className="w-6 h-6" />, sub: "correct" },
             ].map((stat) => (
               <div key={stat.label} className="bg-white rounded-2xl border border-[#F0E8FF] p-4 text-center">
-                <p className="text-2xl mb-1">{stat.icon}</p>
+                <div className="flex justify-center mb-1 text-[#7D3CFF]">{stat.icon}</div>
                 <p className="text-2xl font-black text-[#7D3CFF]">{stat.value}</p>
                 <p className="text-xs text-gray-400 mt-0.5">{stat.label}</p>
               </div>
@@ -175,7 +176,7 @@ export default function ListeningHistory(): React.ReactElement {
         {/* Session list */}
         {paginated.length === 0 ? (
           <div className="bg-white rounded-2xl border border-[#F0E8FF] p-12 text-center">
-            <p className="text-4xl mb-4">🎧</p>
+            <div className="flex justify-center mb-4"><Headphones className="w-10 h-10 text-gray-300" /></div>
             <p className="font-semibold text-[#1a1a2e] mb-2">No sessions yet</p>
             <p className="text-sm text-gray-400 mb-5">Complete a listening session to see your history here.</p>
             <button onClick={() => navigate("/listening")}

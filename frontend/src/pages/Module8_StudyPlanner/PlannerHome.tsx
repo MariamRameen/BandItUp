@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from '../../components/Header';
-import { CheckCircle, Circle, Clock, Target, Flame, TrendingUp, Calendar, ChevronRight } from 'lucide-react';
+import { CheckCircle, Circle, Clock, Target, Flame, TrendingUp, Calendar, ChevronRight, Headphones, BookOpen, Edit, Mic, Book, Trophy, BarChart3 } from 'lucide-react';
 
 const API_URL = "http://localhost:4000/api/study-planner";
 const auth = () => ({ headers: { Authorization: `Bearer ${localStorage.getItem("token") ?? ""}` } });
@@ -52,12 +52,12 @@ const SKILL_COLORS: Record<string, { bg: string; text: string; border: string }>
   vocabulary: { bg: "bg-purple-50", text: "text-purple-700", border: "border-purple-200" },
 };
 
-const SKILL_ICONS: Record<string, string> = {
-  listening: "🎧",
-  reading: "📖",
-  writing: "✍️",
-  speaking: "🎤",
-  vocabulary: "📚",
+const SKILL_ICONS: Record<string, React.ReactNode> = {
+  listening: <Headphones className="w-4 h-4" />,
+  reading: <BookOpen className="w-4 h-4" />,
+  writing: <Edit className="w-4 h-4" />,
+  speaking: <Mic className="w-4 h-4" />,
+  vocabulary: <Book className="w-4 h-4" />,
 };
 
 const SKILL_ROUTES: Record<string, string> = {
@@ -397,7 +397,7 @@ export default function PlannerHome() {
             >
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-semibold flex items-center gap-2">
-                  🏆 Achievements
+                  <Trophy className="w-4 h-4 text-amber-500" /> Achievements
                 </h3>
                 <ChevronRight size={20} className="text-[#7D3CFF]" />
               </div>
@@ -416,7 +416,7 @@ export default function PlannerHome() {
             >
               <div className="flex items-center justify-between mb-3">
                 <h3 className="font-semibold flex items-center gap-2">
-                  📊 Progress Reports
+                  <BarChart3 className="w-4 h-4 text-[#7D3CFF]" /> Progress Reports
                 </h3>
                 <ChevronRight size={20} className="text-[#7D3CFF]" />
               </div>

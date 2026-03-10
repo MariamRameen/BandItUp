@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import { Book, CheckCircle, Target, Flame, Download, PenTool } from "lucide-react";
 
 const API = "http://localhost:4000/api/vocab";
 
@@ -153,20 +154,20 @@ export default function VocabProgress(): React.ReactElement {
             <p className="text-sm text-gray-500">Track your vocabulary learning journey</p>
           </div>
           <button onClick={handleExportCSV} className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 transition-colors">
-            📥 Export CSV
+            <Download className="w-4 h-4" /> Export CSV
           </button>
         </div>
 
         {/* Summary cards */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
           {[
-            { label: "Total Learned", value: summary.totalWordsSeen, icon: "📚", color: "text-[#7D3CFF]" },
-            { label: "Mastered", value: summary.totalMastered, icon: "✅", color: "text-green-600" },
-            { label: "Avg Accuracy", value: `${summary.avgAccuracy}%`, icon: "🎯", color: "text-orange-500" },
-            { label: "Week Streak", value: summary.streak, icon: "🔥", color: "text-red-500" },
+            { label: "Total Learned", value: summary.totalWordsSeen, icon: <Book className="w-6 h-6" />, color: "text-[#7D3CFF]" },
+            { label: "Mastered", value: summary.totalMastered, icon: <CheckCircle className="w-6 h-6" />, color: "text-green-600" },
+            { label: "Avg Accuracy", value: `${summary.avgAccuracy}%`, icon: <Target className="w-6 h-6" />, color: "text-orange-500" },
+            { label: "Week Streak", value: summary.streak, icon: <Flame className="w-6 h-6" />, color: "text-red-500" },
           ].map((card) => (
             <div key={card.label} className="bg-white rounded-2xl border border-[#F0E8FF] shadow-sm p-4 text-center">
-              <p className="text-2xl mb-1">{card.icon}</p>
+              <div className="flex justify-center mb-1 text-[#7D3CFF]">{card.icon}</div>
               <p className={`text-2xl font-bold ${card.color}`}>{card.value}</p>
               <p className="text-xs text-gray-500 mt-1">{card.label}</p>
             </div>
@@ -222,7 +223,7 @@ export default function VocabProgress(): React.ReactElement {
               </div>
             ) : (
               <div className="text-center py-8">
-                <p className="text-4xl mb-2">📝</p>
+                <div className="flex justify-center mb-2"><PenTool className="w-10 h-10 text-gray-300" /></div>
                 <p className="text-gray-500 text-sm">No quizzes taken yet.</p>
                 <button onClick={() => navigate("/vocabulary/quiz", { state: { band: 6 } })} className="mt-3 text-[#7D3CFF] text-sm hover:underline">Take your first quiz →</button>
               </div>

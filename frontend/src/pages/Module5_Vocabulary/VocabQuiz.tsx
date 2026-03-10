@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
+import { AlertTriangle, BookOpen, Link, PenTool, Edit, RefreshCw, Layers, BarChart3, Target } from "lucide-react";
 
 const API = "http://localhost:4000/api/vocab";
 
@@ -178,9 +179,9 @@ export default function VocabQuiz(): React.ReactElement {
 
   if (screen === "error") {
     return (
-      <div className="min-h-screen bg-[#F7F5FF]"><Header />
+      <div className="min-h-screen bg-[#F7F5FF] dark:bg-gray-900"><Header />
         <div className="max-w-lg mx-auto px-4 py-16 text-center">
-          <p className="text-5xl mb-4">⚠️</p>
+          <div className="flex justify-center mb-4"><AlertTriangle className="w-12 h-12 text-amber-500" /></div>
           <p className="text-gray-700 font-medium mb-2">{errorMsg}</p>
           <p className="text-sm text-gray-500 mb-6">Try viewing some flashcards first, then come back to quiz.</p>
           <div className="flex gap-3 justify-center">
@@ -260,9 +261,9 @@ export default function VocabQuiz(): React.ReactElement {
           </div>
 
           <div className="flex gap-3">
-            <button onClick={generateQuiz} className="flex-1 bg-[#7D3CFF] text-white py-3 rounded-xl font-semibold hover:bg-[#6B2FE6]">🔄 Retry Quiz</button>
-            <button onClick={() => navigate("/vocabulary/flashcards", { state: { band, topics } })} className="flex-1 border border-[#7D3CFF] text-[#7D3CFF] py-3 rounded-xl font-semibold hover:bg-[#F0E8FF]">🃏 More Flashcards</button>
-            <button onClick={() => navigate("/vocabulary/progress")} className="flex-1 border border-gray-200 text-gray-600 py-3 rounded-xl font-semibold hover:bg-gray-50">📊 Progress</button>
+            <button onClick={generateQuiz} className="flex-1 bg-[#7D3CFF] text-white py-3 rounded-xl font-semibold hover:bg-[#6B2FE6] flex items-center justify-center gap-2"><RefreshCw className="w-4 h-4" /> Retry Quiz</button>
+            <button onClick={() => navigate("/vocabulary/flashcards", { state: { band, topics } })} className="flex-1 border border-[#7D3CFF] text-[#7D3CFF] py-3 rounded-xl font-semibold hover:bg-[#F0E8FF] flex items-center justify-center gap-2"><Layers className="w-4 h-4" /> More Flashcards</button>
+            <button onClick={() => navigate("/vocabulary/progress")} className="flex-1 border border-gray-200 text-gray-600 py-3 rounded-xl font-semibold hover:bg-gray-50 flex items-center justify-center gap-2"><BarChart3 className="w-4 h-4" /> Progress</button>
           </div>
         </div>
       </div>
@@ -309,7 +310,7 @@ export default function VocabQuiz(): React.ReactElement {
               : q.type === "collocation_mcq" ? "bg-orange-100 text-orange-700"
               : "bg-green-100 text-green-700"
             }`}>
-              {q.type === "meaning_mcq" ? "📖 Meaning" : q.type === "collocation_mcq" ? "🔗 Collocation" : q.type === "fill_blank_mcq" ? "✏️ Fill in the Blank" : "✍️ Written Answer (AI Evaluated)"}
+              {q.type === "meaning_mcq" ? <><BookOpen className="w-3 h-3 inline mr-1" /> Meaning</> : q.type === "collocation_mcq" ? <><Link className="w-3 h-3 inline mr-1" /> Collocation</> : q.type === "fill_blank_mcq" ? <><PenTool className="w-3 h-3 inline mr-1" /> Fill in the Blank</> : <><Edit className="w-3 h-3 inline mr-1" /> Written Answer (AI Evaluated)</>}
             </span>
           </div>
 
@@ -341,8 +342,8 @@ export default function VocabQuiz(): React.ReactElement {
           {/* Written */}
           {q.type === "written" && (
             <div>
-              <div className="bg-[#F8F9FF] rounded-xl p-3 mb-4 border border-[#E2D9FF] flex items-center gap-2">
-                <span className="text-lg">✍️</span>
+              <div className="bg-[#F8F9FF] dark:bg-gray-800 rounded-xl p-3 mb-4 border border-[#E2D9FF] dark:border-gray-700 flex items-center gap-2">
+                <Edit className="w-5 h-5 text-[#7D3CFF]" />
                 <div>
                   <p className="text-xs text-gray-500 uppercase font-medium mb-0.5">Topic</p>
                   <p className="text-sm font-semibold text-[#7D3CFF]">{q.topic ?? "Academic"}</p>
@@ -373,7 +374,7 @@ export default function VocabQuiz(): React.ReactElement {
               className="flex-1 bg-[#7D3CFF] text-white py-3 rounded-xl font-semibold disabled:opacity-40 hover:bg-[#6B2FE6]">Next Question →</button>
           ) : (
             <button onClick={handleSubmit} disabled={!allAnswered || wordCount > 30}
-              className="flex-1 bg-gradient-to-r from-[#7D3CFF] to-[#9B59B6] text-white py-3 rounded-xl font-semibold disabled:opacity-40 hover:opacity-90">🎯 Submit Quiz</button>
+              className="flex-1 bg-gradient-to-r from-[#7D3CFF] to-[#9B59B6] text-white py-3 rounded-xl font-semibold disabled:opacity-40 hover:opacity-90 flex items-center justify-center gap-2"><Target className="w-4 h-4" /> Submit Quiz</button>
           )}
         </div>
 

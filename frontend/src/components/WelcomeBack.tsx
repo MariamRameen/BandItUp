@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { X, Sparkles, TrendingUp, Clock } from 'lucide-react';
+import { X, Sparkles, TrendingUp, Clock, Book } from 'lucide-react';
 
 const API_URL = "http://localhost:4000/api/notifications";
 const auth = () => ({
@@ -125,7 +125,7 @@ export default function WelcomeBack() {
               onClick={handleTakeQuickTask}
               className="w-full flex items-center gap-3 p-3 rounded-xl border border-[#E0E0E0] hover:border-[#7D3CFF] hover:bg-[#F8F6FF] transition-colors"
             >
-              <span className="text-xl">📚</span>
+              <Book className="w-5 h-5 text-[#7D3CFF]" />
               <div className="text-left flex-1">
                 <p className="font-medium">Quick Vocabulary Practice</p>
                 <p className="text-xs text-[#777]">5 minutes • Easy start</p>

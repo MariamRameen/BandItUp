@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import { readingService, ReadingSession, QuestionType } from '../../services/readingService';
+import { TrendingUp, Book } from 'lucide-react';
 
 // Helper to convert index to letter (0 -> 'A', 1 -> 'B', etc.)
 const indexToLetter = (idx: number): string => String.fromCharCode(65 + idx);
@@ -193,7 +194,7 @@ export default function ReadingFeedback() {
                   )}
                   {session.feedback.areasToImprove && session.feedback.areasToImprove.length > 0 && (
                     <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-xl">
-                      <h4 className="font-medium text-orange-700 dark:text-orange-400 mb-2">📈 Areas to Improve</h4>
+                      <h4 className="font-medium text-orange-700 dark:text-orange-400 mb-2 flex items-center gap-2"><TrendingUp className="w-4 h-4" /> Areas to Improve</h4>
                       <ul className="text-sm text-orange-600 dark:text-orange-300 space-y-1">
                         {session.feedback.areasToImprove.map((a, i) => (
                           <li key={i}>• {a}</li>
@@ -206,7 +207,7 @@ export default function ReadingFeedback() {
                 {/* Study Tips */}
                 {session.feedback.studyTips && session.feedback.studyTips.length > 0 && (
                   <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl">
-                    <h4 className="font-medium text-blue-700 dark:text-blue-400 mb-2">📚 Study Tips</h4>
+                    <h4 className="font-medium text-blue-700 dark:text-blue-400 mb-2 flex items-center gap-2"><Book className="w-4 h-4" /> Study Tips</h4>
                     <ul className="text-sm text-blue-600 dark:text-blue-300 space-y-1">
                       {session.feedback.studyTips.map((tip, i) => (
                         <li key={i}>• {tip}</li>

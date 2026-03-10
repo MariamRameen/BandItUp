@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import { readingService, ReadingSession, ReadingQuestion, QuestionType } from '../../services/readingService';
+import { AlertTriangle } from 'lucide-react';
 
 // Helper to convert index to letter (0 -> 'A', 1 -> 'B', etc.)
 const indexToLetter = (idx: number): string => String.fromCharCode(65 + idx);
@@ -461,8 +462,8 @@ export default function ReadingPractice() {
               You have answered <strong>{answeredCount}</strong> of <strong>{session.questions.length}</strong> questions.
             </p>
             {answeredCount < session.questions.length && (
-              <p className="text-orange-500 text-sm mb-4">
-                ⚠️ You have {session.questions.length - answeredCount} unanswered questions.
+              <p className="text-orange-500 text-sm mb-4 flex items-center gap-1">
+                <AlertTriangle className="w-4 h-4" /> You have {session.questions.length - answeredCount} unanswered questions.
               </p>
             )}
             <div className="flex gap-3">

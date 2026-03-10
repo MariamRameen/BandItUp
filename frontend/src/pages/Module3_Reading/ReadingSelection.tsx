@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import { readingService, ExamType, Difficulty, ReadingStats, SessionSummary, RecentProgress } from '../../services/readingService';
+import { Clock } from 'lucide-react';
 
 const TOPICS = {
   Academic: [
@@ -149,7 +150,7 @@ export default function ReadingSelection() {
             {inProgressSessions.length > 0 && (
               <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-[#F0E8FF] dark:border-gray-700 shadow-sm">
                 <h3 className="font-semibold mb-4 dark:text-white flex items-center gap-2">
-                  <span className="text-blue-500">⏱</span> Continue Your Test
+                  <Clock className="w-5 h-5 text-blue-500" /> Continue Your Test
                 </h3>
                 <div className="space-y-3">
                   {inProgressSessions.map((session) => (

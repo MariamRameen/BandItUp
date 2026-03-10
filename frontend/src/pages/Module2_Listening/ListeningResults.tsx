@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
+import { Clock, Lightbulb, Brain, ClipboardList, CheckCircle, AlertTriangle } from "lucide-react";
 
 const API = "http://localhost:4000/api/listening";
 function authHeaders(): Record<string, string> {
@@ -108,7 +109,7 @@ export default function ListeningResults(): React.ReactElement {
         {/* Band hero */}
         <div className={`bg-gradient-to-r ${bandColor(results.bandEstimate)} rounded-3xl p-6 text-white text-center mb-6 shadow-lg`}>
           {results.autoSubmitted && (
-            <p className="text-xs bg-white/20 rounded-full px-3 py-1 inline-block mb-3">⏱ Auto-submitted on time</p>
+            <p className="text-xs bg-white/20 rounded-full px-3 py-1 inline-flex items-center gap-1 mb-3"><Clock className="w-3 h-3" /> Auto-submitted on time</p>
           )}
           <p className="text-sm opacity-80 uppercase tracking-widest mb-1">Estimated Band</p>
           <p className="text-7xl font-bold mb-1">{results.bandEstimate}</p>
@@ -138,7 +139,7 @@ export default function ListeningResults(): React.ReactElement {
               className={`flex-1 py-2.5 rounded-xl text-sm font-semibold capitalize transition-all ${
                 activeTab === tab ? "bg-[#7D3CFF] text-white" : "bg-white border border-[#F0E8FF] text-gray-600 hover:border-[#7D3CFF]"
               }`}>
-              {tab === "feedback" ? "🧠 AI Feedback" : "📋 Review Answers"}
+              {tab === "feedback" ? <><Brain className="w-4 h-4 inline mr-1" /> AI Feedback</> : <><ClipboardList className="w-4 h-4 inline mr-1" /> Review Answers</>}
             </button>
           ))}
         </div>
@@ -154,7 +155,7 @@ export default function ListeningResults(): React.ReactElement {
 
             {results.feedback.strengths?.length > 0 && (
               <div className="bg-green-50 rounded-2xl border border-green-200 p-5">
-                <p className="text-sm font-semibold text-green-800 mb-2">✅ Strengths</p>
+                <p className="text-sm font-semibold text-green-800 mb-2 flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Strengths</p>
                 <ul className="space-y-1">
                   {results.feedback.strengths.map((s, i) => (
                     <li key={i} className="text-sm text-green-700 flex gap-2"><span>·</span>{s}</li>
@@ -165,7 +166,7 @@ export default function ListeningResults(): React.ReactElement {
 
             {results.feedback.listeningIssues?.length > 0 && (
               <div className="bg-orange-50 rounded-2xl border border-orange-200 p-5">
-                <p className="text-sm font-semibold text-orange-800 mb-2">⚠️ Areas to Work On</p>
+                <p className="text-sm font-semibold text-orange-800 mb-2 flex items-center gap-2"><AlertTriangle className="w-4 h-4" /> Areas to Work On</p>
                 <div className="flex flex-wrap gap-2">
                   {results.feedback.listeningIssues.map((issue, i) => (
                     <span key={i} className="text-xs bg-orange-100 text-orange-700 px-3 py-1 rounded-full border border-orange-200">
@@ -178,7 +179,7 @@ export default function ListeningResults(): React.ReactElement {
 
             {results.feedback.improvementTips?.length > 0 && (
               <div className="bg-blue-50 rounded-2xl border border-blue-200 p-5">
-                <p className="text-sm font-semibold text-blue-800 mb-2">💡 Improvement Tips</p>
+                <p className="text-sm font-semibold text-blue-800 mb-2 flex items-center gap-2"><Lightbulb className="w-4 h-4" /> Improvement Tips</p>
                 <ul className="space-y-2">
                   {results.feedback.improvementTips.map((tip, i) => (
                     <li key={i} className="text-sm text-blue-700 flex gap-2"><span>→</span>{tip}</li>
@@ -237,7 +238,7 @@ export default function ListeningResults(): React.ReactElement {
 
         {results.mockAvailable && (
           <div className="mt-3 bg-gradient-to-r from-[#7D3CFF] to-[#F107A3] rounded-2xl p-4 text-white text-center">
-            <p className="font-semibold mb-1">📋 Your weekly mock test is ready!</p>
+            <p className="font-semibold mb-1 flex items-center justify-center gap-2"><ClipboardList className="w-5 h-5" /> Your weekly mock test is ready!</p>
             <button onClick={() => navigate("/listening")}
               className="text-sm bg-white/20 hover:bg-white/30 px-5 py-2 rounded-xl font-medium transition-colors">
               Go to Listening Home

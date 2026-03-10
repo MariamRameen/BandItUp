@@ -405,7 +405,7 @@ export default function Dashboard() {
                   <button onClick={() => handleNavigate('/speaking')} className="py-3 rounded-xl bg-gradient-to-b from-[#F4F0FF] to-white border border-[#E2D9FF] hover:from-[#E8DCFF] hover:to-[#F4F0FF] transition-all">🗣️ Speaking</button>
                 </div>
                 <button 
-                  onClick={() => handleNavigate('/baseline/feedback')} 
+                  onClick={() => handleNavigate('/baseline/results')} 
                   className="w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold hover:from-emerald-600 hover:to-teal-700 shadow-md transition-all text-sm"
                 >
                   📊 View Baseline Results

@@ -32,7 +32,7 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
-
+app.use("/api/speaking", require("./routes/speaking"));
 app.use('/api/vocab', vocabRoutes);
 app.use("/avatars", express.static(path.join(__dirname, "uploads/avatars")));
 
